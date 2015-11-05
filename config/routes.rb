@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
 
-  resources :clubs
-  resources :teams
+  resources :clubs do
+      resources :teams
+  end
+
   resources :athletes
 
   resources :sessions, only: [:new, :create, :destroy]

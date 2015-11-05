@@ -1,1 +1,5 @@
-<h1><%= @club.club_name %></h1>
+<h1><%= current_club.club_name.capitalize %></h1>
+<h4>Sport: <strong><%= current_club.sport.capitalize %></strong></h4>
+<h4>Director: <strong><%= current_club.director.capitalize %></strong></h4>
+<h1>Teams</h1>
+<%= current_club.teams %>

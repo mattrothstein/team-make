@@ -5,9 +5,9 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      redirect_to ''
+      redirect_to 'club/show'
     else
-
+      redirect_to :back
     end
   end
 

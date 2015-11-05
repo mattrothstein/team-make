@@ -6,7 +6,7 @@ class CreateTeams < ActiveRecord::Migration
       t.integer :age_group
       t.string :coach
       t.integer :roster_size
-      t.int :season
+      t.integer :season
 
       t.timestamps null: false
     end

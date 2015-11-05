@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  club_id: 
+  name: MyString
+  age_group: 1
+  coach: MyString
+  roster_size: 1
+  season: 
+
+two:
+  club_id: 
+  name: MyString
+  age_group: 1
+  coach: MyString
+  roster_size: 1
+  season: 

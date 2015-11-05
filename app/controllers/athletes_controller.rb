@@ -6,6 +6,13 @@ class AthletesController < ApplicationController
   end
 
   def create
+    # @athlete = Athlete.find(athlete_params)
+
+    # if @athlete.save
+    #   render 'show'
+    # else
+    #   render 'new'
+    # end
   end
 
   def edit
@@ -19,4 +26,8 @@ class AthletesController < ApplicationController
 
   def destroy
   end
+
+  # def athlete_params
+  #   params.require(:athlete).permit(:name, :email, :user_name, :password, :password_confirmation)
+  # end
 end

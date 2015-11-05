@@ -5,7 +5,7 @@ class CreateAthletes < ActiveRecord::Migration
       t.date :dob
       t.string :user_name
       t.string :email
-      t.string :passwprd_digest
+      t.string :password_digest
 
       t.timestamps null: false
     end

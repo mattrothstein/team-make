@@ -1,0 +1,24 @@
+<h1>New Team</h1>
+<%= form_tag new_club_team_path(current_club), method: 'GET' do %>
+<div class="field">
+  <%= label_tag :name %><br />
+  <%= text_field_tag :name %>
+</div>
+<div class="field">
+  <%= label_tag :age %><br />
+  <%= text_field_tag :age %>
+</div>
+<div class="field">
+  <%= label_tag :roster_size %><br />
+  <%= text_field_tag :roster_size %>
+</div>
+<div class="field">
+  <%= label_tag :coach %><br />
+  <%= text_field_tag :coach %>
+</div>
+  <%= hidden_field :club_id, value: current_club.id %>
+
+<div class="actions">
+  <%= submit_tag "Create Team" %><br />
+</div>
+<% end %>

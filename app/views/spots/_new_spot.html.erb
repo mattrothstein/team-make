@@ -1,0 +1,12 @@
+<h1>New Spot</h1>
+<%= form_for [@team, @spot] do |f| %>
+<div class="field">
+  <%= f.label :athlete_id %><br />
+  <%= f.text_field :athlete_id %>
+</div>
+  <%= f.hidden_field :invite_status, value: :pending %>
+  <%= f.hidden_field :team_id, value: @team.id %>
+<div class="actions">
+  <input type="submit" name="commit" value="Invite to Join">
+</div>
+<% end %>

@@ -11,10 +11,8 @@ class TeamsController < ApplicationController
   def create
     @team = @club.teams.build(team_params)
     if @team.save
-      flash[:notice] = "Team has been created"
       redirect_to club_team_path(current_club, @team)
     else
-      flash[:alert] = "Team has not been created"
       redirect_to :back
     end
   end

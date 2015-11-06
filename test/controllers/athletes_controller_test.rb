@@ -1,9 +1,14 @@
 require 'test_helper'
 
 class AthletesControllerTest < ActionController::TestCase
+  setup do
+    @athlete = athletes(:one)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
+    assert_not_nil assigns(:athletes)
   end
 
   test "should get new" do
@@ -11,29 +16,32 @@ class AthletesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get create" do
-    get :create
+  test "should create athlete" do
+    post :create, athlete: { name: @athlete.name, email: @athlete.email, dob: @athlete.dob, user_name: @athlete.user_name, password: @athlete.password_digest, password_confirmation: @athlete.password_digest}
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit
+    get :edit, id: @athlete
     assert_response :success
   end
 
-  test "should get update" do
-    get :update
+  test "should update user" do
+    patch :update, id: @athlete, athlete: { name: @athlete.name, email: @athlete.email, dob: @athlete.dob, user_name: @athlete.user_name, password: @athlete.password_digest, password_confirmation: @athlete.password_digest}
     assert_response :success
   end
 
-  test "should get show" do
-    get :show
+  test "should show user" do
+    get :show, id: @athlete
     assert_response :success
   end
 
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
-  end
+  # test "should destroy user" do
+  #   assert_difference ('Athlete.count', -1) do
+  #   delete :destroy, id: @user
+  # end
+
+  #   assert_redirected_to athletes_path
+  # end
 
 end

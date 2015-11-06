@@ -1,2 +1,7 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
+<%= @team.name %><br />
+<%= @team.coach %><br />
+<%= @team.age_group %><br />
+<%= @team.season %><br />
+<%= @team.roster_size %><br />
+
+<%= link_to 'Club Dashboard', club_path(@club) %>

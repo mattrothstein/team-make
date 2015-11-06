@@ -1,8 +1,9 @@
 class TeamsController < ApplicationController
   before_action :set_club
-
+  before_action :set_team, only: [:show, :edit, :destroy]
   def index
   end
+
   def new
     @team = @club.teams.build
   end
@@ -11,7 +12,7 @@ class TeamsController < ApplicationController
     @team = @club.teams.build(team_params)
     if @team.save
       flash[:notice] = "Team has been created"
-      redirect_to 'club/show'
+      redirect_to club_team_path(current_club, @team)
     else
       flash[:alert] = "Team has not been created"
       redirect_to :back
@@ -19,6 +20,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
@@ -38,6 +40,10 @@ class TeamsController < ApplicationController
 
   def set_club
     @club = Club.find(params[:club_id])
+  end
+
+  def set_team
+    @team = Team.find(params[:id])
   end
 
 end

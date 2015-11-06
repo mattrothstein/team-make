@@ -1,0 +1,43 @@
+<%= form_for @athlete do |f| %>
+
+  <% if @athlete.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@athlete.errors.count, "error") %> prohibited
+        this athlete from being created:
+        <ul>
+          <%= @athlete.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </h2>
+    </div>
+  <% end %>
+
+
+
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+<br>
+
+  <%= f.label :email %><br>
+  <%= f.email_field :email %>
+<br>
+
+  <%= f.label :user_name %><br>
+  <%= f.text_field :user_name %>
+<br>
+
+  <%= f.label "Date of Birth", :dob %><br>
+  <%= f.date_field :dob %>
+<br>
+
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
+<br>
+
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %>
+<br>
+  <%= f.submit %>
+
+  <% end %>

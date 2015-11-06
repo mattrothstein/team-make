@@ -16,6 +16,10 @@
   <%= f.label :coach %><br />
   <%= f.text_field :coach %>
 </div>
+<div class="field">
+  <%= f.label :season %><br />
+  <%= f.text_field :season %>
+</div>
   <%= f.hidden_field :club_id, value: current_club.id %>
 <div class="actions">
   <input type="submit" name="commit" value="Create Team">

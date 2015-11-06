@@ -3,6 +3,6 @@
 <h4>Director: <strong><%= current_club.director.capitalize %></strong></h4>
 <h1>Teams</h1>
 <% current_club.teams.each do |team| %>
-  <%=link_to "#{team.name}" %>
+  <%=link_to "#{team.name}", club_team_path(current_club, team) %>
 <%end%>
 <%= render 'teams/new_team' %>

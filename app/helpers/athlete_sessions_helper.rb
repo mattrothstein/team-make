@@ -8,7 +8,7 @@ module AthleteSessionsHelper
   # will remember an athlete in a persistent session
   def remember(athlete)
     athlete.remember
-    cookies.permanent.sign[:athlete_id] = athlete.id
+    cookies.permanent.signed[:athlete_id] = athlete.id
     cookies.permanent[:remember_token] = athlete.remember_token
   end
 

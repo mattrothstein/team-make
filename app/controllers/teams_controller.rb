@@ -4,14 +4,16 @@ class TeamsController < ApplicationController
   def index
   end
   def new
-    @team = current_club.teams.build
+    @team = @club.teams.build
   end
 
   def create
     @team = @club.teams.build(team_params)
     if @team.save
+      flash[:notice] = "Team has been created"
       redirect_to 'club/show'
     else
+      flash[:alert] = "Team has not been created"
       redirect_to :back
     end
   end
@@ -33,8 +35,9 @@ class TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name, :age, :coach, :roster_size, :club_id)
   end
+
   def set_club
-    current_club
+    @club = Club.find(params[:club_id])
   end
 
 end

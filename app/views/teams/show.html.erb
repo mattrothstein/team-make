@@ -1,7 +1,8 @@
-<%= @team.name %><br />
-<%= @team.coach %><br />
-<%= @team.age_group %><br />
-<%= @team.season %><br />
+<h1><%= @team.club.club_name %></h1><br />
+<h2><%= @team.name %></h2><br />
+<br />
+<h4><%= @team.season %> <%= @team.age_group %> and under.</h4><br />
+<h4>Coach: <%= @team.coach %></h4><br />
 <%= @team.roster_size %><br />
 
 <%= link_to 'Club Dashboard', club_path(@club) %>

@@ -2,5 +2,7 @@
 <h4>Sport: <strong><%= current_club.sport.capitalize %></strong></h4>
 <h4>Director: <strong><%= current_club.director.capitalize %></strong></h4>
 <h1>Teams</h1>
-<%= current_club.teams %>
-<%= render 'new_team' %>
+<% current_club.teams.each do |team| %>
+  <%=link_to "#{team.name}" %>
+<%end%>
+<%= render 'teams/new_team' %>

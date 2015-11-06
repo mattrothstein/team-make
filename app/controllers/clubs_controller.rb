@@ -1,8 +1,9 @@
 class ClubsController < ApplicationController
-
+  before_action :set_club
 
   def new
     @club = Club.new
+    @team = Team.new
   end
 
   def create
@@ -15,7 +16,8 @@ class ClubsController < ApplicationController
   end
 
   def show
-    @club = Club.find(params[:id])
+    @team = Team.new
+
   end
 
   def edit
@@ -28,6 +30,10 @@ class ClubsController < ApplicationController
   end
 
   private
+  
+  def set_club
+    current_club
+  end
 
   def club_params
     params.require(:club).permit(:club_name, :sport, :email, :director, :password, :password_confirmation)

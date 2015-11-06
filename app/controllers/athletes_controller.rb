@@ -10,6 +10,9 @@ class AthletesController < ApplicationController
     @athlete = Athlete.new(athlete_params)
 
     if @athlete.save
+      log_in @athlete
+      remember athlete
+      flash[:success] = "Welcome to Teammake!"
       redirect_to @athlete
     else
       render 'new'

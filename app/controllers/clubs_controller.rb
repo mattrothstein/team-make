@@ -15,7 +15,7 @@ class ClubsController < ApplicationController
   end
 
   def show
-    @club
+    @club = Club.find(params[:id])
   end
 
   def edit

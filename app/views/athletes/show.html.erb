@@ -1,3 +1,11 @@
 <h1>Player Profile</h1>
 
-<%= @athlete.name %>
+<strong>Username:</strong> <%= @athlete.user_name %><br>
+<strong>Name:</strong> <%= @athlete.name %><br>
+<strong>Email:</strong> <%= @athlete.email %><br>
+<strong>Date of Birth: </strong> <%= @athlete.dob.strftime("%m/%d/%Y") %>
+
+<h1> Invites +</h1>
+
+
+<%= link_to 'Log out', athlete_logout_path %>

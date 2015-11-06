@@ -1,0 +1,19 @@
+<h1>Athlete Log in</h1>
+
+<%= form_for :athlete_session, url: athlete_login_path do | f | %>
+  <%= f.label :email %><br>
+  <%= f.email_field :email %>
+<br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
+<br>
+  <%= f.label :remember_me %>
+  <%= f.check_box :remember_me %>
+<br>
+  <p>
+    <%= f.submit 'Log in' %>
+  <% end %>
+  </p>
+
+
+  <h3>New User? <%= link_to 'Sign Up Now', new_athlete_path %></h3>

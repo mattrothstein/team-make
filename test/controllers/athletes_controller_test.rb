@@ -31,14 +31,17 @@ class AthletesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # test "should get show" do
-  #   get :show
-  #   assert_response :success
+  test "should show user" do
+    get :show, id: @athlete
+    assert_response :success
+  end
+
+  # test "should destroy user" do
+  #   assert_difference ('Athlete.count', -1) do
+  #   delete :destroy, id: @user
   # end
 
-  # test "should get destroy" do
-  #   get :destroy
-  #   assert_response :success
+  #   assert_redirected_to athletes_path
   # end
 
 end

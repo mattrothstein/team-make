@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   root 'sessions#new'
+  get 'athlete_sessions/new'
+  get 'athlete_login' => 'athlete_sessions#new'
+  post 'athlete_login' => 'athlete_sessions#create'
+  get 'athlete_logout' => 'athlete_sessions#destroy'
 
   resources :clubs do
       resources :teams

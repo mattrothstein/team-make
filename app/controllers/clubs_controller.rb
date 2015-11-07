@@ -30,7 +30,7 @@ class ClubsController < ApplicationController
   end
 
   private
-  
+
   def set_club
     current_club
   end

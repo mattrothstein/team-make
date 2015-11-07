@@ -45,7 +45,16 @@ class AthletesController < ApplicationController
       redirect_to '/'
   end
 
+    def age(dob)
+      @athlete = Athlete.find(params[:id])
+      now = Time.now.utc.to_date
+      now.year - @athlete.dob.year - ((now.month > @athlete.dob.month || (now.month == @athlete.dob.month && now.day >= @athlete.dob.day)) ? 0 : 1)
+    end
+
+  private
   def athlete_params
     params.require(:athlete).permit(:avatar, :name, :email, :user_name, :dob, :password, :password_confirmation)
   end
+
+
 end

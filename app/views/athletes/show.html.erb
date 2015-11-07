@@ -1,13 +1,16 @@
 <h1>Player Profile</h1>
 
-
-<%= image_tag @athlete.avatar %><br>
+<%= image_tag @athlete.avatar.url %><br>
 <strong>Username:</strong> <%= @athlete.user_name %><br>
 <strong>Name:</strong> <%= @athlete.name %><br>
 <strong>Email:</strong> <%= @athlete.email %><br>
-<strong>Date of Birth: </strong> <%= @athlete.dob.strftime("%m/%d/%Y") %>
+<strong>Date of Birth: </strong> <%= @athlete.dob.strftime("%m/%d/%Y") %><br>
+<strong>Age: </strong><%= age(@athlete.dob) %>
 
 <h1> Invites +</h1>
+<%= @athlete.spot.team.name %><br>
+<%= link_to 'Accept', @athlete.spot.update(invite_status: "accept") %>
+<%= @athlete.spot.invite_status %>
 
 <% if current_athlete %>
 <%= link_to 'Update Profile', edit_athlete_path %> |

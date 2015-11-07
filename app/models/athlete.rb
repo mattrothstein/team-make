@@ -1,8 +1,12 @@
 class Athlete < ActiveRecord::Base
   attr_accessor :remember_token
+  attr_accessor :avatar_file_name
   has_one :tryout
-  has_one :spot
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
+                                    default_url: "/images/blank_avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  has_one :spot
   before_save { self.email = email.downcase }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -12,6 +16,10 @@ class Athlete < ActiveRecord::Base
               uniqueness: { case_senstive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+##below validates images, paperclip gem
+  validates :avatar, attachment_presence: true
+  validates_with AttachmentPresenceValidator, attributes: :avatar
+  validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
 
   ## This below will return the hash digest of given string
   def Athlete.digest(string)
@@ -37,5 +45,9 @@ class Athlete < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def has_attached_file(name, options = {})
+  end
+
 end
 

@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'spots/new'
-
-  get 'spots/create'
-
-  get 'spots/destroy'
 
   root 'sessions#new'
   get 'athlete_sessions/new'
@@ -13,7 +8,9 @@ Rails.application.routes.draw do
   get 'athlete_logout' => 'athlete_sessions#destroy'
 
   resources :clubs do
-      resources :teams
+      resources :teams do
+        resources :spots
+      end
   end
 
   resources :athletes

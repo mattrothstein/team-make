@@ -11,17 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106023236) do
+ActiveRecord::Schema.define(version: 20151107011739) do
 
   create_table "athletes", force: :cascade do |t|
     t.string   "name"
     t.date     "dob"
     t.string   "user_name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -39,8 +43,10 @@ ActiveRecord::Schema.define(version: 20151106023236) do
     t.integer  "invite_status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "athlete_id"
   end
 
+  add_index "spots", ["athlete_id"], name: "index_spots_on_athlete_id"
   add_index "spots", ["team_id"], name: "index_spots_on_team_id"
 
   create_table "teams", force: :cascade do |t|

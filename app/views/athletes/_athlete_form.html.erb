@@ -1,4 +1,9 @@
-<%= form_for @athlete do |f| %>
+<%# form_for @athlete, url: @athlete, html: { multipart: true } do |form| %>
+<%# form.file_field :avatar %>
+<%# end %>
+
+
+<%= form_for @athlete, url: @athlete, html: { multipart: true } do |f| %>
 
   <% if @athlete.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +18,8 @@
     </div>
   <% end %>
 
-
+  <%= f.file_field :avatar %>
+<br>
 
   <%= f.label :name %><br>
   <%= f.text_field :name %>
@@ -38,6 +44,13 @@
   <%= f.label :password_confirmation %><br>
   <%= f.password_field :password_confirmation %>
 <br>
+
   <%= f.submit %>
 
   <% end %>
+
+
+
+
+
+

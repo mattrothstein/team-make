@@ -1,5 +1,7 @@
 <h1>Player Profile</h1>
 
+
+<%= image_tag @athlete.avatar.url %><br>
 <strong>Username:</strong> <%= @athlete.user_name %><br>
 <strong>Name:</strong> <%= @athlete.name %><br>
 <strong>Email:</strong> <%= @athlete.email %><br>
@@ -8,5 +10,8 @@
 <h1> Invites +</h1>
 
 <% if current_athlete %>
-<%= link_to 'Log out', athlete_logout_path %>
+<%= link_to 'Update Profile', edit_athlete_path %> |
+<%= link_to 'Log out', athlete_logout_path %> |
+<%= link_to 'Delete Profile', @athlete, method: :delete,
+                                data: { confirm: "Are you sure?" } %>
 <% end %>

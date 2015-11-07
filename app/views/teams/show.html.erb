@@ -8,7 +8,9 @@
 
 <%= render 'spots/new_spot' %>
 
-<%= @spot.athlete()%>
+<% Spot.all.each do |x| %>
+  <%= Athlete.find_by(id: (x.athlete_id)).name %><br />
+<% end %>
 
 
 <%= link_to 'Club Dashboard', club_path(@club) %>

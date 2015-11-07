@@ -6,10 +6,9 @@ class AthletesControllerTest < ActionController::TestCase
   end
 
   # test "should get index" do
-  #   setup 
   #   get :index
   #   assert_response :success
-    # assert_not_nil assigns(:athletes)
+  #   assert_not_nil assigns(:athletes)
   # end
 
   test "should get new" do

@@ -6,6 +6,7 @@ class Athlete < ActiveRecord::Base
                                     default_url: "/images/blank_avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  has_one :spot
   before_save { self.email = email.downcase }
 
   validates :name, presence: true, length: { maximum: 50 }

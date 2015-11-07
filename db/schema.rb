@@ -12,7 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20151107000800) do
-
   create_table "athletes", force: :cascade do |t|
     t.string   "name"
     t.date     "dob"
@@ -43,8 +42,10 @@ ActiveRecord::Schema.define(version: 20151107000800) do
     t.integer  "invite_status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "athlete_id"
   end
 
+  add_index "spots", ["athlete_id"], name: "index_spots_on_athlete_id"
   add_index "spots", ["team_id"], name: "index_spots_on_team_id"
 
   create_table "teams", force: :cascade do |t|

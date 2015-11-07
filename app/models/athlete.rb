@@ -1,6 +1,7 @@
 class Athlete < ActiveRecord::Base
   attr_accessor :remember_token
   has_one :tryout
+  has_one :spot
 
   before_save { self.email = email.downcase }
 

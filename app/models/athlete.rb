@@ -50,4 +50,3 @@ class Athlete < ActiveRecord::Base
   end
 
 end
-

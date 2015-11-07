@@ -6,6 +6,7 @@ class TeamsController < ApplicationController
 
   def new
     @team = @club.teams.build
+    @spot = Spot.new
   end
 
   def create
@@ -18,6 +19,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @spot = Spot.new
 
   end
 

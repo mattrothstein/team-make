@@ -3,20 +3,24 @@ class SpotsController < ApplicationController
   before_action :set_team
 
   def new
-    @spot.new
+    @spot= Spot.new
   end
 
   def create
-    @spot.new(spot_params)
+    @spot = Spot.new(spot_params)
     if @spot.save
-      render :back
+      redirect_to :back
     else
-      render :back
+      redirect_to :back
     end
   end
 
   def destroy
     @spot.delete(params[:id])
+  end
+
+  def show
+
   end
 
   private

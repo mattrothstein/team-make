@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
   end
 
+
   resources :athletes
 
   resources :sessions, only: [:new, :create, :destroy]

@@ -5,7 +5,7 @@ class AthleteSessionsController < ApplicationController
   def create
   athlete = Athlete.find_by(email: params[:athlete_session][:email].downcase)
     if athlete && athlete.authenticate(params[:athlete_session][:password])
-      log_in athlete
+      
       params[:athlete_session][:remember_me] == '1' ? remember(athlete) : forget(athlete)
       redirect_to athlete
     else

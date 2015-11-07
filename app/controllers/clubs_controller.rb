@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :set_club
+  before_action :set_club, only: [:show]
 
   def new
     @club = Club.new
@@ -8,7 +8,9 @@ class ClubsController < ApplicationController
 
   def create
     @club = Club.new(club_params)
+
     if @club.save
+      session[:club_id] = @club.id
       render :show
     else
       render :new
@@ -30,7 +32,7 @@ class ClubsController < ApplicationController
   end
 
   private
-  
+
   def set_club
     current_club
   end

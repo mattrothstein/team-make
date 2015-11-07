@@ -1,18 +1,22 @@
 require 'test_helper'
 
 class ClubsControllerTest < ActionController::TestCase
-  # test "should get new" do
-  #   get :new
-  #   assert_response :success
-  # end
+  setup do
+    @club = clubs(:one)
+  end
+  
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
 
-  # test "should get create" do
-  #   get :create
-  #   assert_response :success
-  # end
+  test "should create club" do
+    post :create, club: { club_name: @club.club_name, sport: @club.sport, email: @club.email, director: @club.director, password: @club.password_digest, password_confirmation: @club.password_digest }
+    assert_response :success
+  end
 
-  # test "should get show" do
-  #   get :show
+  # test "should show club" do
+  #   get :show, id: @club
   #   assert_response :success
   # end
 

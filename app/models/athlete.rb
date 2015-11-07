@@ -5,7 +5,7 @@ class Athlete < ActiveRecord::Base
   has_one :spot
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
-                                    default_url: "/images/blank_avatar.png"
+                                    default_url: "/blank_avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   before_save { self.email = email.downcase }
 
@@ -16,9 +16,7 @@ class Athlete < ActiveRecord::Base
               uniqueness: { case_senstive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-##below validates images, paperclip gem
-  # validates :avatar, attachment_presence: true
-  # validates_with AttachmentPresenceValidator, attributes: :avatar
+
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
 
   ## This below will return the hash digest of given string
@@ -46,7 +44,6 @@ class Athlete < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
-  def has_attached_file(name, options = {})
+  def has_attached_file(avatar, options = {})
   end
-
 end

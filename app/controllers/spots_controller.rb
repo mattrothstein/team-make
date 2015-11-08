@@ -23,6 +23,9 @@ class SpotsController < ApplicationController
 
   end
 
+  def accept_offer
+    @athlete.spot.update_attributes invite_status: 1
+  end
   private
 
   def spot_params

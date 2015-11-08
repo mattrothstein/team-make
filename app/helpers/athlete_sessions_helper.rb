@@ -49,12 +49,3 @@ module AthleteSessionsHelper
     @current_athlete = nil
   end
 end
-
-
-
-
-
-
-
-
-

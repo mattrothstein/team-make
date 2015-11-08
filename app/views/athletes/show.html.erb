@@ -8,9 +8,11 @@
 <strong>Age: </strong><%= age(@athlete.dob) %>
 
 <h1> Invites +</h1>
-<%= @athlete.spot.team.name %><br>
-<%= link_to 'Accept', @athlete.spot.update(invite_status: "accept") %>
-<%= @athlete.spot.invite_status %>
+<p>You have a <%= @athlete.spot.invite_status %> invitation to join <%= @athlete.spot.team.name %></p><br>
+
+
+
+
 
 <% if current_athlete %>
 <%= link_to 'Update Profile', edit_athlete_path %> |

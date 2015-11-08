@@ -6,22 +6,24 @@
 
 
 
-<%= render 'spots/new_spot' %><br />
 
-<h2>Available Athletes</h2>
-<div class='available-athletes'>
-<% Athlete.all.each do |x| %>
-  <div class='available-athlete'><%= x.name.capitalize %> <%= link_to 'Invite Athlete', new_club_team_spot_path(@club, @team, x) %></div><br />
-<% end %>
-</div>
 
-<h2>Sent Inivitations</h2>
-<div class= 'invite-list'>
-<% Spot.all.each do |x| %>
-<% if (x.team.id == @team.id)%>
-<div class='invited-athlete-and-status'><%= (Athlete.find_by(id: x.athlete_id)).name.capitalize %> : <%= x.invite_status.capitalize %></div>
-<% end %>
-<% end %>
+<div class = "container">
+  <div class='available-athletes col-md-4 col-md-offset-1'>
+    <h2>Available Athletes</h2>
+    <% Athlete.all.each do |athlete| %>
+      <div class='available-athlete'><%= athlete.name.capitalize %> <%= render 'spots/new_spot', athlete: athlete %></div><br />
+    <% end %>
+  </div>
+
+  <div class= 'invite-list col-md-4 col-md-offset-2'>
+    <h2>Sent Inivitations</h2>
+    <% Spot.all.each do |x| %>
+      <% if (x.team.id == @team.id)%>
+        <div class='invited-athlete-and-status'><%= (Athlete.find_by(id: x.athlete_id)).name.capitalize %> : <%= x.invite_status.capitalize %></div>
+      <% end %>
+    <% end %>
+  </div><br />
 </div><br />
 
 <%= link_to 'Club Dashboard', club_path(@club) %>

@@ -8,7 +8,11 @@
 <strong>Age: </strong><%= age(@athlete.dob) %>
 
 <h1> Invites +</h1>
-<p>You have a <%= @athlete.spot.invite_status %> invitation to join <%= @athlete.spot.team.name %></p><br>
+<% unless @athlete.spot.nil? %>
+You have a <%= @athlete.spot.invite_status %> invitation to join <%= @athlete.spot.team.name %>
+<% else %>
+You have no current invitations.
+<% end %>
 
 
 

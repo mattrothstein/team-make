@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   include AthletesHelper
 
   def current_club
-    @current_club ||= Club.find_by(id: session[:club_id])
+    @current_club ||= Club.find_by(session[:club_id])
   end
 
 end

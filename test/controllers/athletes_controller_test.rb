@@ -37,7 +37,7 @@ class AthletesControllerTest < ActionController::TestCase
   end
 
   # test "should destroy user" do
-  #   assert_difference ('Athlete.count', -1) do
+  #   assert_difference ('athlete.count', -1) do
   #   delete :destroy, id: @user
   # end
 

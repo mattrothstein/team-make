@@ -8,12 +8,12 @@
 <strong>Age: </strong><%= age(@athlete.dob) %>
 
 <h1> Invites +</h1>
-<p>You have a <%= @athlete.spot.invite_status %> invitation to join <%= @athlete.spot.team.name %></p><br>
-<!-- <%= link_to 'Accept', :controller => 'spots', :action => "accept_offer" %> -->
-<!-- <%=# link_to 'Decline', :controller => 'spots', :action => "decline_offer" %> -->
 
-
-
+<% unless @athlete.spot.nil? %>
+You have a <%= @athlete.spot.invite_status %> invitation to join <%= @athlete.spot.team.name %>
+<% else %>
+You have no current invitations.
+<% end %>
 
 <% if current_athlete %>
 <%= link_to 'Update Profile', edit_athlete_path %> |

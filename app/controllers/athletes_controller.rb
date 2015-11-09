@@ -46,16 +46,6 @@ class AthletesController < ApplicationController
       redirect_to '/'
   end
 
-
-  def get_age(dob)
-    @athlete = Athlete.find(params[:id])
-    now = Time.now.utc.to_date
-    athlete_age = now.year - @athlete.dob.year - ((now.month > @athlete.dob.month || (now.month == @athlete.dob.month && now.day >= @athlete.dob.day)) ? 0 : 1)
-
-    @athlete.age = athlete_age
-    @athlete.save
-  end
-
     def accept_invite
       @spot.invite_status = "accept"
       redirect_to current_athlete

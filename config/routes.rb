@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get 'athlete_login' => 'athlete_sessions#new'
   post 'athlete_login' => 'athlete_sessions#create'
   get 'athlete_logout' => 'athlete_sessions#destroy'
-
+  get 'sites/search'
+  post 'sites/search'
   resources :clubs do
       resources :teams do
         resources :spots

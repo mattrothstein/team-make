@@ -1,4 +1,5 @@
 <h1><%= @team.club.club_name.capitalize %></h1><br />
+<%= image_tag @team.club.logo %><br />
 <h2><%= @team.name.capitalize %></h2><br />
 <h4><%= @team.season %> <%= @team.age_group %> and under.</h4><br />
 <h4>Coach: <%= @team.coach %></h4><br />
@@ -8,22 +9,36 @@
 
 
 
-<div class = "container">
-  <div class='available-athletes col-md-4 col-md-offset-1'>
+<div class = "container-fluid" style = 'background-color: #CC6600; padding-bottom: 20px'>
+  <div class='available-athletes col-md-4 col-md-offset-1 text-center'>
     <h2>Available Athletes</h2>
+    <div class = 'pre-scrollable' style = 'max-height: 200px; background-color: white; border-radius: 15px'>
+      <table class="table table-striped table-hover">
     <% Athlete.all.each do |athlete| %>
-      <div class='available-athlete'><%= athlete.name.capitalize %> <%= render 'spots/new_spot', athlete: athlete %></div><br />
+      <tr class="active">
+        <td><%= athlete.name.capitalize %></td>
+        <td><%= render 'spots/new_spot', athlete: athlete %></td>
+      </tr>
     <% end %>
+  </table>
   </div>
+</div>
 
-  <div class= 'invite-list col-md-4 col-md-offset-2'>
+  <div class= 'invite-list col-md-4 col-md-offset-2 text-center'>
     <h2>Sent Inivitations</h2>
+    <div class = 'pre-scrollable' style = 'max-height: 200px; background-color: white; border-radius: 15px'>
+      <table class="table table-striped table-hover">
     <% Spot.all.each do |x| %>
       <% if (x.team.id == @team.id)%>
-        <div class='invited-athlete-and-status'><%= (Athlete.find_by(id: x.athlete_id)).name.capitalize %> : <%= x.invite_status.capitalize %></div>
+        <tr class="active">
+          <td><%= (Athlete.find_by(id: x.athlete_id)).name.capitalize %> </td>
+          <td><%= x.invite_status.capitalize %></td>
+        </tr>
       <% end %>
     <% end %>
+</table>
+  </div>
   </div><br />
 </div><br />
 
-<%= link_to 'Club Dashboard', club_path(@club) %>
+<%= link_to 'Club Dashboard', club_path(@club), class: "btn btn-success" %>

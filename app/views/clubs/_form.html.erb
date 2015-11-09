@@ -1,19 +1,12 @@
 <%= form_for @club do |f| %>
-<% if @club.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
-
-  <ul>
-    <% @club.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
 
 <div class="form-group">
   <%= f.label :club_name %><br>
   <%= f.text_field :club_name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :logo %><br>
+  <%= f.file_field :logo, class: "form-control" %>
 </div>
 <div class="form-group">
   <%= f.label :sport %><br>

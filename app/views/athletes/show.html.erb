@@ -7,7 +7,7 @@
 <strong>Date of Birth: </strong> <%= @athlete.dob.strftime("%m/%d/%Y") %><br>
 <strong>Age: </strong><%= age(@athlete.dob) %>
 
-<h1> Invites +</h1>
+<h1> Invites </h1>
 
 <% unless @athlete.spot.nil? %>
 You have a <%= @athlete.spot.invite_status %> invitation to join <%= @athlete.spot.team.name %>

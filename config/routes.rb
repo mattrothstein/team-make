@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root 'welcome#index'
   get 'athlete_sessions/new'
   get 'athlete_login' => 'athlete_sessions#new'
@@ -15,8 +14,11 @@ Rails.application.routes.draw do
 
 
   resources :clubs do
-      resources :teams do
-        resources :spots
+    resources :seasons do
+        resources :tryouts
+        resources :teams do
+          resources :spots
+        end
       end
   end
 
@@ -29,6 +31,3 @@ Rails.application.routes.draw do
     get 'logout', to: 'sessions#destroy', as: 'logout'
 
 end
-
-
-

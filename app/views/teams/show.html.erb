@@ -1,7 +1,7 @@
-<h1><%= @team.club.club_name.capitalize %></h1><br />
-<%= image_tag @team.club.logo %><br />
+<h1><%= @team.season.club.club_name.capitalize %></h1><br />
+<%= image_tag @team.season.club.logo(:medium) %><br />
 <h2><%= @team.name.capitalize %></h2><br />
-<h4><%= @team.season %> <%= @team.age_group %> and under.</h4><br />
+<h4><%= @team.season.year %> <%= @team.age_group %> and under.</h4><br />
 <h4>Coach: <%= @team.coach %></h4><br />
 <h4>Roster Size: <%= @team.roster_size %></h4><br />
 
@@ -44,4 +44,4 @@
   </div><br />
 </div><br />
 
-<%= link_to 'Club Dashboard', club_path(@club), class: "btn btn-success col-md-4 col-md-offset-4" %><br />
+<%= link_to 'Club Dashboard', club_season_path(@club, @season), class: "btn btn-success col-md-4 col-md-offset-4" %><br />

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-
-  root 'sessions#new'
+  root 'welcome#index'
+  # root 'sessions#new'
   get 'athlete_sessions/new'
   get 'athlete_login' => 'athlete_sessions#new'
   post 'athlete_login' => 'athlete_sessions#create'
   get 'athlete_logout' => 'athlete_sessions#destroy'
+  get 'accept_invite' => 'athletes#accept_invite', as: 'accept_invite'
+  get 'decline_invite' => 'athletes#decline_invite', as: 'decline_invite'
   get 'sites/search'
   post 'sites/search'
   resources :clubs do
@@ -23,3 +25,6 @@ Rails.application.routes.draw do
     get 'logout', to: 'sessions#destroy', as: 'logout'
 
 end
+
+
+

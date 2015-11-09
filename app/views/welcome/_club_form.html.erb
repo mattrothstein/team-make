@@ -1,0 +1,35 @@
+<%= form_for Club.new, url: new_club_path do |f| %>
+
+<div class="form-group">
+  <%= f.label :club_name %><br>
+  <%= f.text_field :club_name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :logo %><br>
+  <%= f.file_field :logo, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :sport %><br>
+  <%= f.text_field :sport, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :director %><br>
+  <%= f.text_field :director, class: "form-control" %>
+</div>
+<div class="field">
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+</div>
+<div class="field">
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
+</div>
+<div class="field">
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %>
+</div>
+<div class="actions">
+  <input type="submit" name="commit" value="Create Club">
+</div>
+
+<% end %>

@@ -1,6 +1,6 @@
 class AthletesController < ApplicationController
   #invites should be destroyed when athlete is destroyed.. so here would  go that dependency invites destroy: :dependent
-  before_action :set_spot
+  before_action :set_spot, only: [:accept_invite, :decline_invite]
 
   def index
   end
@@ -79,10 +79,3 @@ class AthletesController < ApplicationController
 
 
 end
-
-
-
-
-
-
-

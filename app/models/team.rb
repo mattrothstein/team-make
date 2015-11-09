@@ -1,5 +1,4 @@
 class Team < ActiveRecord::Base
-  belongs_to :club
-  has_one :tryout
+  belongs_to :season
   has_many :spots
 end

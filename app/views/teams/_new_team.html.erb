@@ -1,27 +1,28 @@
-<h1>New Team</h1>
+
 <%= form_for [@current_club, @team] do |f| %>
-<div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
+<div class="form-group field">
+  <%= f.text_field :name, class: 'form-control', placeholder: 'Team Name' %>
 </div>
-<div class="field">
-  <%= f.label :age_group %><br />
-  <%= f.text_field :age_group %>
+
+<div class="form-group field">
+  <%= f.text_field :age_group, class: 'form-control', placeholder: 'Age Group' %>
 </div>
-<div class="field">
-  <%= f.label :roster_size %><br />
-  <%= f.text_field :roster_size %>
+
+<div class="form-group field">
+  <%= f.text_field :roster_size, class: 'form-control', placeholder: 'Roster Size' %>
 </div>
-<div class="field">
-  <%= f.label :coach %><br />
-  <%= f.text_field :coach %>
+
+<div class="form-group field">
+  <%= f.text_field :coach, class: 'form-control', placeholder: 'Coach' %>
 </div>
-<div class="field">
-  <%= f.label :season %><br />
-  <%= f.text_field :season %>
+
+<div class="form-group field">
+  <%= f.text_field :season, class: 'form-control', placeholder: 'Season' %>
 </div>
+
   <%= f.hidden_field :club_id, value: current_club.id %>
+
 <div class="actions">
-  <input type="submit" name="commit" value="Create Team">
+  <input type="submit" name="commit" value="Create Team" class="btn btn-default">
 </div>
 <% end %>

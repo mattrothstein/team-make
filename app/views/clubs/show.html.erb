@@ -9,10 +9,10 @@
       </button>
       <a class="navbar-brand" href="index.html"><%= current_club.club_name.capitalize %></a>
     </div>
-    <div style="color: black;
+    <div style="color: white;
     padding: 15px 50px 5px 50px;
     float: right;
-    font-size: 16px;"> Last access : 30 May 2014 &nbsp; <%= link_to 'Log out', :controller=> "sessions", :action=> "destroy", class: 'btn btn-danger square-btn-adjust'%> </div>
+    font-size: 16px;"> Making Teams Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%> </div>
   </nav>
   <!-- /. NAV TOP  -->
   <nav class="navbar-default navbar-side" role="navigation">
@@ -22,16 +22,20 @@
           <%= image_tag current_club.logo %>
         </li>
         <li>
-          #replace with Link_to
-          <a class="active-menu"  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Update Club Info</a>
+          <!-- #replace with Link_to -->
+          <a class="active-menu"><i class="fa fa-tachometer"></i>Manage Club</a>
         </li>
         <li>
-            #replace with Link_to
-          <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i> View All Registered Athletes</a>
+          <!-- #replace with Link_to -->
+          <a><i class="fa fa-wrench"></i></i>Update Club Info</a>
         </li>
         <li>
-            #replace with Link_to
-          <a  href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Delete Club Account</a>
+            <!-- #replace with Link_to -->
+          <a><i class="fa fa-users"></i>View All Registered Athletes</a>
+        </li>
+        <li>
+            <!-- #replace with Link_to -->
+          <a><i class="fa fa-trash-o"></i>Delete Club Account</a>
         </li>
       </ul>
     </div>
@@ -42,7 +46,7 @@
       <div class="row">
         <div class="col-md-12">
           <h2> <%= current_club.club_name.capitalize %> </h2>
-          <h5>Welcome back. Start making new teams. </h5>
+          <h5>Welcome back <%= current_club.director.capitalize %>. Start making new <%= current_club.sport.capitalize %> teams. </h5>
         </div>
       </div>
       <!-- /. ROW  -->
@@ -64,75 +68,20 @@
         </div>
         <%end%>
       </div>
-               <!-- /. ROW  -->
+
               <hr />
-              <div class="row">
-                  <div class="col-md-6 col-sm-12 col-xs-12">
-    <div class="panel panel-back noti-box">
-              <span class="icon-box bg-color-blue">
-                  <i class="fa fa-warning"></i>
-              </span>
-              <div class="text-box" >
-                  <p class="main-text">52 Important Issues to Fix </p>
-                  <p class="text-muted">Please fix these issues to work smooth</p>
-                  <p class="text-muted">Time Left: 30 mins</p>
-                  <hr />
-                  <p class="text-muted">
-                        <span class="text-muted color-bottom-txt"><i class="fa fa-edit"></i>
-                             Lorem ipsum dolor sit amet, consectetur adipiscing elit gthn.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit gthn.
-                             </span>
-                  </p>
-              </div>
-           </div>
-       </div>
 
-
-                  <div class="col-md-3 col-sm-12 col-xs-12">
-                      <div class="panel back-dash">
-                             <i class="fa fa-dashboard fa-3x"></i><strong> &nbsp; SPEED</strong>
-                           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing sit ametsit amet elit ftr. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                      </div>
-
-                  </div>
-                  <div class="col-md-3 col-sm-12 col-xs-12 ">
-                      <div class="panel ">
-        <div class="main-temp-back">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-xs-6"> <i class="fa fa-cloud fa-3x"></i> Newyork City </div>
-              <div class="col-xs-6">
-                <div class="text-temp"> 10° </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-                   <div class="panel panel-back noti-box">
-              <span class="icon-box bg-color-green set-icon">
-                  <i class="fa fa-desktop"></i>
-              </span>
-              <div class="text-box" >
-                  <p class="main-text">Display</p>
-                  <p class="text-muted">Looking Good</p>
-              </div>
-           </div>
-
-  </div>
-
-      </div>
                <!-- /. ROW  -->
               <div class="row">
 
 
-                             <div class="col-md-9 col-sm-12 col-xs-12">
+                             <div class="col-md-6 col-sm-12 col-xs-12">
                   <div class="panel panel-default">
                       <div class="panel-heading">
-                          Bar Chart Example
+                        <i class="fa fa-plus-circle"></i>  New Team
                       </div>
                       <div class="panel-body">
-                          <div id="morris-bar-chart"></div>
+                          <%= render 'teams/new_team' %>
                       </div>
                   </div>
               </div>
@@ -438,16 +387,12 @@
 
 
 
-       <%= current_club.club_name.capitalize %>
 
 
 
-                    <h4>Sport: <strong><%= current_club.sport.capitalize %></strong></h4>
-                    <h4>Director: <strong><%= current_club.director.capitalize %></strong></h4>
-                    <h1>Teams</h1>
-                    <% current_club.teams.each do |team| %>
-                      <%=link_to "#{team.name}", club_team_path(current_club, team) %>
-                    <%end%>
-                    <%= render 'teams/new_team' %>
+
+
+
+
 
                     <%= link_to 'Log out', :controller=> "sessions", :action=> "destroy"%>

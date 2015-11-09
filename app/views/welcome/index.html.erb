@@ -1,2 +1,41 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="container-fluid">
+<header>
+  <div class="row">
+    <div class="col-md-5"><h1>Teammake</h1></div>
+      <div class="col-md-1 col-md-offset-6 drop-down-menu"><i class="fa fa-bars fa-4x"></i></div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="landing_body">
+    <div class="register">
+      <div class="row">
+
+        <div class="col-md-6">
+        <h1>Register now for stress free tryouts!<h1>
+          <%= render 'club_form' %>
+        </div>
+
+        <div class="col-md-6 login">
+        <h1>Already a member? Login</h1>
+        <%= form_tag sessions_path do %>
+          <div class="field">
+            <%= label_tag :email %><br />
+            <%= text_field_tag :email %>
+          </div>
+          <div class="field">
+            <%= label_tag :password %><br />
+            <%= text_field_tag :password %>
+          </div>
+          <div class="actions">
+            <%= submit_tag "Log In" %><br />
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

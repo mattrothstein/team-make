@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109022746) do
+ActiveRecord::Schema.define(version: 20151109205045) do
 
   create_table "athletes", force: :cascade do |t|
     t.string   "name"
     t.date     "dob"
     t.string   "user_name"
     t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
@@ -43,6 +43,27 @@ ActiveRecord::Schema.define(version: 20151109022746) do
     t.datetime "logo_updated_at"
   end
 
+  create_table "evaluated_athletes", force: :cascade do |t|
+    t.integer  "athlete_id"
+    t.integer  "tryout_id"
+    t.text     "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.integer  "club_id"
+    t.integer  "team_id"
+    t.integer  "tryout_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "year"
+  end
+
+  add_index "seasons", ["club_id"], name: "index_seasons_on_club_id"
+  add_index "seasons", ["team_id"], name: "index_seasons_on_team_id"
+  add_index "seasons", ["tryout_id"], name: "index_seasons_on_tryout_id"
+
   create_table "spots", force: :cascade do |t|
     t.integer  "team_id"
     t.integer  "invite_status"
@@ -55,24 +76,18 @@ ActiveRecord::Schema.define(version: 20151109022746) do
   add_index "spots", ["team_id"], name: "index_spots_on_team_id"
 
   create_table "teams", force: :cascade do |t|
-    t.integer  "club_id"
     t.string   "name"
     t.integer  "age_group"
     t.string   "coach"
     t.integer  "roster_size"
-    t.integer  "season"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "season_id"
   end
 
-  add_index "teams", ["club_id"], name: "index_teams_on_club_id"
-
   create_table "tryouts", force: :cascade do |t|
-    t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "tryouts", ["team_id"], name: "index_tryouts_on_team_id"
 
 end

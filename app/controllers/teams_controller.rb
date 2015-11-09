@@ -1,18 +1,19 @@
 class TeamsController < ApplicationController
+  before_action :set_season
   before_action :set_club
   before_action :set_team, only: [:show, :edit, :destroy]
   def index
   end
 
   def new
-    @team = @club.teams.build
+    @team = @season.teams.build
     @spot = Spot.new
   end
 
   def create
-    @team = @club.teams.build(team_params)
+    @team = @season.teams.build(team_params)
     if @team.save
-      redirect_to club_team_path(current_club, @team)
+      redirect_to club_season_team_path(current_club, @season, @team)
     else
       redirect_to :back
     end
@@ -35,11 +36,15 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:name, :age_group, :coach, :roster_size,:season, :club_id)
+    params.require(:team).permit(:name, :age_group, :coach, :roster_size, :season_id)
   end
 
   def set_club
     @club = Club.find(params[:club_id])
+  end
+
+  def set_season
+    @season = Season.find(params[:season_id])
   end
 
   def set_team

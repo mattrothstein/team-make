@@ -11,13 +11,14 @@ class ClubsController < ApplicationController
 
     if @club.save
       session[:club_id] = @club.id
-      render :show
+      redirect_to new_club_season_path(@club)
     else
       render :new
     end
   end
 
   def show
+
     @team = Team.new
   end
 

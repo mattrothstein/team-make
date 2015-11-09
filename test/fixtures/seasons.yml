@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  club_id: 
+  team_id: 
+  tryout_id: 
+
+two:
+  club_id: 
+  team_id: 
+  tryout_id: 

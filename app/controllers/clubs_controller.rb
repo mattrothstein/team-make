@@ -19,7 +19,6 @@ class ClubsController < ApplicationController
 
   def show
     @team = Team.new
-
   end
 
   def edit

@@ -1,4 +1,5 @@
 class Athlete < ActiveRecord::Base
+  before_save :get_age
   attr_accessor :remember_token
   attr_accessor :avatar_file_name
   has_one :tryout
@@ -45,5 +46,14 @@ class Athlete < ActiveRecord::Base
   end
 
   def has_attached_file(avatar, options = {})
+  end
+
+    def get_age
+      self.dob
+      # @athlete = Athlete.find(params[:id])
+      now = Time.now.utc.to_date
+      athlete_age = now.year - self.dob.year - ((now.month > self.dob.month || (now.month == self.dob.month && now.day >= self.dob.day)) ? 0 : 1)
+
+      self.age = athlete_age
   end
 end

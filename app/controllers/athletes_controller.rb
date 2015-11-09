@@ -1,9 +1,6 @@
 class AthletesController < ApplicationController
   #invites should be destroyed when athlete is destroyed.. so here would  go that dependency invites destroy: :dependent
   before_action :set_spot
-  attr_accessor :age
-
-
 
   def index
   end
@@ -50,33 +47,36 @@ class AthletesController < ApplicationController
   end
 
 
+  def get_age(dob)
+    @athlete = Athlete.find(params[:id])
+    now = Time.now.utc.to_date
+    athlete_age = now.year - @athlete.dob.year - ((now.month > @athlete.dob.month || (now.month == @athlete.dob.month && now.day >= @athlete.dob.day)) ? 0 : 1)
+
+    @athlete.age = athlete_age
+    @athlete.save
+  end
+
     def accept_invite
-    @spot = "accept"
-    redirect_to current_athlete
+      @spot.invite_status = "accept"
+      redirect_to current_athlete
+      @spot.save
     end
 
   def decline_invite
-    @spot = "decline"
+    @spot.invite_status = "decline"
     redirect_to current_athlete
+    @spot.save
   end
-
 
   private
   def athlete_params
     params.require(:athlete).permit(:avatar, :name, :email, :user_name, :dob, :password, :password_confirmation)
   end
 
-  def get_age(dob)
-    @athlete = Athlete.find(params[:id])
-    now = Time.now.utc.to_date
-    athlete_age = now.year - @athlete.dob.year - ((now.month > @athlete.dob.month || (now.month == @athlete.dob.month && now.day >= @athlete.dob.day)) ? 0 : 1)
-
-    self.update_attributes(:age => athlete_age)
-  end
-
   def set_spot
-    @spot = current_athlete.spot.invite_status
+    @spot = current_athlete.spot
   end
+
 
 end
 

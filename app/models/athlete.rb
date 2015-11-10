@@ -18,7 +18,7 @@ class Athlete < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
+  # validates_with AttachmentSizeValidator, attributes: :avatar, less_than: .megabytes
 
   ## This below will return the hash digest of given string
   def Athlete.digest(string)

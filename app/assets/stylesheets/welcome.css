@@ -8,7 +8,21 @@
 p {
   font-family: "Titillium Web";
   font-weight: 300;
-  color: #2b9af3;
+}
+
+.sales .col-md-4 {
+  text-align: center;
+  padding-top: 4em;
+}
+
+
+a:hover {
+  text-decoration: none;
+}
+
+.register button a {
+  font-size: 2em;
+  padding: 4em;
 }
 
 .container-fluid {
@@ -26,7 +40,7 @@ p {
 
 
 
-.container-fluid header {
+header {
   width: 100%;
   height: 6em;
   padding-left: 0;
@@ -37,6 +51,11 @@ p {
   margin-bottom: 2em;
   display: inline-block;
   z-index: 1;
+}
+
+header h1 {
+  font-family: "Titillium Web";
+  font-weight: 900;
 }
 
 .container-fluid header h1 {
@@ -50,21 +69,18 @@ p {
   width: 50%;
 }
 
-header .fa .fa-bars{
+header .fa .fa-bars {
   color: white;
   padding: 0;
   margin: 0;
 }
 
-.row .col-md-1 {
-  margin-top: 1em;
-  padding-right: 1em;
-}
+
 
 .landing_body {
   width: 100%;
   border: 1px solid black;
-  height: 70em;
+  height: 50em;
   /*background-image: url('epicvbpicoriginal.jpg');*/
   background-color: #2b9af3;
   background-repeat: no-repeat;
@@ -94,48 +110,87 @@ header .fa .fa-bars{
 }
 
 .col-md-5.club_register {
-    border-right: 1px solid #f1f1f1;
-    border: 0;
-    padding: 4em;
-}
+    margin-top: 8em;
 
-.col-md-5.club_register input {
-  border: 0;
-  font-size: 20px;
-  padding: 10px;
 }
-
-.col-md-5.club_register .actions input {
-  background-color: #E6E600; /*#d8d800;*/
-  border-radius: 0.2em;
-  font-size: 1em;
-}
-
 
 .col-md-5.login {
-  margin-top: 150px;
+    margin-top: 8em;
+
 }
 
-
-input#club_logo {
-  color: white;
-  background-color: black;
-}
-
-.login .actions input {
-  border: 0;
-  border-radius: 0.2em;
-  font-size: 2em;
-  width: 4em;
+.club_register button.club_sign_up {
   background-color: green;
-  border-radius: 0.5em;
+  color: white;
+  border: 0;
+}
+
+.club_register button.club_sign_up a {
+  color: white;
+}
+
+.club_register button.club_sign_up a:hover {
+  color: black;
+}
+
+.register button.athlete_sign_up {
+  background-color: red;
+  color: white;
+  border: 0;
+}
+
+.register button.athlete_sign_up a {
+  color: white;
+}
+
+.register button.athlete_sign_up a:hover {
+  color: black;
+}
+
+.register a {
+  color: black;
+}
+
+.register a:hover {
+  color: #2b9af3;
 }
 
 
-.login input {
-  margin: 1em;
+.sales {
+  height: 30em;
+}
+
+
+.club_form {
+  text-align: center;
+  background-color: #2b9af3;
+  height: 60em;
+  padding: 2em;
+}
+
+.club_form_h1 {
+  text-align: center;
+}
+
+.club_form .form-group {
+  margin: 3em;
+}
+
+.club_form .form-group input {
+  padding: 2em;
+}
+
+.actions input {
+  border: 0;
+  color: white;
   font-size: 2em;
+  padding: 1em;
+  background: yellow;
 }
+
+
+
+
 
 
 

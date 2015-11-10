@@ -1,6 +1,7 @@
 class TryoutsController < ApplicationController
-  before_action :set_season
-  
+  before_action :set_season, exclude: [:register]
+  before_action :set_tryout, only: [:edit, :show, :destroy, :register]
+
   def new
     @tryout = Tryout.new
   end
@@ -25,12 +26,21 @@ class TryoutsController < ApplicationController
 
   def destroy
   end
+
+  def register
+    @evaluated_athlete = EvaluatedAthlete.create({tryout: @tryout, athlete: current_athlete})
+    redirect_to current_athlete
+  end
+
 private
 def tryout_params
   params.require(:tryout).permit(:location, :date, :time, :season_id)
 end
  def set_season
    @season = Season.find(params[:season_id])
+ end
+ def set_tryout
+   @tryout = Tryout.find(params[:tryout_id])
  end
 
 end

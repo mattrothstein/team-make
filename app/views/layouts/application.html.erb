@@ -21,12 +21,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if (current_club.nil? && current_athlete.nil?) %>
     <header>
     <div class="row">
       <div class="col-md-5"><h1>Teammake</h1></div>
       <div class="col-md-1 col-md-offset-6 drop-down-menu"><i class="fa fa-bars fa-4x"></i></div>
     </div>
   </header>
+  <% end %>
 
   <%= yield %>
 

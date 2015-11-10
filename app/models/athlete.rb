@@ -2,7 +2,8 @@ class Athlete < ActiveRecord::Base
   before_save :get_age
   attr_accessor :remember_token
   attr_accessor :avatar_file_name
-  has_many :tryouts
+  has_many :evaluated_athletes
+  has_many :tryouts, through: :evaluated_athletes
   has_one :spot
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },

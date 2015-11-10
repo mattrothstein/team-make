@@ -1,0 +1,59 @@
+
+.container-fluid.new_athlete {
+  background-image: url('volleyballwallpaper.jpg');
+  background-repeat: no-repeat;
+  background-size: initial;
+  height: 100em;
+}
+
+.athlete_form {
+  text-align: center;
+  background-color: #f1f1f1;
+  height: 70em;
+  padding: 2em;
+  margin-top: 14em;
+  border-radius: 0.5em;
+}
+
+.athlete_form {
+  text-align: center;
+  background-color: #f1f1f1;
+  height: 70em;
+  padding: 2em;
+  margin-top: 14em;
+  border-radius: 0.5em;
+}
+
+.athlete_form_h1 {
+  text-align: center;
+  font-family: "Titillium Web";
+}
+
+.athlete_form .form-group {
+  margin: 3em;
+}
+
+.athlete_form .form-group input {
+  padding: 2em;
+  font-family: "Titillium Web";
+  font-weight: 300;
+  color: black;
+}
+
+.actions input {
+  border: 0;
+  border-radius: 0.5em;
+  color: white;
+  font-size: 2em;
+  padding: 1em;
+  background: #2b9af3;
+}
+
+.athlete_form input[type=submit] {
+    border: 0;
+  border-radius: 0.5em;
+  color: white;
+  font-size: 2em;
+  padding: 1em;
+  background: #2b9af3;
+}

@@ -10,6 +10,52 @@ p {
   font-weight: 300;
 }
 
+header .dropdown {
+  margin-top: 12px;
+  margin-left: 40em;
+
+}
+
+header .dropdown a {
+    color: white;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown:after {
+  content: "\25BC";
+  font-size: 1em;
+
+}
+
+.drop-nav {
+  position: absolute;
+  display:none;
+  width: 20em;
+  height: 10em;
+}
+
+.drop-nav li {
+  list-style: none;
+  border-bottom: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.70);
+  padding: 20px;
+  font-family: 'Open Sans';
+  font-weight: bold;
+}
+
+.drop-nav li:hover {
+  background-color: black;
+}
+
+
+.dropdown:hover > .drop-nav {
+  display: block;
+}
+
+
 .sales .col-md-4 {
   text-align: center;
   padding-top: 4em;
@@ -72,7 +118,7 @@ header h1 {
 header .fa .fa-bars {
   color: white;
   padding: 0;
-  margin: 0;
+  margin-top: 0;
 }
 
 
@@ -160,33 +206,6 @@ header .fa .fa-bars {
   height: 30em;
 }
 
-
-.club_form {
-  text-align: center;
-  background-color: #2b9af3;
-  height: 60em;
-  padding: 2em;
-}
-
-.club_form_h1 {
-  text-align: center;
-}
-
-.club_form .form-group {
-  margin: 3em;
-}
-
-.club_form .form-group input {
-  padding: 2em;
-}
-
-.actions input {
-  border: 0;
-  color: white;
-  font-size: 2em;
-  padding: 1em;
-  background: yellow;
-}
 
 
 

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'notifications/notify'
+
   get 'tryouts/new'
 
   get 'tryouts/create'
@@ -22,6 +24,9 @@ Rails.application.routes.draw do
 
   get 'sites/search'
   post 'sites/search'
+
+  post 'notifications/notify' => 'notifications#notify'
+
 
 
 

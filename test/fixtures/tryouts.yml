@@ -4,10 +4,10 @@ one:
   location: MyText
   date: 2015-11-09
   time: MyString
-  season_id: 
+  season_id:
 
 two:
   location: MyText
   date: 2015-11-09
   time: MyString
-  season_id: 
+  season_id:

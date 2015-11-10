@@ -3,12 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_club
+  helper_method :current_season
   helper :all
   include AthleteSessionsHelper
   include AthletesHelper
 
   def current_club
     @current_club ||= Club.find_by(session[:club_id])
+  end
+
+  def current_season
+    @current_season = Season.last
   end
 
 end

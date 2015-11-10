@@ -18,14 +18,21 @@ class ClubsController < ApplicationController
   end
 
   def show
-
     @team = Team.new
   end
 
   def edit
+    @club = Club.find(params[:id])
   end
 
   def update
+    @club = Club.find(params[:id])
+    if @club.update_attributes(club_params)
+      flash[:notice] = "Club successfully updated"
+      redirect_to :back
+    else
+      render 'edit'
+    end
   end
 
   def destroy

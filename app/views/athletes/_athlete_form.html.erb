@@ -1,4 +1,7 @@
-
+<div class="col-md-6 col-md-offset-3 athlete_form">
+    <div class="club_form_h1">
+      <h1>New Athlete</h1>
+  </div>
 <%= form_for @athlete, url: @athlete, html: { multipart: true } do |f| %>
 
   <% if @athlete.errors.any? %>
@@ -14,36 +17,35 @@
     </div>
   <% end %>
 
-  <%= f.file_field :avatar %>
-<br>
 
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-<br>
+  <div class="form-group">
+    <%= f.text_field :name, class: "form-control", placeholder: "Athlete Name" %>
+  </div>
 
-  <%= f.label :email %><br>
-  <%= f.email_field :email %>
-<br>
+    <%= f.file_field :avatar %>
 
-  <%= f.label :user_name %><br>
-  <%= f.text_field :user_name %>
-<br>
 
-  <%= f.label :dob, "Date of birth" %><br>
-  <%= f.date_field :dob %>
-<br>
-
-  <%= f.label :password %><br>
-  <%= f.password_field :password %>
-<br>
-
-  <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %>
-<br>
+  <div class="form-group">
+    <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :user_name, class: "form-control", placeholder: "Username" %>
+  </div>
+  <div class="form-group">
+    <%= f.date_field :dob, class: "form-control", placeholder: "Date of Birth" %>
+  </div>
+  <div class="form-group">
+  <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation" %>
+  </div>
 
   <%= f.submit %>
 
   <% end %>
+
+</div>
 
 
 

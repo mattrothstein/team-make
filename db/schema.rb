@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109205045) do
+ActiveRecord::Schema.define(version: 20151110015837) do
 
   create_table "athletes", force: :cascade do |t|
     t.string   "name"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20151109205045) do
   create_table "seasons", force: :cascade do |t|
     t.integer  "club_id"
     t.integer  "team_id"
-    t.integer  "tryout_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "year"
@@ -62,7 +61,6 @@ ActiveRecord::Schema.define(version: 20151109205045) do
 
   add_index "seasons", ["club_id"], name: "index_seasons_on_club_id"
   add_index "seasons", ["team_id"], name: "index_seasons_on_team_id"
-  add_index "seasons", ["tryout_id"], name: "index_seasons_on_tryout_id"
 
   create_table "spots", force: :cascade do |t|
     t.integer  "team_id"
@@ -86,8 +84,14 @@ ActiveRecord::Schema.define(version: 20151109205045) do
   end
 
   create_table "tryouts", force: :cascade do |t|
+    t.text     "location"
+    t.date     "date"
+    t.string   "time"
+    t.integer  "season_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "tryouts", ["season_id"], name: "index_tryouts_on_season_id"
 
 end

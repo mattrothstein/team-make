@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'tryouts/new'
+
+  get 'tryouts/create'
+
+  get 'tryouts/edit'
+
+  get 'tryouts/update'
+
+  get 'tryouts/show'
+
+  get 'tryouts/destroy'
+
   root 'welcome#index'
   get 'athlete_sessions/new'
   get 'athlete_login' => 'athlete_sessions#new'

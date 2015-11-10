@@ -1,12 +1,16 @@
-<h1>Athlete Log in</h1>
+<div class="container-fluid new_athlete">
+<div class="col-md-6 col-md-offset-3 athlete_form">
+  <div class="club_form_h1">
+    <h1>Athlete Login</h1>
+  </div>
 
 <%= form_for :athlete_session, url: athlete_login_path do | f | %>
-  <%= f.label :email %><br>
-  <%= f.email_field :email %>
-<br>
-  <%= f.label :password %><br>
-  <%= f.password_field :password %>
-<br>
+  <div class="form-group">
+    <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+  <div class="form-group">
+  <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
   <%= f.label :remember_me %>
   <%= f.check_box :remember_me %>
 <br>
@@ -17,3 +21,5 @@
 
 
   <h3>New User? <%= link_to 'Sign Up Now', new_athlete_path %></h3>
+</div>
+</div>

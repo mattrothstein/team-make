@@ -1,7 +1,7 @@
-h1 {
+/*h1 {
   font-family: "Titillium Web";
   font-weight: 900;
-}
+}*/
 
 
 
@@ -64,7 +64,7 @@ header .fa .fa-bars{
 .landing_body {
   width: 100%;
   border: 1px solid black;
-  height: 60em;
+  height: 70em;
   /*background-image: url('epicvbpicoriginal.jpg');*/
   background-color: #2b9af3;
   background-repeat: no-repeat;
@@ -72,24 +72,82 @@ header .fa .fa-bars{
   z-index: 2;
 }
 
+
 .landing_body .register {
   border: 0;
   text-align: center;
   height: 75%;
-  width: 75%;
+  width: 80%;
   background-color: white;
-  margin-top: 10em;
+  margin-top: 9em;
   margin-left: auto;
   margin-right: auto;
-  overflow: auto;
+  padding: 0;
+  background-color: black;
 }
 
-.register .col-md-6 {
-  border-right: 1px solid #f1f1f1;
+.register .col-md-5 {
+  background-color: black;
+  color: white;
+  margin: 2.5em;
+  padding: 1em;
 }
-.col-md-6.login {
-  padding-top: 200px;
+
+.col-md-5.club_register {
+    border-right: 1px solid #f1f1f1;
+    border: 0;
+    padding: 4em;
 }
+
+.col-md-5.club_register input {
+  border: 0;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.col-md-5.club_register .actions input {
+  background-color: #E6E600; /*#d8d800;*/
+  border-radius: 0.2em;
+  font-size: 1em;
+}
+
+
+.col-md-5.login {
+  margin-top: 150px;
+}
+
+
+input#club_logo {
+  color: white;
+  background-color: black;
+}
+
+.login .actions input {
+  border: 0;
+  border-radius: 0.2em;
+  font-size: 2em;
+  width: 4em;
+  background-color: green;
+  border-radius: 0.5em;
+}
+
+
+.login input {
+  margin: 1em;
+  font-size: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

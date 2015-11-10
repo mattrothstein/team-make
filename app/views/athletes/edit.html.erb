@@ -1,3 +1,70 @@
-<h1>Update Athlete Profile</h1>
+<div id="wrapper">
+  <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><%= current_athlete.name.capitalize %></a>
+    </div>
+    <div style="color: white;
+    padding: 15px 50px 5px 50px;
+    float: right;
+    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%> 
+    </div>
+  </nav>
+  <!-- /. NAV TOP  -->
+  <nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav" id="main-menu">
+        <li class="text-center">
+          <%= image_tag current_club.logo %>
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
+          <%= link_to '<i class="fa fa-tachometer"> &nbsp; Manage Profile</i>'.html_safe, athlete_path(current_athlete)%>
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
+          <%= link_to '<i class="fa fa-tachometer"> &nbsp; Update Profile</i>'.html_safe, edit_athlete_path(current_athlete)%>
+        </li>
+        <li>
+            <!-- #replace with Link_to -->
+          
+        </li>
+        <li>
+            <!-- #replace with Link_to -->
+          <a><i class="fa fa-trash-o"></i>Delete Profile</a>
+        </li>
+      </ul>
+    </div>
+	  </nav>
+  <!-- /. NAV SIDE  -->
+  <div id="page-wrapper" >
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+					<%= render 'athlete_form' %>
 
-<%= render 'athlete_form' %>
+        </div>
+      </div>
+      <!-- /. ROW  -->
+      <hr />
+
+              <hr />
+
+               <!-- /. ROW  -->
+
+                  
+          	</div>
+
+         </div>
+               <!-- /. ROW  -->
+
+       <!-- /. PAGE WRAPPER  -->
+      </div>
+
+                    <%= link_to 'Log out', :controller=> "sessions", :action=> "destroy"%>
+

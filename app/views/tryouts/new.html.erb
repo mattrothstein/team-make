@@ -32,6 +32,10 @@
         </li>
         <li>
           <!-- #replace with Link_to -->
+          <%= link_to '<i class="fa fa-wrench">  &nbsp;  Post Tryout</i>'.html_safe,  new_club_season_tryout_path(current_club, current_season)%>
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
           <a><i class="fa fa-users"></i>View All Registered Athletes</a>
         </li>
         <li>
@@ -44,16 +48,33 @@
   <!-- /. NAV SIDE  -->
   <div id="page-wrapper" >
     <div id="page-inner">
-    	<%= render 'form' %>
+      <div class="row">
+        <div class="col-md-12">
+          <h2> <%= current_club.club_name.capitalize %> </h2>
+          <h5>Welcome back <%= current_club.director.capitalize %>. Start making new <%= current_club.sport.capitalize %> teams. </h5>
+        </div>
+      </div>
 
       <!-- /. ROW  -->
       <hr />
->
+      <div class="row">
 
-      <hr />
 
-      <!-- /. ROW  -->
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-plus-circle"></i>  New Tryout
+            </div>
+            <div class="panel-body">
+              <%= render 'new_tryout' %>
+            </div>
+          </div>
+        </div>
 
+        <!-- /. ROW  -->
+
+
+      </div>
     </div>
   </div>
   <!-- /. ROW  -->
@@ -62,5 +83,3 @@
 </div>
 <!-- /. PAGE WRAPPER  -->
 </div>
-
-

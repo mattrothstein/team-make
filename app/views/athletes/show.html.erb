@@ -1,26 +1,105 @@
-<h1>Player Profile</h1>
+<div id="wrapper">
+  <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><%= current_athlete.name.capitalize %></a>
+    </div>
+    <div style="color: white;
+    padding: 15px 50px 5px 50px;
+    float: right;
+    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%> 
+    </div>
+  </nav>
+  <!-- /. NAV TOP  -->
+  <nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav" id="main-menu">
+        <li class="text-center">
+          <%= image_tag current_club.logo %>
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
+          <%= link_to '<i class="fa fa-tachometer"> &nbsp; Manage Profile</i>'.html_safe, athlete_path(current_athlete)%>
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
+          <%= link_to '<i class="fa fa-tachometer"> &nbsp; Update Profile</i>'.html_safe, edit_athlete_path(current_athlete)%>
+        </li>
+        <li>
+            <!-- #replace with Link_to -->
+          
+        </li>
+        <li>
+            <!-- #replace with Link_to -->
+          <a><i class="fa fa-trash-o"></i>Delete Profile</a>
+        </li>
+      </ul>
+    </div>
+	  </nav>
+  <!-- /. NAV SIDE  -->
+  <div id="page-wrapper" >
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h2> <%= current_athlete.name.capitalize %> </h2>
+          <h5>Welcome back <%= current_athlete.name.capitalize %>. Check below for any pending invitations or tryouts available. </h5>
+        </div>
+      </div>
+      <!-- /. ROW  -->
+      <hr />
+      <div class="row">
 
-<%= image_tag @athlete.avatar.url %><br>
-<strong>Username: </strong><%= @athlete.user_name %><br>
-<strong>Name: </strong><%= @athlete.name %><br>
-<strong>Email: </strong><%= @athlete.email %><br>
-<strong>Date of Birth: </strong> <%= @athlete.dob.strftime("%m/%d/%Y") %><br>
-<strong>Age: </strong><%= @athlete.age %>
+        
+      </div>
 
-<h1> Invites </h1>
+              <hr />
 
-<% unless @athlete.spot.nil? %>
-You have a <%= @athlete.spot.invite_status %> invitation to join <%= @athlete.spot.team.name %>
-    <%= link_to 'Accept', accept_invite_path %>
-    <%= link_to 'Decline', decline_invite_path %>
-<% else %>
-You have no current invitations.
-<% end %>
+               <!-- /. ROW  -->
+              <div class="row">
 
 
-<% if current_athlete %>
-<%= link_to 'Update Profile', edit_athlete_path %> |
-<%= link_to 'Log out', athlete_logout_path %> |
-<%= link_to 'Delete Profile', @athlete, method: :delete,
-                                data: { confirm: "Are you sure?" } %>
-<% end %>
+                             <div class="col-md-6 col-sm-12 col-xs-12">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                       	Invitations
+                      </div>
+
+                      <div class="panel-body">
+                      	Fill this
+                      </div>
+
+                  </div>
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                       	Tryouts
+                      </div>
+
+                      <div class="panel-body">
+                      	Fill this
+                      </div>
+                      
+                  </div>
+              </div>
+                  
+          	</div>
+
+         </div>
+               <!-- /. ROW  -->
+              <div class="row" >
+
+               <!-- /. ROW  -->
+              <div class="row">
+            
+               <!-- /. ROW  -->
+  </div>
+           <!-- /. PAGE INNER  -->
+          </div>
+       <!-- /. PAGE WRAPPER  -->
+      </div>
+
+                    <%= link_to 'Log out', :controller=> "sessions", :action=> "destroy"%>

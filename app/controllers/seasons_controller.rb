@@ -1,7 +1,6 @@
 class SeasonsController < ApplicationController
   def new
     @season = Season.new
-
   end
 
   def create
@@ -18,7 +17,7 @@ class SeasonsController < ApplicationController
 
   def show
     @season = Season.find(params[:id])
-        @team = Team.new
+    @team = Team.new
   end
 
   private

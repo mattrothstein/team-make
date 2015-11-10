@@ -1,1 +1,66 @@
-<%= render 'form' %>
+<div id="wrapper">
+  <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><%= current_club.club_name.capitalize %></a>
+    </div>
+    <div style="color: white;
+    padding: 15px 50px 5px 50px;
+    float: right;
+    font-size: 16px;"> Making Teams Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%> </div>
+  </nav>
+  <!-- /. NAV TOP  -->
+  <nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav" id="main-menu">
+        <li class="text-center">
+          <%= image_tag current_club.logo(:medium) %>
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
+          <%= link_to '<i class="fa fa-tachometer"> &nbsp; Manage Club</i>'.html_safe, club_season_path(current_club, current_season)%>
+
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
+          <%= link_to '<i class="fa fa-wrench">  &nbsp;  Update Club Info</i>'.html_safe, edit_club_path(current_club, current_season)%>
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
+          <a><i class="fa fa-users"></i>View All Registered Athletes</a>
+        </li>
+        <li>
+          <!-- #replace with Link_to -->
+          <a><i class="fa fa-trash-o"></i>Delete Club Account</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /. NAV SIDE  -->
+  <div id="page-wrapper" >
+    <div id="page-inner">
+    	<%= render 'form' %>
+
+      <!-- /. ROW  -->
+      <hr />
+>
+
+      <hr />
+
+      <!-- /. ROW  -->
+
+    </div>
+  </div>
+  <!-- /. ROW  -->
+</div>
+<!-- /. PAGE INNER  -->
+</div>
+<!-- /. PAGE WRAPPER  -->
+</div>
+
+

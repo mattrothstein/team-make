@@ -17,8 +17,10 @@ class AthletesControllerTest < ActionController::TestCase
   end
 
   test "should create athlete" do
-    post :create, athlete: { name: @athlete.name, email: @athlete.email, dob: @athlete.dob, user_name: @athlete.user_name, password: @athlete.password_digest, password_confirmation: @athlete.password_digest}
-    assert_response :success
+    assert_difference('Athlete.count') do
+      post :create, athlete: { name: @athlete.name, email: @athlete.email, dob: @athlete.dob, user_name: @athlete.user_name, password: @athlete.password_digest, password_confirmation: @athlete.password_digest}
+      assert_redirected_to athlete_path(assigns(:athlete))
+    end
   end
 
   test "should get edit" do
@@ -38,9 +40,8 @@ class AthletesControllerTest < ActionController::TestCase
 
   # test "should destroy user" do
   #   assert_difference ('athlete.count', -1) do
-  #   delete :destroy, id: @user
-  # end
-
+  #     delete :destroy, id: @user
+  #   end
   #   assert_redirected_to athletes_path
   # end
 

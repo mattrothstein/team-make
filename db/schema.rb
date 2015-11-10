@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110015837) do
+ActiveRecord::Schema.define(version: 20151110024110) do
 
   create_table "athletes", force: :cascade do |t|
     t.string   "name"
     t.date     "dob"
     t.string   "user_name"
     t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
@@ -41,7 +41,10 @@ ActiveRecord::Schema.define(version: 20151110015837) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.integer  "season_id"
   end
+
+  add_index "clubs", ["season_id"], name: "index_clubs_on_season_id"
 
   create_table "evaluated_athletes", force: :cascade do |t|
     t.integer  "athlete_id"

@@ -12,7 +12,7 @@
     <div style="color: white;
     padding: 15px 50px 5px 50px;
     float: right;
-    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%> 
+    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%>
     </div>
   </nav>
   <!-- /. NAV TOP  -->
@@ -32,7 +32,7 @@
         </li>
         <li>
             <!-- #replace with Link_to -->
-          
+
         </li>
         <li>
             <!-- #replace with Link_to -->
@@ -54,7 +54,7 @@
       <hr />
       <div class="row">
 
-        
+
       </div>
 
               <hr />
@@ -80,12 +80,20 @@
                       </div>
 
                       <div class="panel-body">
-                      	Fill this
+                      	<% Club.all.each do |club| %>
+                        <div>
+                          <% if (club.seasons.last)%>
+                            <%= club.seasons.last.tryout.date %>
+                            <%= club.seasons.last.tryout.location %>
+                            <%= club.seasons.last.tryout.time %>
+                            <%end%>
+                          </div>
+                        <% end %>
                       </div>
-                      
+
                   </div>
               </div>
-                  
+
           	</div>
 
          </div>
@@ -94,7 +102,7 @@
 
                <!-- /. ROW  -->
               <div class="row">
-            
+
                <!-- /. ROW  -->
   </div>
            <!-- /. PAGE INNER  -->

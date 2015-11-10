@@ -1,41 +1,61 @@
 <div class="container-fluid">
-<header>
-  <div class="row">
-    <div class="col-md-5"><h1>Teammake</h1></div>
-      <div class="col-md-1 col-md-offset-6 drop-down-menu"><i class="fa fa-bars fa-4x"></i></div>
-  </div>
-</header>
-
-<div class="container">
-  <div class="landing_body">
-    <div class="register">
-      <div class="row">
-
-        <div class="col-md-6">
-        <h1>Register now for stress free tryouts!<h1>
-          <%= render 'club_form' %>
-        </div>
-
-        <div class="col-md-6 login">
-        <h1>Already a member? Login</h1>
-        <%= form_tag sessions_path do %>
-          <div class="field">
-            <%= label_tag :email %><br />
-            <%= text_field_tag :email %>
+  <div class="container">
+    <div class="landing_body">
+      <div class="register">
+        <div class="col-md-5 club_register">
+          <h1>Club<h1>
+            <p>
+              <button type="button" class="btn btn-default">
+                <%= link_to "Log In", login_path %>
+              </button>
+            </p>
+            <p>
+              <button type="button" class="btn btn-default club_sign_up">
+                <%= link_to "Sign Up", new_club_path %>
+              </button>
+            </p>
           </div>
-          <div class="field">
-            <%= label_tag :password %><br />
-            <%= text_field_tag :password %>
-          </div>
-          <div class="actions">
-            <%= submit_tag "Log In" %><br />
-          </div>
-          <% end %>
 
+          <div class="col-md-5 login">
+            <h1>Athlete</h1>
+            <p>
+              <button type="button" class="btn btn-default">
+                <%= link_to "Log In", athlete_login_path %>
+              </button>
+            </p>
+            <p>
+              <button type="button" class="btn btn-default athlete_sign_up">
+                <%= link_to "Sign Up", new_athlete_path %>
+              </button>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="container sales">
+  <div class="col-md-4">
+    <i class="fa fa-pie-chart fa-5x"></i>
+    <p>
+      Teammake is the best way to automate the tryout process for club directors and make their lives easier. Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it?
+    </p>
+  </div>
+  <div class="col-md-4">
+    <i class="fa fa-desktop fa-5x"></i>
+    <p>
+      Custom Dashboard gives users fast and easy access to site features.  No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.
+    </p>
+  </div>
+  <div class="col-md-4">
+      <i class="fa fa-area-chart fa-5x"></i>
+    <p>
+      Best software made exclusively for the purpose of saving time. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.
+    </p>
+  </div>
+</div>
+
+
 
 </div>

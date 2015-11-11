@@ -12,7 +12,7 @@
     <div style="color: white;
     padding: 15px 50px 5px 50px;
     float: right;
-    font-size: 16px;"> Making Teams Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%> </div>
+    font-size: 16px;"> Making Teams Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(current_club), :class => "btn btn-danger square-btn-adjust"%> </div>
   </nav>
   <!-- /. NAV TOP  -->
   <nav class="navbar-default navbar-side" role="navigation">
@@ -59,7 +59,7 @@
         </div>
       </div>
       <!-- /. ROW  -->
-      <hr />
+      
       <div class="row">
 
         <% @season.teams.each do |team| %>
@@ -69,9 +69,7 @@
               <i class="fa fa-trophy"></i>
             </span>
             <div class="text-box" >
-              <p class="main-text"><%=team.name.capitalize%></p>
-              <p class="text-muted"><%=team.coach.capitalize%></p>
-              <%=link_to "#{team.name.capitalize}", club_season_team_path(current_club, @season, team) %>
+              <%=link_to "#{team.name.capitalize}", club_season_team_path(current_club, @season, team), class: "main-text" %>
             </div>
           </div>
         </div>
@@ -82,8 +80,6 @@
 
       <!-- /. ROW  -->
       <div class="row">
-
-
         <div class="col-md-6 col-sm-12 col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">

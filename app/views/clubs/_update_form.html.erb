@@ -1,0 +1,29 @@
+<%= form_for @club do |f| %>
+
+<div class="form-group">
+  <%= f.text_field :club_name, class: "form-control", placeholder: "Club Name"
+  %>
+</div>
+
+<%= f.file_field :logo %>
+
+<div class="form-group">
+  <%= f.text_field :sport, class: "form-control", placeholder: "Sport" %>
+</div>
+<div class="form-group">
+  <%= f.text_field :director, class: "form-control", placeholder: "Director" %>
+</div>
+<div class="form-group">
+  <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+</div>
+<div class="form-group">
+  <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+</div>
+<div class="form-group">
+  <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation" %>
+</div>
+<div class="action">
+  <input type="submit" name="commit" value="Update Club" class="btn btn-success">
+</div>
+
+<% end %>

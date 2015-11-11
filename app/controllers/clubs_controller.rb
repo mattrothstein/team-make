@@ -30,7 +30,7 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     if @club.update_attributes(club_params)
       flash[:notice] = "Club successfully updated"
-      redirect_to :back
+      redirect_to club_seasons_path(current_club)
     else
       render 'edit'
     end

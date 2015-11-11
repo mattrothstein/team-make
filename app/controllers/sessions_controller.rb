@@ -16,8 +16,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:club_id] = nil
-    redirect_to 'clubs/new', notice: 'Logged out!'
+    session.delete(:club_id)
+    current_club = nil
+    redirect_to :root , notice: 'Logged out!'
   end
 
 end

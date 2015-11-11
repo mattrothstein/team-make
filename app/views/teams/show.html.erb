@@ -24,7 +24,6 @@
         <li>
           <!-- #replace with Link_to -->
           <%= link_to '<i class="fa fa-tachometer"> &nbsp; Manage Club</i>'.html_safe, club_season_path(current_club, current_season)%>
-
         </li>
         <li>
           <!-- #replace with Link_to -->
@@ -53,63 +52,85 @@
       <!-- /. ROW  -->
       <hr />
       <div class="row">
-        <h1><%= @team.season.club.club_name.capitalize %></h1><br />
-        <h2><%= @team.name.capitalize %></h2><br />
-        <h4><%= @team.season.year %> <%= @team.age_group %> and under</h4><br />
-        <h4>Coach: <%= @team.coach %></h4><br />
-        <h4>Roster Size: <%= @team.roster_size %></h4><br />
-
-      </div>
-
-      <hr />
-
-      <!-- /. ROW  -->
-      <div class="row">
-
-
-        <div class="col-md-6 col-sm-12 col-xs-12">
-          <h2>Available Athletes</h2>
-          <h5>Athletes Eligible To Compete In This Age Group</h5>
-          <div class = 'pre-scrollable' style = 'max-height: 200px; background-color: white; border-radius: 15px'>
-            <table class="table table-striped table-hover">
-              <% Athlete.all.each do |athlete| %>
-              <tr class="active">
-                <td><%= athlete.name.capitalize %></td>
-                <td><%= render 'spots/new_spot', athlete: athlete %></td>
-              </tr>
-              <% end %>
-            </table>
-          </div>
-          <div class = 'athlete-search'>
-            <%= render 'sites/search' %>
-        </div>
-
-        </div>
-
-        <div class="col-md-6 col-sm-12 col-xs-12">
-          <h2>Sent Inivitations</h2>
-          <div class = 'pre-scrollable' style = 'max-height: 200px; background-color: white; border-radius: 15px'>
-            <table class="table table-striped table-hover">
-              <% Spot.all.each do |x| %>
-              <% if (x.team.id == @team.id)%>
-              <tr class="active">
-                <td><%= (Athlete.find_by(id: x.athlete_id)).name.capitalize %> </td>
-                <td><%= x.invite_status.capitalize %></td>
-              </tr>
-              <% end %>
-              <% end %>
-            </table>
-          </div>
-
+        <div class="col-md-3 col-sm-6 col-xs-6">
+          <div class="panel panel-back noti-box">
+            <div class="text-box" >
+              <h4><%= @team.name.capitalize %></h4>
+              <h4><%= @team.age_group %> and under</h4>
+              <h4>Coach: <%= @team.coach.capitalize %></h4>
             </div>
           </div>
         </div>
-
-
+      </div>
+      <hr />
+      <!-- /. ROW  -->
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-plus-circle"></i>  Available Athletes
+            </div>
+            <div class="panel-body pre-scrollable" style = 'max-height: 400px; background-color: white; border-radius: 15px'>
+              <table class="table table-striped table-hover">
+                <% @tryouts.each do |tryout| %>
+                  <% tryout.athletes.all.each do |athlete|%>
+                    <% if (athlete.age == @team.age_group) %>
+                      <tr class="active">
+                        <td><%= athlete.name.capitalize %></td>
+                        <td><%= render 'spots/new_spot', athlete: athlete %></td>
+                      </tr>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-plus-circle"></i>  All Athletes
+            </div>
+            <div class='panel-body pre-scrollable text-center' style = 'max-height: 400px; background-color: white; border-radius: 15px'>
+              <div class = 'athlete-search'>
+                <%= render 'sites/search' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <i class="fa fa-plus-circle"></i>  Sent Invitations
+              </div>
+              <div class='panel-body pre-scrollable' style = 'max-height: 400px; background-color: white; border-radius: 15px'>
+                <table class="table table-striped table-hover">
+                  <tr>
+                    <th>Athlete Name</th>
+                    <th>Athlete Age</th>
+                    <th>Athlete Invite Status</th>
+                  </tr>
+                  <% @spots.each do |x| %>
+                  <% if (x.team.id == @team.id)%>
+                  <tr class="active">
+                    <td><%= (Athlete.find_by(id: x.athlete_id)).name.capitalize %> </td>
+                    <td><%= (Athlete.find_by(id: x.athlete_id)).age %> </td>
+                    <td><%= x.invite_status.capitalize %></td>
+                  </tr>
+                  <% end %>
+                  <% end %>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <!-- /. ROW  -->
+</div>
+</div>
+<!-- /. ROW  -->
 </div>
 <!-- /. PAGE INNER  -->
 </div>

@@ -20,8 +20,9 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @tryouts = Tryout.all
     @spot = Spot.new
-
+    @spots = Spot.all
   end
 
   def edit

@@ -40,7 +40,7 @@
         </li>
         <li>
           <!-- #replace with Link_to -->
-          <a><i class="fa fa-users"></i>View All Registered Athletes</a>
+          <%= link_to '<i class="fa fa-users">  &nbsp; View All Tryouts</i>'.html_safe,  club_season_tryouts_path(current_club, @season)%>
         </li>
         <li>
           <!-- #replace with Link_to -->

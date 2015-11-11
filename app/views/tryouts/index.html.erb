@@ -61,24 +61,15 @@
               Responsive Table Example
             </div>
             <div class="panel-body">
-
-
+              <% @tryouts.each do |tryout| %>
+              <%= link_to club_season_tryout_path(current_club, @season, tryout) do %>
                 <div class = "">
-                <%= @tryout.location.capitalize %><br />
-                <%= @tryout.date %><br />
-                <%= @tryout.time %><br />
-
+                <%= tryout.location.capitalize %><br />
+                <%= tryout.date %><br />
+                <%= tryout.time %><br />
               </div><br />
-              <div>
-                <% @tryout.athletes.all.each do |athlete| %>
-                  <%= athlete.name %><br />
-                  <%= athlete.age %><br />
-                  <%= athlete.email %><br />
-                  <%= athlete.user_name %><br />
-                <% end %>
-              </div>
-
-
+              <%end%>
+              <%end%>
             </div>
           </div>
         </div>

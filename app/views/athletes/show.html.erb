@@ -50,7 +50,7 @@
         </div>
       </div>
       <!-- /. ROW  -->
-  
+
 
     <!-- /. ROW  -->
 
@@ -83,27 +83,26 @@
                 <th><strong>Location</strong></th>
                 <th><strong>Date</strong></th>
                 <th><strong>Time</strong></th>
-
                 <th><strong>Register</strong></th>
               </tr>
               <% @clubs.each do |club| %>
 
               <% if (club.seasons)%>
-              <% club.seasons.each do |season| %>
-              <% if (season.tryout)%>
-
-              <tr>
-                <td><%=season.club.club_name.capitalize %></td>
-                <td><%=season.tryout.location.capitalize%></td>
-                <td><%=season.tryout.date%></td>
-                <td><%=season.tryout.time %></td>
-                <td><%= link_to 'Register', club_season_tryout_register_path(season.club.id, season.id, season.tryout.id)%>
-                </tr>
-                <% end %>
-                <% end %>
+                <% club.seasons.each do |season| %>
+                  <% season.tryouts do |tryout| %>
+                    <% if (season.tryout)%>
+                      <tr>
+                        <td><%=season.club.club_name.capitalize %></td>
+                        <td><%=season.tryout.location.capitalize%></td>
+                        <td><%=season.tryout.date.strftime("%m/%d/%Y")%></td>
+                        <td><%=season.tryout.time.strftime("%H:%M") %></td>
+                        <td><%= link_to 'Register', club_season_tryout_register_path(season.club.id, season.id, season.tryout.id)%>
+                      </tr>
+                    <% end %>
+                  <% end %>
                 <%end%>
-
-                <% end %>
+              <% end %>
+              <% end %>
               </table>
             </div>
           </div>
@@ -125,8 +124,8 @@
                 <tr>
                   <td><%=tryout.season.club.club_name.capitalize%></td>
                   <td><%=tryout.location.capitalize%></td>
-                  <td><%=tryout.date%></td>
-                  <td><%=tryout.time %></td>
+                  <td><%=tryout.date.strftime("%m/%d/%Y")%></td>
+                  <td><%=tryout.time.to_time.strftime("%H:%M%p") %></td>
                 </tr>
                 <% end %>
               </table>

@@ -31,10 +31,10 @@ module AthleteSessionsHelper
   end
 
  # logs out athlete
-  def log_out
-    session.delete(:athlete_id)
-    @current_athlete = nil
-  end
+  # def log_out
+  #   session.delete(:athlete_id)
+  #   @current_athlete = nil
+  # end
   ## forgets a persistent session
  def forget(athlete)
     athlete.forget

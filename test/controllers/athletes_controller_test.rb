@@ -33,10 +33,10 @@ class AthletesControllerTest < ActionController::TestCase
   #   assert_response :success
   # end
 
-  # test "should show user" do
-  #   get :show, id: @athlete
-  #   assert_response :success
-  # end
+  test "should show user" do
+    get :show, id: @athlete
+    assert_response :success
+  end
 
   # test "should destroy user" do
   #   assert_difference ('athlete.count', -1) do

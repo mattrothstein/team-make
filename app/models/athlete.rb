@@ -50,7 +50,6 @@ class Athlete < ActiveRecord::Base
 
     def get_age
       self.dob
-      # @athlete = Athlete.find(params[:id])
       now = Time.now.utc.to_date
       athlete_age = now.year - self.dob.year - ((now.month > self.dob.month || (now.month == self.dob.month && now.day >= self.dob.day)) ? 0 : 1)
 

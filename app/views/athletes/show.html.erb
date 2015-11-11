@@ -50,50 +50,8 @@
         </div>
       </div>
       <!-- /. ROW  -->
-      <hr />
-      <div class="row">
+  
 
-
-
-    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%>
-  </div>
-</nav>
-<!-- /. NAV TOP  -->
-<nav class="navbar-default navbar-side" role="navigation">
-  <div class="sidebar-collapse">
-    <ul class="nav" id="main-menu">
-      <li class="text-center">
-        <%= image_tag current_club.logo %>
-      </li>
-      <li>
-        <!-- #replace with Link_to -->
-        <%= link_to '<i class="fa fa-tachometer"> &nbsp; Manage Profile</i>'.html_safe, athlete_path(current_athlete)%>
-      </li>
-      <li>
-        <!-- #replace with Link_to -->
-        <%= link_to '<i class="fa fa-tachometer"> &nbsp; Update Profile</i>'.html_safe, edit_athlete_path(current_athlete)%>
-      </li>
-      <li>
-        <!-- #replace with Link_to -->
-
-      </li>
-      <li>
-        <!-- #replace with Link_to -->
-        <a><i class="fa fa-trash-o"></i>Delete Profile</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<!-- /. NAV SIDE  -->
-<div id="page-wrapper" >
-  <div id="page-inner">
-    <div class="row">
-      <div class="col-md-12">
-        <h2> <%= current_athlete.name.capitalize %> </h2>
-        <h5>Welcome back <%= current_athlete.name.capitalize %>. Check below for any pending invitations or tryouts available. </h5>
->>>>>>> df4f6efaa87709cd21a20bfe79d84469bf804701
-      </div>
-    </div>
     <!-- /. ROW  -->
 
     <hr />

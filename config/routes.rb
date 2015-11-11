@@ -1,24 +1,20 @@
 Rails.application.routes.draw do
 
+
   get 'notifications/notify'
 
-  get 'tryouts/new'
 
-  get 'tryouts/create'
 
-  get 'tryouts/edit'
 
-  get 'tryouts/update'
 
-  get 'tryouts/show'
 
-  get 'tryouts/destroy'
 
   root 'welcome#index'
   get 'athlete_sessions/new'
   get 'athlete_login' => 'athlete_sessions#new'
   post 'athlete_login' => 'athlete_sessions#create'
   get 'athlete_logout' => 'athlete_sessions#destroy'
+
   get 'accept_invite' => 'athletes#accept_invite', as: 'accept_invite'
   get 'decline_invite' => 'athletes#decline_invite', as: 'decline_invite'
 
@@ -30,9 +26,12 @@ Rails.application.routes.draw do
 
 
 
+
   resources :clubs do
     resources :seasons do
-        resources :tryouts
+        resources :tryouts do
+            get 'register' => 'tryouts#register', as: 'register'
+          end
         resources :teams do
           resources :spots
         end

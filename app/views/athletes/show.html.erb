@@ -11,8 +11,7 @@
     </div>
     <div style="color: white;
     padding: 15px 50px 5px 50px;
-    float: right;
-    font-size: 16px;"> Member Since : <%= current_athlete.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%>
+    float: right; font-size: 16px;"> Member Since : <%= current_athlete.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%>
     </div>
   </nav>
   <!-- /. NAV TOP  -->
@@ -55,59 +54,128 @@
       <div class="row">
 
 
-      </div>
 
-              <hr />
-
-               <!-- /. ROW  -->
-              <div class="row">
-
-
-                             <div class="col-md-6 col-sm-12 col-xs-12">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                       	Invitations
-                      </div>
-
-                      <div class="panel-body">
-                      	Fill this
-                      </div>
-
-                  </div>
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                       	Tryouts
-                      </div>
-
-                      <div class="panel-body">
-                      	<% Club.all.each do |club| %>
-                        <div>
-                          <% if (club.seasons.last)%>
-                            <%= club.seasons.last.tryout.date %>
-                            <%= club.seasons.last.tryout.location %>
-                            <%= club.seasons.last.tryout.time %>
-                            <%end%>
-                          </div>
-                        <% end %>
-                      </div>
-
-                  </div>
-              </div>
-
-          	</div>
-
-         </div>
-               <!-- /. ROW  -->
-              <div class="row" >
-
-               <!-- /. ROW  -->
-              <div class="row">
-
-               <!-- /. ROW  -->
+    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%>
   </div>
-           <!-- /. PAGE INNER  -->
-          </div>
-       <!-- /. PAGE WRAPPER  -->
-      </div>
+</nav>
+<!-- /. NAV TOP  -->
+<nav class="navbar-default navbar-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav" id="main-menu">
+      <li class="text-center">
+        <%= image_tag current_club.logo %>
+      </li>
+      <li>
+        <!-- #replace with Link_to -->
+        <%= link_to '<i class="fa fa-tachometer"> &nbsp; Manage Profile</i>'.html_safe, athlete_path(current_athlete)%>
+      </li>
+      <li>
+        <!-- #replace with Link_to -->
+        <%= link_to '<i class="fa fa-tachometer"> &nbsp; Update Profile</i>'.html_safe, edit_athlete_path(current_athlete)%>
+      </li>
+      <li>
+        <!-- #replace with Link_to -->
 
-                    <%= link_to 'Log out', :controller=> "sessions", :action=> "destroy"%>
+      </li>
+      <li>
+        <!-- #replace with Link_to -->
+        <a><i class="fa fa-trash-o"></i>Delete Profile</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- /. NAV SIDE  -->
+<div id="page-wrapper" >
+  <div id="page-inner">
+    <div class="row">
+      <div class="col-md-12">
+        <h2> <%= current_athlete.name.capitalize %> </h2>
+        <h5>Welcome back <%= current_athlete.name.capitalize %>. Check below for any pending invitations or tryouts available. </h5>
+>>>>>>> df4f6efaa87709cd21a20bfe79d84469bf804701
+      </div>
+    </div>
+    <!-- /. ROW  -->
+
+    <hr />
+
+    <!-- /. ROW  -->
+    <div class="row">
+
+
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Your Invitations To Join Teams
+          </div>
+
+          <div class="panel-body">
+            Fill this
+          </div>
+
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Available Tryouts
+          </div>
+
+          <div class="panel-body">
+            <table class="table table-hover table-striped">
+              <tr>
+                <th><strong>Club</strong></th>
+                <th><strong>Location</strong></th>
+                <th><strong>Date</strong></th>
+                <th><strong>Time</strong></th>
+
+                <th><strong>Register</strong></th>
+              </tr>
+              <% @clubs.each do |club| %>
+
+              <% if (club.seasons)%>
+              <% club.seasons.each do |season| %>
+              <% if (season.tryout)%>
+
+              <tr>
+                <td><%=season.club.club_name.capitalize %></td>
+                <td><%=season.tryout.location.capitalize%></td>
+                <td><%=season.tryout.date%></td>
+                <td><%=season.tryout.time %></td>
+                <td><%= link_to 'Register', club_season_tryout_register_path(season.club.id, season.id, season.tryout.id)%>
+                </tr>
+                <% end %>
+                <% end %>
+                <%end%>
+
+                <% end %>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Registered Tryouts
+            </div>
+
+            <div class="panel-body">
+              <table class="table table-hover table-striped">
+                <tr>
+                  <th><strong>Name</strong></th>
+                  <th><strong>Location</strong></th>
+                  <th><strong>Date</strong></th>
+                  <th><strong>Time</strong></th>
+                </tr>
+                <% current_athlete.tryouts.each do |tryout| %>
+                <tr>
+                  <td><%=tryout.season.club.club_name.capitalize%></td>
+                  <td><%=tryout.location.capitalize%></td>
+                  <td><%=tryout.date%></td>
+                  <td><%=tryout.time %></td>
+                </tr>
+                <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+  </div>

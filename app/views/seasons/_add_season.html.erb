@@ -1,8 +1,8 @@
 <%= form_for([current_club, @season]) do |f| %>
 
 <div class="form-group">
-  <%= f.label :season %><br>
-  <%= f.date_select :year, { discard_day: true, discard_month: true}, class: "form-control" %>
+  <%= f.label :year %><br>
+  <%= f.number_field :year, class: "form-control" %>
 </div>
 <%= f.hidden_field :club_id, value: current_club.id %>
 
@@ -11,3 +11,5 @@
 </div>
 
 <% end %>
+
+<!-- , { discard_day: true, discard_month: true} -->

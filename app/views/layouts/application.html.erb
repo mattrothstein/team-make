@@ -20,8 +20,49 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<<<<<<< HEAD
+
+=======
 
 <body>
+  <% if (current_club.nil? && current_athlete.nil?) %>
+
+    <header>
+    <div class="row">
+      <div class="col-md-5"><h1>Teammake</h1></div>
+      <div class="col-md-1 col-md-offset-5 dropdown">
+      <a class="drop-down-menu" href="#">
+        <i class="fa fa-bars fa-4x"></i>
+      </a>
+
+
+        <ul class="drop-nav">
+          <%= link_to root_path do %>
+            <li>Home</li>
+          <% end %>
+
+          <%= link_to login_path do %>
+            <li>Club Login</li>
+          <% end %>
+
+          <%= link_to athlete_login_path do %>
+            <li>Athlete Login</li>
+          <% end %>
+
+            <li>Log Out</li>
+
+
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <% end %>
+
+
+>>>>>>> df4f6efaa87709cd21a20bfe79d84469bf804701
+<body>
+
   <%= yield %>
 
 </body>

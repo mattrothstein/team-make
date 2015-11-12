@@ -21,6 +21,10 @@
   <%= csrf_meta_tags %>
 </head>
 
+<!--The following code is responsible for render flash messages -->
+<% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :id => key %>
+<% end %>
 
 <body>
   <% if (current_club.nil? && current_athlete.nil?) %>

@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+
     def login_club
       @club = Club.
         find_by(email: params[:email].downcase).

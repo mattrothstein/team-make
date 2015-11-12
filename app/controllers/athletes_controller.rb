@@ -13,10 +13,10 @@ class AthletesController < ApplicationController
     @athlete = Athlete.new(athlete_params)
 
     if @athlete.save
-      log_in @athlete
-      remember @athlete
+      login_athlete
+      session[:athlete_id] = @athlete.id
       flash[:success] = "Welcome to Teammake!"
-      redirect_to @athlete
+      redirect_to athlete_path(@athlete)
     else
       render 'new'
     end
@@ -63,7 +63,7 @@ class AthletesController < ApplicationController
   def athlete_params
     params.require(:athlete).permit(:avatar, :name, :email, :user_name, :telephone, :dob, :password, :password_confirmation)
   end
-  
+
 
   def set_spot
     @spot = current_athlete.spot

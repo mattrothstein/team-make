@@ -19,6 +19,9 @@ class Athlete < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
+  VALID_PHONE_REGEX = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
+  validates :telephone, format: { with: VALID_PHONE_REGEX}
+
   # validates_with AttachmentSizeValidator, attributes: :avatar, less_than: .megabytes
 
   ## This below will return the hash digest of given string

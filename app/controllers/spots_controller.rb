@@ -3,12 +3,14 @@ class SpotsController < ApplicationController
   before_action :set_team
 
   def new
-    @spot= Spot.new
+    @spot = Spot.new
   end
 
   def create
     @spot = Spot.new(spot_params)
+    @athlete = Athlete.find(params[:spot][:athlete_id])
     if @spot.save
+      Notification.notify(@athlete)
       redirect_to :back
     else
       redirect_to :back

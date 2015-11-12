@@ -12,7 +12,7 @@
     <div style="color: white;
     padding: 15px 50px 5px 50px;
     float: right;
-    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path(@club), :class => "btn btn-danger square-btn-adjust"%> 
+    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path , :class => "btn btn-danger square-btn-adjust"%> 
     </div>
   </nav>
   <!-- /. NAV TOP  -->
@@ -32,7 +32,7 @@
         </li>
         <li>
             <!-- #replace with Link_to -->
-          
+
         </li>
         <li>
             <!-- #replace with Link_to -->
@@ -57,7 +57,7 @@
 
                <!-- /. ROW  -->
 
-                  
+
           	</div>
 
          </div>
@@ -67,4 +67,3 @@
       </div>
 
                     <%= link_to 'Log out', :controller=> "sessions", :action=> "destroy"%>
-

@@ -2,33 +2,12 @@
   <div class="container">
     <div class="landing_body">
       <div class="register">
-        <div class="col-md-5 club_register">
-          <h1>Club<h1>
-            <p>
-              <button type="button" class="btn btn-default">
-                <%= link_to "Log In", login_path %>
-              </button>
-            </p>
-            <p>
-              <button type="button" class="btn btn-default club_sign_up">
-                <%= link_to "Sign Up", new_club_path %>
-              </button>
-            </p>
-          </div>
-
-          <div class="col-md-5 login">
-            <h1>Athlete</h1>
-            <p>
-              <button type="button" class="btn btn-default">
-                <%= link_to "Log In", athlete_login_path %>
-              </button>
-            </p>
-            <p>
-              <button type="button" class="btn btn-default athlete_sign_up">
-                <%= link_to "Sign Up", new_athlete_path %>
-              </button>
-            </p>
-          </div>
+        <div>
+        <%= render 'sessions/club_login' %>
+</div>
+<div>
+        <%= render 'sessions/athlete_login' %>
+</div>
         </div>
       </div>
     </div>

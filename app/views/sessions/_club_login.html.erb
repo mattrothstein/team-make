@@ -1,0 +1,14 @@
+<div class="club_form_h1">
+	<h1>Club Login</h1>
+</div>
+			<%= form_tag sessions_login_club_path do %>
+			  <div class="form-group">
+			    <%= email_field_tag :email %>
+			  </div>
+				<div class="form-group">
+			    <%= password_field_tag :password %>
+			  </div>
+				<div class="action">
+				  <%= submit_tag "Log In" %><br />
+				</div>
+			<% end %>

@@ -22,6 +22,8 @@ class Athlete < ActiveRecord::Base
   VALID_PHONE_REGEX = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
   validates :telephone, format: { with: VALID_PHONE_REGEX}
 
+  validates :age, presence: true, numericality: { only_integer: true, greater_than: 9, less_than: 18 }
+
   # validates_with AttachmentSizeValidator, attributes: :avatar, less_than: .megabytes
 
   ## This below will return the hash digest of given string

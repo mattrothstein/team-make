@@ -1,8 +1,9 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show]
 
+
+
   def new
-    puts "new"
     @club = Club.new
     @team = Team.new
   end
@@ -13,6 +14,7 @@ class ClubsController < ApplicationController
     if @club.save
       session[:club_id] = @club.id
       redirect_to new_club_season_path(@club)
+      flash[:success] = "Welcome to Teammake!"
     else
       render :new
     end
@@ -23,11 +25,11 @@ class ClubsController < ApplicationController
   end
 
   def edit
-    @club = Club.find(params[:id])
+    @club = current_club
   end
 
   def update
-    @club = Club.find(params[:id])
+    @club =  current_club
     if @club.update_attributes(club_params)
       flash[:notice] = "Club successfully updated"
       redirect_to club_seasons_path(current_club)
@@ -42,7 +44,7 @@ class ClubsController < ApplicationController
   private
 
   def set_club
-    current_club
+    @club = current_club
   end
 
   def club_params

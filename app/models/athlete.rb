@@ -6,7 +6,7 @@ class Athlete < ActiveRecord::Base
   has_many :tryouts, through: :evaluated_athletes
   has_one :spot
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", icon: "50x50>" },
                                     default_url: "blank_avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   before_save { self.email = email.downcase }

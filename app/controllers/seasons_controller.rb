@@ -28,7 +28,6 @@ class SeasonsController < ApplicationController
   # end
 
   def show
-
     @season = Season.find(params[:id])
     @team = Team.new
   end
@@ -36,7 +35,7 @@ class SeasonsController < ApplicationController
   private
 
   def set_club
-    @club = Club.find(params[:club_id])
+    @club = current_club
   end
 
   def season_params

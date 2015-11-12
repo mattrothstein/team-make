@@ -21,4 +21,6 @@ class ApplicationController < ActionController::Base
     @current_athlete ||= Athlete.find_by(id: session[:athlete_id])
   end
 
+  
+
 end

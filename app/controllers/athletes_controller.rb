@@ -13,8 +13,7 @@ class AthletesController < ApplicationController
     @athlete = Athlete.new(athlete_params)
 
     if @athlete.save
-      log_in @athlete
-      remember @athlete
+      session[:athlete_id] = @athlete.id
       flash[:success] = "Welcome to Teammake!"
       redirect_to @athlete
     else
@@ -23,11 +22,11 @@ class AthletesController < ApplicationController
   end
 
   def edit
-    @athlete = Athlete.find(params[:id])
+    @athlete = current_athlete
   end
 
   def update
-    @athlete = Athlete.find(params[:id])
+    @athlete = current_athlete
     if @athlete.update_attributes(athlete_params)
       flash[:notice] = "Profile successfully updated"
       redirect_to @athlete
@@ -63,7 +62,7 @@ class AthletesController < ApplicationController
   def athlete_params
     params.require(:athlete).permit(:avatar, :name, :email, :user_name, :telephone, :dob, :password, :password_confirmation)
   end
-  
+
 
   def set_spot
     @spot = current_athlete.spot

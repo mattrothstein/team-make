@@ -41,7 +41,7 @@ class TeamsController < ApplicationController
   end
 
   def set_club
-    @club = Club.find(params[:club_id])
+    @club = current_club
   end
 
   def set_season

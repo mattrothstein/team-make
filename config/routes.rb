@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'welcome#index'
 
   get 'accept_invite' => 'athletes#accept_invite', as: 'accept_invite'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'notifications/notify'
   post 'notifications/notify' => 'notifications#notify'
+
 
   resources :athletes
 
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
       end
   end
 
+
   get 'signup', to: 'clubs#new', as: 'signup'
 
   get 'login_club' => 'sessions#new_club'
@@ -31,5 +34,8 @@ Rails.application.routes.draw do
   get 'login_athlete' => 'sessions#new_athlete'
   post 'sessions/login_athlete'
   get 'logout' => 'sessions#destroy'
+
+
+  resources :charges
 
 end

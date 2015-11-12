@@ -119,7 +119,36 @@
                 <td><%= tryout.location.capitalize %></td>
                 <td><%= tryout.date.strftime("%m/%d/%Y") %></td>
                 <td><%= tryout.time %></td>
-                <td class="btn btn-primary"><%= link_to 'Register', club_season_tryout_register_path(season.club.id, season.id, tryout.id)%></td>
+                <td <form action="." method="post">
+        <input 
+            type="submit" 
+            value="Register"
+            data-key="<%= Rails.configuration.stripe['publishable_key'] %>"
+            data-description="Your payment description"
+            data-amount="@amount"
+            data-locale="auto">
+        
+
+        <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script>
+        $(document).ready(function() {
+            $(':submit').on('click', function(event) {
+                event.preventDefault();
+                var $button = $(this),
+                    $form = $button.parents('form');
+                var opts = $.extend({}, $button.data(), {
+                    token: function(result) {
+                        $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
+                    }
+                });
+                StripeCheckout.open(opts);
+            });
+        });
+        </script>
+</form>
+                      </td>
+                
               </tr>
                   <% end %>
                 <% end %>

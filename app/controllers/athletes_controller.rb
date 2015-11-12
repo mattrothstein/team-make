@@ -61,7 +61,7 @@ class AthletesController < ApplicationController
 
   private
   def athlete_params
-    params.require(:athlete).permit(:avatar, :name, :email, :user_name, :dob, :password, :password_confirmation)
+    params.require(:athlete).permit(:avatar, :name, :email, :user_name, :telephone, :dob, :password, :password_confirmation)
   end
 
   def set_spot

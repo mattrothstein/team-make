@@ -13,7 +13,6 @@ class AthletesController < ApplicationController
     @athlete = Athlete.new(athlete_params)
 
     if @athlete.save
-      login_athlete
       session[:athlete_id] = @athlete.id
       flash[:success] = "Welcome to Teammake!"
       redirect_to athlete_path(@athlete)

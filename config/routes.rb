@@ -1,19 +1,6 @@
 Rails.application.routes.draw do
 
-
-  get 'notifications/notify'
-
-
-
-
-
-
-
   root 'welcome#index'
-  get 'athlete_sessions/new'
-  get 'athlete_login' => 'athlete_sessions#new'
-  post 'athlete_login' => 'athlete_sessions#create'
-  get 'athlete_logout' => 'athlete_sessions#destroy'
 
   get 'accept_invite' => 'athletes#accept_invite', as: 'accept_invite'
   get 'decline_invite' => 'athletes#decline_invite', as: 'decline_invite'
@@ -21,11 +8,10 @@ Rails.application.routes.draw do
   get 'sites/search'
   post 'sites/search'
 
+  get 'notifications/notify'
   post 'notifications/notify' => 'notifications#notify'
 
-
-
-
+  resources :athletes
 
   resources :clubs do
     resources :seasons do
@@ -38,12 +24,12 @@ Rails.application.routes.draw do
       end
   end
 
+  get 'signup', to: 'clubs#new', as: 'signup'
 
-  resources :athletes
-
-  resources :sessions, only: [:new, :create, :destroy]
-    get 'signup', to: 'clubs#new', as: 'signup'
-    get 'login', to: 'sessions#new', as: 'login'
-    get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'login_club' => 'sessions#new_club'
+  post 'sessions/login_club'
+  get 'login_athlete' => 'sessions#new_athlete'
+  post 'sessions/login_athlete'
+  get 'logout' => 'sessions#destroy'
 
 end

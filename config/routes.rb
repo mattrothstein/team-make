@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
-
-
   get 'notifications/notify'
-
-
-
-
-
-
 
   root 'welcome#index'
   get 'athlete_sessions/new'
@@ -23,10 +15,6 @@ Rails.application.routes.draw do
 
   post 'notifications/notify' => 'notifications#notify'
 
-
-
-
-
   resources :clubs do
     resources :seasons do
         resources :tryouts do
@@ -38,12 +26,13 @@ Rails.application.routes.draw do
       end
   end
 
-
   resources :athletes
 
   resources :sessions, only: [:new, :create, :destroy]
     get 'signup', to: 'clubs#new', as: 'signup'
     get 'login', to: 'sessions#new', as: 'login'
     get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  resources :charges
 
 end

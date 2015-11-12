@@ -15,7 +15,7 @@ class AthletesController < ApplicationController
     if @athlete.save
       session[:athlete_id] = @athlete.id
       flash[:success] = "Welcome to Teammake!"
-      redirect_to @athlete
+      redirect_to athlete_path(@athlete)
     else
       render 'new'
     end

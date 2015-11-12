@@ -44,7 +44,7 @@ end
    @season = Season.find(params[:season_id])
  end
  def set_tryout
-   @tryout = Tryout.find(params[:id])
+   @tryout = Tryout.find(params[:tryout_id])
  end
 
 end

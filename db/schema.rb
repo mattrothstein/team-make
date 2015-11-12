@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110024110) do
+ActiveRecord::Schema.define(version: 20151112002020) do
 
   create_table "athletes", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151110024110) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "age"
+    t.string   "telephone"
   end
 
   create_table "clubs", force: :cascade do |t|

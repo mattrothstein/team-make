@@ -62,14 +62,30 @@
                 <th><strong>Club</strong></th>
                 <th><strong>Team</strong></th>
                 <th><strong>Status</strong></th>
+                <th><strong>Accept/Decline</strong></th>
               </tr>
 
               <% if current_athlete.spot %>
-              <tr>
-                <td><%= current_athlete.spot.team.season.club.club_name %></td>
-                <td><%= current_athlete.spot.team.name %></td>
-                <td><%= current_athlete.spot.invite_status %></td>
-              </tr>
+                <tr>
+                  <td><%= current_athlete.spot.team.season.club.club_name %></td>
+                  <td><%= current_athlete.spot.team.name %></td>
+                  <td><%= current_athlete.spot.invite_status %>
+                   <td><%= link_to accept_invite_path do %>
+                      <span class="btn btn-success">Accept</span>
+                    <% end %>
+                    <%= link_to decline_invite_path do %>
+                      <span class="btn btn-danger">Decline</span>
+                    <% end %>
+                  </td>
+                    <%# link_to decline_invite_path do %>
+                      <!-- <td>Decline</td> -->
+                    <%# end %>
+                <% else %>
+                  <td> N/A </td>
+                  <td> N/A </td>
+                  <td> N/A <td>
+                  </td>
+                </tr>
               <% end %>
             </table>
           </div>
@@ -99,13 +115,14 @@
                 <% if (club.seasons)%>
                   <% club.seasons.each do |season| %>
                     <% if (season.tryouts)%>
-                      <% season.tryouts do |tryout| %>
+                      <% season.tryouts.each do |tryout| %>
               <tr>
+
                 <td><%= season.club.club_name.capitalize %></td>
-                <td><%= season.tryout.location.capitalize %></td>
-                <td><%= season.tryout.date.strftime("%m/%d/%Y") %></td>
-                <td><%= season.tryout.time.strftime("%H:%M") %></td>
-                <td><%= link_to 'Register', club_season_tryout_register_path(season.club.id, season.id, season.tryout.id)%>
+                <td><%= tryout.location.capitalize %></td>
+                <td><%= tryout.date.strftime("%m/%d/%Y") %></td>
+                <td><%= tryout.time %></td>
+                <td class="btn btn-primary"><%= link_to 'Register', club_season_tryout_register_path(season.club.id, season.id, tryout.id)%></td>
               </tr>
                   <% end %>
                 <% end %>
@@ -138,7 +155,7 @@
                   <td><%=tryout.season.club.club_name.capitalize%></td>
                   <td><%=tryout.location.capitalize%></td>
                   <td><%=tryout.date.strftime("%m/%d/%Y")%></td>
-                  <td><%=tryout.time.to_time.strftime("%H:%M%p") %></td>
+                  <td><%=tryout.time %></td>
                 </tr>
                 <% end %>
               </table>

@@ -59,4 +59,14 @@ class Athlete < ActiveRecord::Base
 
       self.age = athlete_age
   end
+
+
+  def self.search(athlete)
+    if athlete
+      where("NAME like ?", "%#{athlete}%")
+    else
+      self.all
+    end
+  end
+
 end

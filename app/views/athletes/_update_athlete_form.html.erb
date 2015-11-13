@@ -1,0 +1,57 @@
+<div class="col-md-6 col-md-offset-3 athlete_form">
+    <div class="club_form_h1">
+      <h1>Update Athlete</h1>
+  </div>
+<%= form_for @athlete, url: @athlete, html: { multipart: true } do |f| %>
+
+  <% if @athlete.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@athlete.errors.count, "error") %> prohibited
+        this athlete from being created:
+        <ul>
+          <%= @athlete.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </h2>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= f.text_field :name, class: "form-control", placeholder: "Athlete Name" %>
+  </div>
+
+    <%= f.file_field :avatar %>
+
+
+  <div class="form-group">
+    <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :user_name, class: "form-control", placeholder: "Username" %>
+  </div>
+  <div class="form-group">
+    <%= f.date_field :dob, class: "form-control", placeholder: "Date of Birth" %>
+  </div>
+  <div class="form-group">
+  <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation" %>
+  </div>
+  <div class="form-group">
+    <%= f.telephone_field :telephone, class: "form-control", placeholder: "3054675879" %>
+  </div>
+
+  <%= f.submit %>
+
+  <% end %>
+
+</div>
+
+
+
+
+
+

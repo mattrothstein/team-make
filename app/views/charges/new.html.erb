@@ -1,3 +1,75 @@
+<style>
+	.message {
+		width: 80%;
+		height: 200px;
+		background: red;
+		display: none;
+	}
+</style>
+
+<div class="message">
+</div>
+<div class="stripe-form">
+	<p>How much</p>
+	<input id="amount">
+	<button class="buttonz">Pick me! Pick me!</button>
+</div>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('pk_test_4VXlebcRT9bn3s1RigERo8B2');
+  // ...
+</script>
+
+<script>
+var total;
+
+payAction = function() {
+var handler = StripeCheckout.configure({
+	key: "<%= Rails.application.secrets[:stripe_publishable_key] %>",
+	token: function(token) {
+		var postData = {
+			amount: total,
+			stripeToken: token.id,
+		}
+		$.ajax({
+							type: 'POST',
+							url: '/charges',
+							data: postData,
+							success: function (reservation) {
+								console.log('ok!');
+								formatted_total = '$' + (total/100) + '.' + (total%100);
+								$('.message').empty();
+								$('.message').append('<h2>Thank you, you paid $<strong>' + formatted_total + '</strong>!</h2>');
+								$('.message').show();
+							},
+							error: function (request, error) {
+								console.log(request);
+								$('.message').empty();
+								$('.message').append('<h2>We apologize but your payment did not go through.</h2>');
+								$('.message').show();
+							}
+					});
+	}
+});
+
+$('.buttonz').on('click', function(e) {
+	e.preventDefault();
+	total = parseFloat($(this).parent().find('#amount').val()) * 100;
+	handler.open({
+						name: 'Tip',
+						description: 'Input Your Payment Details',
+						amount: total
+				});
+});
+
+}
+
+$(document).ready(payAction);
+$(document).on('page:load', payAction);
+</script>
+
 <%= form_tag charges_path do %>
 	<article>
 		<% if flash[:error].present? %>
@@ -12,12 +84,6 @@
 		</label>
 	</article>
 
-	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		data-key="<%= Rails.configuration.stripe['publishable_key'] %>"
-		data-description="Your payment description"
-		data-amount="@amount"
-		data-locale="auto">
-	</script>
+
+
 <% end %>
-
-

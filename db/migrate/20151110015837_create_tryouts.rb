@@ -4,6 +4,7 @@ class CreateTryouts < ActiveRecord::Migration
       t.text :location
       t.date :date
       t.string :time
+      t.integer :price
       t.belongs_to :season, index: true, foreign_key: true
 
       t.timestamps null: false

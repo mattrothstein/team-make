@@ -1,6 +1,6 @@
 class Club < ActiveRecord::Base
   has_secure_password
-  has_many :seasons
+  has_many :seasons, dependent: :destroy
   has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>", icon: "50x50>" }, default_url: "vball.png"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
   validates :club_name, presence: true, uniqueness: true

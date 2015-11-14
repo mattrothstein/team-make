@@ -1,0 +1,53 @@
+
+var total;
+
+var payAction = function() {
+	var handler = StripeCheckout.configure({
+		key: "<%= Rails.configuration.stripe[:publishable_key] %>",
+		token: function(token) {
+			var postData = {
+				amount: total,
+				stripeToken: token.id,
+				tryout_id: $('#amount').data('tryout')
+			}
+
+			$.ajax({
+							type: 'POST',
+							url: '/charges',
+							dataType: 'json',
+							data: postData,
+							success: function(response) {
+								console.log('ok!');
+								console.log(arguments);
+								console.log(response['url']);
+								// formatted_total = '$' + (total/100) + '.' + (total%100);
+								// $('.message').empty();
+								// $('.message').append('<h2>Thank you, you paid $<strong>' + formatted_total + '</strong>!</h2>');
+								// $('.message').show();
+								window.location = response['url'];
+							},
+							error: function (request, error) {
+								console.log('error');
+								console.log(arguments);
+								$('.message').empty();
+								$('.message').append('<h2>We apologize but your payment did not go through.</h2>');
+								$('.message').show();
+							}
+					});
+	}
+});
+
+$('.buttonz').on('click', function(e) {
+	e.preventDefault();
+	total = parseFloat($('#amount').data('price')) * 100;
+	handler.open({
+						name: 'Tip',
+						description: 'Input Your Payment Details',
+						amount: total
+				});
+});
+
+}
+
+$(document).ready(payAction);
+$(document).on('page:load', payAction);

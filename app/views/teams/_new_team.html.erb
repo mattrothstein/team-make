@@ -1,5 +1,17 @@
 
 <%= form_for [current_club, @season, @team] do |f| %>
+<% if @team.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@team.errors.count, "error") %> prohibited
+      this team from being created:
+      <ul>
+        <%= @team.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </h2>
+  </div>
+<% end %>
 <div class="form-group field">
   <%= f.text_field :name, class: 'form-control', placeholder: 'Team Name' %>
 </div>

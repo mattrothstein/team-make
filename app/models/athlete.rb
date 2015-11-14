@@ -4,7 +4,7 @@ class Athlete < ActiveRecord::Base
   attr_accessor :avatar_file_name
   has_many :evaluated_athletes
   has_many :tryouts, through: :evaluated_athletes
-  has_one :spot
+  has_one :spot, dependent: :destroy
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", icon: "50x50>" },
                                     default_url: "blank_avatar.png"
@@ -22,7 +22,6 @@ class Athlete < ActiveRecord::Base
   VALID_PHONE_REGEX = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
   validates :telephone, format: { with: VALID_PHONE_REGEX}
 
-  validates :age, presence: true, numericality: { only_integer: true, greater_than: 9, less_than: 18 }
 
   # validates_with AttachmentSizeValidator, attributes: :avatar, less_than: .megabytes
 

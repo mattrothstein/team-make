@@ -1,10 +1,12 @@
 class AthleteMailer < ApplicationMailer
-  default from: "no-reply@example.com"
+  default from: "team@teammake.com"
 
-  def invite_athlete(email)
+  def invite_athlete(athlete_email)
+    @athlete = athlete_email
+
     mail({
-      to: email,
-      subject: "Hello, you've been invited to join a team! Check your page for more info."
+      to: @athlete,
+      subject: "Invite From Teammake"
     })
   end
 end

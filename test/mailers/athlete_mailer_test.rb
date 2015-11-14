@@ -7,8 +7,9 @@ class AthleteMailerTest < ActionMailer::TestCase
 
 
   test "invite athlete" do
-    target_email = "email@example.com"
-    email = AthleteMailer.invite_athlete(target_email).deliver_now
+    athlete = athletes(:one)
+    target_email = athlete.email
+    email = AthleteMailer.invite_athlete(athlete).deliver_now
 
     assert_not ActionMailer::Base.deliveries.empty?
     assert_equal [target_email], email.to

@@ -13,13 +13,7 @@ class AthletesController < ApplicationController
   end
 
   def search
-        if params[:search]
-      @athlete = Athlete.search(params[:search]).order("created_at DESC")
-      redirect_to :back
-    else
-      @athletes = Athlete.order("created_at DESC") if params[:search].present?
-      redirect_to :back
-    end
+
   end
 
   def new

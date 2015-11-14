@@ -14,13 +14,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_season
-    @current_season = Season.last
+    @current_season ||= Season.last
   end
 
   def current_athlete
     @current_athlete ||= Athlete.find_by(id: session[:athlete_id])
   end
 
-  
+
 
 end

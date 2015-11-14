@@ -72,6 +72,7 @@
             </div>
             <div class="panel-body pre-scrollable" style = 'max-height: 400px; background-color: white; border-radius: 15px'>
               <table class="table table-striped table-hover">
+
                 <% @tryouts.includes(:athletes).each do |tryout| %>
                   <% tryout.athletes.each do |athlete|%>
                     <% if (athlete.age == @team.age_group) %>
@@ -86,18 +87,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-sm-12 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <i class="fa fa-plus-circle"></i>  All Athletes
-            </div>
-            <div class='panel-body pre-scrollable text-center' style = 'max-height: 400px; background-color: white; border-radius: 15px'>
-              <div class = 'athlete-search'>
-                <%= render 'sites/search' %>
-              </div>
-            </div>
-          </div>
-        </div>
+
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="panel panel-default">

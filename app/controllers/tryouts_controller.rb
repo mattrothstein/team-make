@@ -1,5 +1,5 @@
 class TryoutsController < ApplicationController
-  before_action :set_season, exclude: [:register]
+  before_action :set_season, except: [:register]
   before_action :set_tryout, only: [:edit, :show, :destroy, :register]
 
   def index

@@ -17,9 +17,7 @@ Rails.application.routes.draw do
 
   resources :clubs do
     resources :seasons do
-        resources :tryouts do
-            get 'register' => 'tryouts#register', as: 'register'
-          end
+        resources :tryouts
         resources :teams do
           resources :spots
         end
@@ -37,5 +35,13 @@ Rails.application.routes.draw do
 
 
   resources :charges
+
+resources :tryouts do
+  get 'register' => 'tryouts#register', as: 'register'
+end
+
+  resources :tryouts do
+    resources :charges
+  end
 
 end

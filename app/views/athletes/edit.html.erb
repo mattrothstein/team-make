@@ -12,7 +12,7 @@
     <div style="color: white;
     padding: 15px 50px 5px 50px;
     float: right;
-    font-size: 16px;"> Member Since : <%= current_club.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path , :class => "btn btn-danger square-btn-adjust"%> 
+    font-size: 16px;"> Member Since : <%= current_athlete.created_at.strftime("%m-%d-%Y") %> &nbsp; <%= link_to 'Log out', logout_path , :class => "btn btn-danger square-btn-adjust"%> 
     </div>
   </nav>
   <!-- /. NAV TOP  -->
@@ -20,7 +20,6 @@
     <div class="sidebar-collapse">
       <ul class="nav" id="main-menu">
         <li class="text-center">
-          <%= image_tag current_club.logo %>
         </li>
         <li>
           <!-- #replace with Link_to -->
@@ -46,7 +45,7 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-					<%= render 'athlete_form' %>
+					<%= render 'update_athlete_form' %>
 
         </div>
       </div>

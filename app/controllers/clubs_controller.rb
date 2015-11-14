@@ -39,6 +39,9 @@ class ClubsController < ApplicationController
   end
 
   def destroy
+    current_club.destroy
+      flash[:success] = "Delete successful."
+      redirect_to '/'
   end
 
   private

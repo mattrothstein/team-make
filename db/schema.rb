@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20151112002020) do
     t.date     "dob"
     t.string   "user_name"
     t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20151112002020) do
     t.text     "location"
     t.date     "date"
     t.string   "time"
+    t.integer  "price"
     t.integer  "season_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

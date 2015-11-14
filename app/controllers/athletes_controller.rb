@@ -52,7 +52,7 @@ class AthletesController < ApplicationController
   end
 
   def destroy
-    Athlete.find(params[:id]).destroy
+    current_athlete.destroy
       flash[:success] = "Delete successful."
       redirect_to '/'
   end

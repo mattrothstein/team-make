@@ -10,8 +10,8 @@ class ChargesControllerTest < ActionController::TestCase
   	assert_response :success
   end
 
-  test "should create charge" do
-  	post :create
-  	assert_response :success
-  end
+  # test "should create charge" do
+  # 	post :create
+  # 	assert_response :success
+  # end
 end

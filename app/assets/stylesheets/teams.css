@@ -1,0 +1,21 @@
+.sidebar-collapse:hover .hambgr { display: none; }
+
+.hambgr {
+	  height: 4px;
+	  width: 30px;
+	  background: #fff;
+	  position: absolute;
+	  top: 20px;
+	  left: 14px;
+}
+
+.hambgr:before, .hambgr:after {
+	  background: #fff;
+	  content: "";
+	  height: 4px;
+	  position: absolute;
+	  top: -7px;
+	  width: 30px;
+	}
+
+.hambgr:after { top: 7px; }

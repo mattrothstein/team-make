@@ -28,7 +28,7 @@ class ClubsControllerTest < ActionController::TestCase
 
   # no route matches
   test "should update club" do
-    post :update, id: @club, club: { club_name: @club.club_name, sport: @club.sport, email: @club.email, director: @club.director, password: @club.password_digest, password_confirmation: @club.password_digest }
+    patch :update, id: @club, club: { club_name: @club.club_name, sport: @club.sport, email: @club.email, director: @club.director, password: @club.password_digest, password_confirmation: @club.password_digest }
     assert_response :success
   end
 

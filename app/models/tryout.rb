@@ -6,5 +6,6 @@ class Tryout < ActiveRecord::Base
   validates :location, presence: true
   validates :date, presence: true
   validates :time, presence: true
+  validates :price, presence: true, numericality: {only_integer: true}
 
 end

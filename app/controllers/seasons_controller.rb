@@ -31,6 +31,7 @@ class SeasonsController < ApplicationController
   def show
     @season = Season.find(params[:id])
     @team = Team.new
+    @teams = @season.teams.all
   end
 
   private

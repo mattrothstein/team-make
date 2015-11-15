@@ -16,7 +16,11 @@
  body {
      font-family: 'Open Sans', sans-serif;
  }
-
+th {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px
+}
 #notice {
   text-align: center;
   font-family: "open sans";

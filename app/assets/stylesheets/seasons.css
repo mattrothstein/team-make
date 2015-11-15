@@ -1,0 +1,107 @@
+.panel.panel-back.noti-box {
+  height: 14em;
+  width: 100%;
+
+}
+
+
+a.main-text {
+  color: white;
+}
+
+
+.col-lg-3.col-md-6.col-sm-6.col-xs-12 {
+  width: 20em;
+  height: 8em;
+  color: white;
+  font-family: "Open Sans";
+  font-weight: bold;
+  padding-top: 1.25em;
+  margin: 10px;
+}
+
+#manage-club {
+  background-color: #FA2A1D;
+}
+
+.col-lg-3.col-md-6.col-sm-6.col-xs-12 i {
+  color: white;
+  float:left;
+  margin-right: 1.5em;
+}
+
+.sub-title {
+  font-size: 24px;
+}
+
+.col-lg-3.col-md-6.col-sm-6.col-xs-12 a {
+  color: white;
+}
+
+#manage-club:hover {
+  background-color: darkred;
+}
+
+#update-club-info {
+  background-color: #ffb400;
+}
+
+#update-club-info:hover {
+  background-color: #CC9900;
+}
+
+#post-tryout {
+  background-color: #1ABC9C;
+}
+
+#post-tryout:hover {
+  background-color: #117964;
+}
+
+
+#view-seasons {
+  background-color: #22A7F0;
+}
+
+#view-seasons:hover {
+  background-color: #0d7cb9;
+}
+
+#view-tryouts {
+  background-color: #e95d10;
+}
+
+#view-tryouts:hover {
+  background-color: #89370a;
+}
+
+#delete-club-account {
+  background-color: #383838;
+}
+
+#delete-club-account:hover {
+  background-color: #181818;
+}
+
+#page-inner .row {
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

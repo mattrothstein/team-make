@@ -107,7 +107,7 @@
 
      .noti-box .icon-box {
  display: block;
- float: left;
+/* float: left;   stopped text from moving down or up on shake effect*/
  margin: 0 15px 10px 0;
  width: 70px;
  height: 70px;

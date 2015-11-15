@@ -1,8 +1,8 @@
 
-// this handles resizing animation of team boxs on seasons show page
+var ready = function() {
 
 $( document ).ready(function() {
-  $( ".panel.panel-back.noti-box" ).delay( 100 ).fadeIn( "slow" );
+  $( ".panel-back.noti-box" ).delay( 100 ).fadeIn( "slow" );
   $( "#two" ).delay( 300 ).fadeIn( "slow" );
   $( "#three" ).delay( 600 ).fadeIn( "slow" );
 
@@ -11,14 +11,15 @@ $( document ).ready(function() {
 
 $(document).ready(function() {
 
-    $(".panel.panel-back.noti-box").hover(
-                     function() {
-    $(".panel.panel-back.noti-box").animate({'width':'14em',
-                   'height': '14em'});
-  },function(){
-        $(".panel.panel-back.noti-box").animate({'width':'12em',
-                   'height': '12em'});
-  });
+    $(".panel-back.noti-box").hover(
+      function() {
+        $(".panel-back.noti-box").effect("shake", 5)
+      // },
+      // function() {
+      //   $(".panel-back.noti-box").animate({'width':'5em',
+      //                      'height': '5em'});
+       }
+    );
 
     $("#two").hover(
                      function() {
@@ -38,10 +39,17 @@ $(document).ready(function() {
         $("#three").animate({'width':'5em',
                    'height': '5em'});
   });
+
   });
 
-// this ends the JavaScript that handles resizing animation of team boxs on seasons show page
 
+}
+
+$(document).on('ready page:load', ready);
+
+////
+////
+////
 
 // Below is responsible for handling animations of links in dashboard sidebar
 // $( document ).ready(function() {

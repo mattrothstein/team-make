@@ -15,12 +15,9 @@
  */
  body {
      font-family: 'Open Sans', sans-serif;
+     background: #333;
  }
-th {
-  text-align: center;
-  font-weight: bolder;
-  font-size: 20px
-}
+
 #notice {
   text-align: center;
   font-family: "open sans";
@@ -56,19 +53,19 @@ th {
 
   #wrapper {
      width: 100%;
-     background:none;
+     background:#202020;
  }
 
  #page-wrapper {
      padding: 15px 15px;
      min-height: 600px;
-     background: #f1f1f1;
+     background:#F3F3F3;
 
  }
  #page-inner {
      width:100%;
      margin:10px 20px 10px 0px;
-     background-color: #f1f1f1;
+     background-color:#fff!important;
      padding:10px;
      min-height:1200px;
  }
@@ -111,7 +108,7 @@ th {
 
      .noti-box .icon-box {
  display: block;
-/* float: left;   stopped text from moving down or up on shake effect*/
+ float: left;
  margin: 0 15px 10px 0;
  width: 70px;
  height: 70px;
@@ -281,41 +278,11 @@ th {
  .nav-third-level li a {
      padding-left: 55px;
  }
-
- .sidebar-collapse:hover {
-    width: 250px;
-    overflow: visible;
-   }
- .sidebar-collapse:hover ul { padding-left: 0; }
-
- .sidebar-collapse:hover .hambgr { display: none; }
-
- .sidebar-collapse li {
-  position: relative;
-  display: block;
-  width: 250px;
-  overflow: hidden;
-  border-collapse: collapse;
-  border-spacing: 0;
-  transition: all 0.1s linear 0s;
-  text-decoration: none;
-  z-index: 1;
-  padding: 10px;
- }
-
  .sidebar-collapse , .sidebar-collapse .nav{
- 	background:none;
-  border-right: 1px solid #038ec1;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  overflow: hidden;
-  -webkit-transition: width .05s linear;
-  transition: width .05s linear;
-  -webkit-transform: translateZ(0) scale(1, 1);
-  z-index: 100;
-
+ 	background:#333;
+  font-size: 20px;
+  color: white;
+  text-align: center;
  }
  .sidebar-collapse .nav {
  	padding:0;
@@ -380,7 +347,12 @@ th {
  	border-bottom:none;
 
  }
+ .navbar-cls-top .navbar-brand:hover {
 
+ background: #C90000;
+ color:#fff;
+
+ }
 
  .navbar-default {
  border:0px solid black;
@@ -434,10 +406,11 @@ th {
 
      }
 
+
      .navbar-side {
          z-index: 1;
          position: absolute;
-         width: 60px;
+         width: 260px;
      }
 
     .navbar {

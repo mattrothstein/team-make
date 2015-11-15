@@ -47,27 +47,55 @@
     <div id="page-inner" class = "pre-scrollable" style="max-height: 200px">
       <div class="row">
         <div class="col-md-12">
-          <h2> <%= current_club.club_name.capitalize %> </h2>
-          <h5> <%= current_club.director.capitalize %> Which Season would you like to view? </h5>
+          <h2> <%= current_club.club_name.upcase %> </h2>
+          <h5> <%= current_club.director.capitalize %> Which season would you like to view? </h5>
         </div>
       </div>
       <!-- /. ROW  -->
       <hr />
       <div class="row">
-        <% @seasons.all.each do |season| %>
-        <div class="col-md-3 col-sm-6 col-xs-6">
-          <div class="panel panel-back noti-box">
-            <span class="icon-box bg-color-blue set-icon">
-              <i class="fa fa-trophy"></i>
-            </span>
-            <div class="text-box" >
-              <%=link_to "#{season.year}", club_season_path(current_club, season) %>
+        <% if @seasons.nil? %>
+        <div id="view-seasons" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="view-seasons">
+              <%=link_to "New Season", new_club_season_path(current_club) %>
+            <div class="card-body">
+              <i class="fa fa-calendar fa-4x"></i>
+              <div class="card-body-content">
+                <div class="sub-title">All Seasons</div>
+                <p> You have not created any seasons. Please create a season to start.</p>
+              </div>
             </div>
           </div>
         </div>
+        <%else%>
+        <% @seasons.all.each do |season| %>
+        <% if season.teams.nil? %>
+        <div id="view-seasons" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="view-seasons">
+              <div class="card-body">
+                <i class="fa fa-calendar fa-4x"></i>
+                <div class="card-body-content">
+                  <%=link_to "#{season.year}", club_season_path(current_club, season) %>
+                </div>
+              </div>
+            </div>
+          </div>
+              <% else %>
+              <div id="view-seasons" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="view-seasons">
+              <div class="card-body">
+                <i class="fa fa-calendar fa-4x"></i>
+                <div class="card-body-content">
+                  <%=link_to "#{season.year}", club_season_path(current_club, season), style:'font-size:30px; font-weight:bold'  %><br />
+                  <%= season.teams.count %> teams
+                </div>
+              </div>
+            </div>
+          </div>
+              <%end%>
         <%end%>
-      </div>
-
+      <%end%>
+    </div>
       <hr />
 
       <!-- /. ROW  -->

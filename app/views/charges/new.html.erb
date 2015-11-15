@@ -1,32 +1,28 @@
-<style>
-	.message {
-		width: 80%;
-		height: 200px;
-		background: red;
-		display: none;
-	}
-</style>
-
 <div class="message">
 </div>
-
-<div class="stripe-form">
-	<p>How much</p>
-	<span id="amount" data-tryout="<%= @tryout.id %>" data-price="<%= @tryout.price %>"><%= number_to_currency @tryout.price %></span>
-	<button class="buttonz">Pick me! Pick me!</button>
-</div>
-
-<%= form_tag(tryout_charges_path(@tryout)) do %>
-	<article>
-		<% if flash[:error].present? %>
-			<div id="error_explanation">
-				<p>
-					<%= flash[:error] %>
-				</p>
+<div class="row" style="margin-top: 30px">
+	<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading text-center">
+				<h1><i class="fa fa-credit-card"></i> Tryout Registration</h1>
 			</div>
-		<% end %>
-		<label class ="amount">
-			<span>Amount: <%= @tryout.price %></span>
-		</label>
-	</article>
-<% end %>
+
+			<div class="panel-body text-center">
+				<div class="stripe-form">
+
+						<h4><%= @tryout.season.club.club_name.upcase %></h4>
+						<h5>Location: <%= @tryout.location.upcase %></h5>
+						<h5>Date:     <%= @tryout.date %></h5>
+						<h5>Time:     <%= @tryout.time %></h5>
+
+					<span id="amount" data-tryout="<%= @tryout.id %>" data-price="<%= @tryout.price %>">Price: <%= number_to_currency @tryout.price %></span><br />
+					<br />
+					<button class="buttonz btn btn-primary btn-sm">Submit Payment</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

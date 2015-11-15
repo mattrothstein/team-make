@@ -19,7 +19,7 @@
     <div class="sidebar-collapse">
       <ul class="nav" id="main-menu">
         <li class="text-center">
-          <%= image_tag current_club.logo(:medium) %>
+          <%= image_tag current_club.logo(:medium), class:"img-circle" %>
         </li>
         <li>
           <!-- #replace with Link_to -->
@@ -55,31 +55,37 @@
 
       <!-- /. ROW  -->
       <div class="row">
-        <div class="col-md-9 col-sm-12 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Responsive Table Example
+        <% @tryouts.each do |tryout| %>
+        <div id="view-tryouts" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="view-tryouts">
+            <%= link_to club_season_tryout_path(current_club, @season, tryout) do %>
+            <div class="card-body">
+              <i class="fa fa-users fa-4x"></i>
+              <div class="card-body-content">
+                <%= tryout.location.capitalize %><br>
+                <%= tryout.date %><br>
+                <%= tryout.time %><br>
+              </div>
             </div>
-            <div class="panel-body">
-              <% @tryouts.each do |tryout| %>
-              <%= link_to club_season_tryout_path(current_club, @season, tryout) do %>
-                <div class = "">
-                <%= tryout.location.capitalize %><br />
-                <%= tryout.date %><br />
-                <%= tryout.time %><br />
-              </div><br />
-              <%end%>
-              <%end%>
+          </div>
+          <%end%>
+        </div>
+            <%end%>
             </div>
+              <hr />
+              <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <i class="fa fa-plus-circle"></i>  New Tryout
+                    </div>
+                    <div class="panel-body">
+                      <%= render 'new_tryout' %>
+                    </div>
+                  </div>
+                </div>
           </div>
         </div>
       </div>
-      <hr />
+
     </div>
-  </div>
-  <!-- /. ROW  -->
-</div>
-<!-- /. PAGE INNER  -->
-</div>
-<!-- /. PAGE WRAPPER  -->
-</div>

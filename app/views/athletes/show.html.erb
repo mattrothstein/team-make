@@ -19,7 +19,7 @@
   <div class="sidebar-collapse">
     <ul class="nav" id="main-menu">
       <li class="text-center">
-        <%= image_tag current_athlete.avatar %>
+        <%= image_tag current_athlete.avatar(:medium), class:"img img-circle" %>
       </li>
       <li>
         <!-- #replace with Link_to -->
@@ -31,7 +31,7 @@
       </li>
       <li>
         <!-- #replace with Link_to -->
-        <a><i class="fa fa-trash-o"></i>Delete Profile</a>
+        <%= link_to '<i class="fa fa-trash-o"> &nbsp; Delete Account</i>'.html_safe, [current_athlete], :confirm => 'Are you sure you want to remove this comment? This cannot be undone.', :method => :delete%>
       </li>
     </ul>
   </div>
@@ -115,13 +115,11 @@
                     <% if (season.tryouts)%>
                       <% season.tryouts.each do |tryout| %>
               <tr>
-
                 <td><%= season.club.club_name.capitalize %></td>
                 <td><%= tryout.location.capitalize %></td>
                 <td><%= tryout.date %></td>
                 <td><%= tryout.time %></td>
-                <td class="btn btn-primary"><%= link_to 'Register', new_charge_path(:tryout => tryout.id)%></td>
-
+                <td class="btn btn-primary btn-sm"><%= link_to 'Register', new_charge_path(:tryout => tryout.id)%></td>
               </tr>
                   <% end %>
                 <% end %>

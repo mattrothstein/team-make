@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @tryouts = Tryout.all
+    @tryouts = @season.tryouts.all
     @spot = Spot.new
     @spots = Spot.includes(:athlete).where(team: @team)
   end

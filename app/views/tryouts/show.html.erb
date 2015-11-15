@@ -61,17 +61,23 @@
               <h4><li  class="fa fa-child"> Registered Athletes</li></h4>
             </div>
             <div class="panel-body">
-
-              <div>
+              <table class="table table-striped table-hover ">
+                <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                </tr>
                 <% @tryout.athletes.all.each do |athlete| %>
-                  ATHLETE: <%= athlete.name.upcase %><br />
-                  AGE: <%= athlete.age %><br />
-                  EMAIL: <%= athlete.email.upcase %><br />
-                  <hr>
-                <% end %>
-              </div>
-
-
+                <tr>
+                  <%# image_tag athlete.avatar(:icon)%>
+                  <td><%= athlete.name.upcase %></td>
+                  <td><%= athlete.age %></td>
+                  <td><%= athlete.email.upcase %></td>
+                  <td><%= athlete.telephone %></td>
+                </tr>
+                <%end%>
+              </table>
             </div>
           </div>
         </div>

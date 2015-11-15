@@ -88,20 +88,10 @@ a.main-text {
 }
 
 
+#view-team {
+  background-color: #5cc46d;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#view-team:hover {
+  background-color: #367c42;
+}

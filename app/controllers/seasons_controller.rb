@@ -4,6 +4,7 @@ class SeasonsController < ApplicationController
   def index
     @season = Season.new
     @seasons = @club.seasons.all
+
   end
 
   def new

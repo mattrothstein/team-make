@@ -4,6 +4,7 @@ class TryoutsController < ApplicationController
   before_action :set_tryout_register, only: [:register]
   def index
     @tryouts = Tryout.all
+    @tryout = Tryout.new
   end
 
   def new

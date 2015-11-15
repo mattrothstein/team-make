@@ -1,12 +1,9 @@
+
+
 .panel.panel-back.noti-box {
   height: 14em;
   width: 100%;
 
-}
-
-
-a.main-text {
-  color: white;
 }
 
 
@@ -87,6 +84,19 @@ a.main-text {
   margin: 0 auto;
 }
 
+#page-wrapper .col-md-12 {
+  text-align: center;
+}
+
+
+#team-div {
+  background-color: #f1f1f1;
+}
+
+#teams-row {
+  padding-top: 1em;
+  background-color: #4D4D4D;
+}
 
 #view-team {
   background-color: #5cc46d;

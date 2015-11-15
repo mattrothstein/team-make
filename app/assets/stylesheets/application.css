@@ -58,13 +58,13 @@
  #page-wrapper {
      padding: 15px 15px;
      min-height: 600px;
-     background:#F3F3F3;
+     background: #f1f1f1;
 
  }
  #page-inner {
      width:100%;
      margin:10px 20px 10px 0px;
-     background-color:#fff!important;
+     background-color: #f1f1f1;
      padding:10px;
      min-height:1200px;
  }
@@ -343,12 +343,7 @@
  	border-bottom:none;
 
  }
- .navbar-cls-top .navbar-brand:hover {
 
- background: #C90000;
- color:#fff;
-
- }
 
  .navbar-default {
  border:0px solid black;

@@ -53,6 +53,85 @@
   <div id="page-wrapper" >
     <div id="page-inner" class = "pre-scrollable" style="max-height: 200px">
       <div class="row">
+      <div id="manage-club" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="manage-club">
+          <%= link_to club_season_path(current_club, current_season) do %>
+          <div class="card-body">
+            <i class="fa fa-tachometer fa-4x"></i>
+            <div class="card-body-content">
+              <div class="sub-title">Manage Club</div>
+            </div>
+          </div>
+        </div>
+        <%end%>
+      </div>
+      <div id="update-club-info" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="update-club-info">
+          <%= link_to edit_club_path(current_club, current_season) do %>
+          <div class="card-body">
+            <i class="fa fa-wrench fa-4x"></i>
+            <div class="card-body-content">
+              <div class="sub-title">Update Club Info</div>
+            </div>
+          </div>
+        </div>
+        <%end%>
+      </div>
+      <div id="post-tryout" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="post-tryout">
+          <%= link_to new_club_season_tryout_path(current_club, @season) do %>
+          <div class="card-body">
+            <i class="fa fa-users fa-4x"></i>
+            <div class="card-body-content">
+              <div class="sub-title">Post Tryout</div>
+            </div>
+          </div>
+        </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="row">
+    <div id="view-seasons" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <div class="view-seasons">
+        <%= link_to club_seasons_path(current_club) do %>
+        <div class="card-body">
+          <i class="fa fa-calendar fa-4x"></i>
+          <div class="card-body-content">
+            <div class="sub-title">All Seasons</div>
+          </div>
+        </div>
+      </div>
+      <%end%>
+    </div>
+
+    <div id="view-tryouts" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <div class="view-tryouts">
+        <%= link_to club_season_tryouts_path(current_club, @season) do %>
+        <div class="card-body">
+          <i class="fa fa-database fa-4x"></i>
+          <div class="card-body-content">
+            <div class="sub-title">All Tryouts</div>
+          </div>
+        </div>
+      </div>
+      <%end%>
+    </div>
+  <div id="delete-club-account" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <div class="delete-club-account">
+      <%= link_to root_path do %>
+      <div class="card-body">
+        <i class="fa fa-trash-o fa-4x"></i>
+        <div class="card-body-content">
+          <div class="sub-title">Delete Club</div>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>
+
+
+      <div class="row">
         <div class="col-md-12">
           <h2> <%= current_club.club_name.capitalize %> </h2>
           <h5>Welcome back <%= current_club.director.capitalize %>. Start making new <%= current_club.sport.capitalize %> teams. </h5>

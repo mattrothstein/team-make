@@ -3,6 +3,17 @@ class AthletesController < ApplicationController
   before_action :set_spot, only: [:accept_invite, :decline_invite]
 
   def index
+    if params[:search]
+      @athlete = Athlete.search(params[:search]).order("created_at DESC")
+      redirect_to :back
+    else
+      @athletes = Athlete.order("created_at DESC") if params[:search].present?
+      redirect_to :back
+    end
+  end
+
+  def search
+
   end
 
   def new
@@ -57,6 +68,7 @@ class AthletesController < ApplicationController
     redirect_to current_athlete
     @spot.save
   end
+
 
   private
   def athlete_params

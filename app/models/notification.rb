@@ -10,7 +10,7 @@ class Notification
 
     message = client.messages.create from: '+12566932035', to: athlete_number, body: text
 
-    message.body
+    AthleteMailer.invite_athlete(athlete.email).deliver_now
   end
 
 end

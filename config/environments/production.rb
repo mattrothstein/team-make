@@ -79,4 +79,11 @@ Rails.application.configure do
 
   ## twilio
   config.middleware.use Rack::TwilioWebhookAuthentication, Rails.application.secrets.twilio_auth_token, '/voice'
+
+  ## mailgun
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+        api_key: '71ad3cff3c52b6c10d2c7d8e17e4f7c6',
+        domain: 'sandboxf420c80bd3394b82b05fb77cf43ea1f4.mailgun.org'
+}
 end

@@ -24,8 +24,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
-## Twilio
+# Twilio
 gem 'twilio-ruby', '~> 4.2.1'
+
+# Mailgun for sending mail
+gem 'mailgun_rails'
 
 # Paperclip for images
 gem "paperclip", "~> 4.3"

@@ -72,9 +72,10 @@
             </div>
             <div class="panel-body pre-scrollable" style = 'max-height: 400px; background-color: white; border-radius: 15px'>
               <table class="table table-striped table-hover">
-                <% @tryouts.each do |tryout| %>
-                  <% tryout.athletes.all.each do |athlete|%>
-                    <% if (athlete.age <= @team.age_group) %>
+
+                <% @tryouts.includes(:athletes).each do |tryout| %>
+                  <% tryout.athletes.each do |athlete|%>
+                    <% if (athlete.age == @team.age_group) %>
                       <tr class="active">
                         <td><%= athlete.name.capitalize %></td>
                         <td><%= render 'spots/new_spot', athlete: athlete %></td>
@@ -100,14 +101,12 @@
                     <th>Athlete Age</th>
                     <th>Athlete Invite Status</th>
                   </tr>
-                  <% @spots.each do |x| %>
-                  <% if (x.team.id == @team.id)%>
-                  <tr class="active">
-                    <td><%= (Athlete.find_by(id: x.athlete_id)).name.capitalize %> </td>
-                    <td><%= (Athlete.find_by(id: x.athlete_id)).age %> </td>
-                    <td><%= x.invite_status.capitalize %></td>
-                  </tr>
-                  <% end %>
+                  <% @spots.each do |spot| %>
+                    <tr class="active">
+                      <td><%= spot.athlete.name.capitalize %> </td>
+                      <td><%= spot.athlete.age %> </td>
+                      <td><%= spot.invite_status.capitalize %></td>
+                    </tr>
                   <% end %>
                 </table>
               </div>

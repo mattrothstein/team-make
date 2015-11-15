@@ -1,7 +1,7 @@
 class TryoutsController < ApplicationController
   before_action :set_season, except: [:register]
-  before_action :set_tryout, only: [:edit, :show, :destroy, :register]
-
+  before_action :set_tryout, only: [:edit, :show, :destroy]
+  before_action :set_tryout_register, only: [:register]
   def index
     @tryouts = Tryout.all
   end
@@ -43,8 +43,10 @@ end
  def set_season
    @season = Season.find(params[:season_id])
  end
- def set_tryout
+ def set_tryout_register
    @tryout = Tryout.find(params[:tryout_id])
  end
-
+ def set_tryout
+   @tryout = Tryout.find(params[:id])
+ end
 end

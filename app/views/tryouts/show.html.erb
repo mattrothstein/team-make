@@ -19,7 +19,7 @@
     <div class="sidebar-collapse">
       <ul class="nav" id="main-menu">
         <li class="text-center">
-          <%= image_tag current_club.logo(:medium) %>
+          <%= image_tag current_club.logo(:medium), class:"img-circle" %>
         </li>
         <li>
           <!-- #replace with Link_to -->
@@ -51,30 +51,23 @@
   </nav>
   <!-- /. NAV SIDE  -->
   <div id="page-wrapper" >
-    <div id="page-inner" class = "pre-scrollable" style="max-height: 200px">
+    <div id="page-inner" class = "pre-scrollable" style="max-height: 100px">
 
       <!-- /. ROW  -->
       <div class="row">
         <div class="col-md-9 col-sm-12 col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              Responsive Table Example
+              <h4><li  class="fa fa-child"> Registered Athletes</li></h4>
             </div>
             <div class="panel-body">
 
-
-                <div class = "">
-                <%= @tryout.location.capitalize %><br />
-                <%= @tryout.date %><br />
-                <%= @tryout.time %><br />
-
-              </div><br />
               <div>
                 <% @tryout.athletes.all.each do |athlete| %>
-                  <%= athlete.name %><br />
-                  <%= athlete.age %><br />
-                  <%= athlete.email %><br />
-                  <%= athlete.user_name %><br />
+                  ATHLETE: <%= athlete.name.upcase %><br />
+                  AGE: <%= athlete.age %><br />
+                  EMAIL: <%= athlete.email.upcase %><br />
+                  <hr>
                 <% end %>
               </div>
 

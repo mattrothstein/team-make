@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_season
-    @current_season = Season.last
+    @current_season = current_club.seasons.last
   end
 
   def current_athlete

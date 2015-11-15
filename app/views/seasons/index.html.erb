@@ -54,20 +54,32 @@
       <!-- /. ROW  -->
       <hr />
       <div class="row">
-        <% @seasons.all.each do |season| %>
-        <div class="col-md-3 col-sm-6 col-xs-6">
+        <% if @seasons.nil? %>
+        <div class="col-md-3 col-sm-6 col-xs-6 text-center">
           <div class="panel panel-back noti-box">
-            <span class="icon-box bg-color-blue set-icon">
-              <i class="fa fa-trophy"></i>
-            </span>
             <div class="text-box" >
+              <p> You have not created any seasons. Please create a season to start.</p>
+              <%=link_to "New Season", new_club_season_path(current_club) %>
+            </div>
+          </div>
+        </div>
+        <%else%>
+        <% @seasons.all.each do |season| %>
+        <div class="col-md-3 col-sm-6 col-xs-6 text-center" >
+          <div class="panel panel-back noti-box">
+            <div class="text-box" >
+              <% if season.teams.nil? %>
               <%=link_to "#{season.year}", club_season_path(current_club, season) %>
+              <% else %>
+              <%=link_to "#{season.year}", club_season_path(current_club, season)  %><br />
+              <%= season.teams.count %> teams.
+              <%end%>
             </div>
           </div>
         </div>
         <%end%>
       </div>
-
+      <%end%>
       <hr />
 
       <!-- /. ROW  -->

@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html"><%= current_club.club_name.capitalize %></a>
+      <div class="navbar-brand"><%= current_club.club_name.capitalize %></div>
     </div>
     <div style="color: white;
     padding: 15px 50px 5px 50px;
@@ -110,7 +110,7 @@
         <div class="card-body">
           <i class="fa fa-database fa-4x"></i>
           <div class="card-body-content">
-            <div class="sub-title">All Tryouts</div>
+            <div class="sub-title">View All Tryouts</div>
           </div>
         </div>
       </div>
@@ -139,11 +139,11 @@
       </div>
       <!-- /. ROW  -->
 
-      <div class="row">
+      <div id="teams-row" class="row">
 
         <% @season.teams.each do |team| %>
         <div class="col-md-3 col-sm-6 col-xs-6">
-          <div class="panel panel-back noti-box">
+          <div id="team-div" class="panel panel-back noti-box">
             <span class="icon-box bg-color-blue set-icon">
               <i class="fa fa-trophy"></i>
             </span>
@@ -159,7 +159,7 @@
 
       <!-- /. ROW  -->
       <div class="row">
-        <div class="col-md-6 col-sm-12 col-xs-12">
+        <div id="new-team-form "class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
           <div class="panel panel-default">
             <div class="panel-heading">
               <i class="fa fa-plus-circle"></i>  New Team
@@ -172,7 +172,7 @@
 
         <!-- /. ROW  -->
 
-        <div class="col-md-9 col-sm-12 col-xs-12">
+        <div class="col-md-9 col-sm-12 col-xs-12 col-md-offset-1">
 
           <div class="panel panel-default">
             <div class="panel-heading">

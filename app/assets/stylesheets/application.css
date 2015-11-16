@@ -65,7 +65,7 @@
  #page-inner {
      width:100%;
      margin:10px 20px 10px 0px;
-     background-color:#fff!important;
+     background-color: #fff;
      padding:10px;
      min-height:1200px;
  }
@@ -296,7 +296,7 @@
   }
 
  .sidebar-collapse div:nth-child(even){
-  
+
  }
  .sidebar-collapse .nav {
  	padding:0;

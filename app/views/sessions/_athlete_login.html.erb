@@ -1,15 +1,18 @@
 		<div class="club_form_h1">
-			<h1>Athlete Login</h1>
+			<h4>Athlete</h4>
 		</div>
 			<%= form_tag sessions_login_athlete_path do %>
-		
+
 			  <div class="form-group">
-			    <%= email_field_tag :email%>
+			    <%= email_field_tag :email, nil, placeholder: "email@example.com" %>
 			  </div>
 				<div class="form-group">
-			    <%= password_field_tag :password%>
+			    <%= password_field_tag :password, nil, placeholder: "password"%>
 			  </div>
-				<div class="action">
-				  <%= submit_tag "Log In" %><br />
+				<div class="action home-login">
+				  <%= submit_tag "Log In" %>
+           <%= link_to new_athlete_path do %>
+            <input type="submit" name="commit" value="Sign Up" class="btn btn-success btn-sm">
+           <% end %><br />
 				</div>
 			<% end %>

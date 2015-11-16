@@ -21,32 +21,19 @@
         <li class="text-center">
           <%= image_tag current_club.logo(:medium), class:"img img-circle" %>
         </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-tachometer"> &nbsp; Manage Club</i>'.html_safe, club_season_path(current_club, @season)%>
-
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-wrench">  &nbsp;  Update Club Info</i>'.html_safe, edit_club_path(current_club, @season)%>
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-wrench">  &nbsp;  Post Tryout</i>'.html_safe,  new_club_season_tryout_path(current_club, @season)%>
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-wrench">  &nbsp; View Seasons</i>'.html_safe,  club_seasons_path(current_club)%>
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-users">  &nbsp; View All Tryouts</i>'.html_safe,  club_season_tryouts_path(current_club, @season)%>
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <a><i class="fa fa-trash-o"></i>Delete Club Account</a>
-        </li>
       </ul>
+        <div class= "club-director">Club Director</div>
+        <div class= "director"><%= "#{@club.director}" %></div>
+        <div class= "club-sport">Sport</div>
+        <div class= "sport"><%= "#{@club.sport}" %></div>
+        <div class= "season-year">Season Year</div>
+        <div class= "year"><%= "#{@season.year}" %></div>
+        <div class= "team-list">Teams</div>
+        <div class= "teams">
+          <% @season.teams.each do |team| %>
+            <%=team.name.upcase%>
+        </div>
+        <%end%>
     </div>
   </nav>
   <!-- /. NAV SIDE  -->
@@ -133,22 +120,22 @@
 
       <div class="row">
         <div class="col-md-12">
-          <h2> <%= current_club.club_name.capitalize %> </h2>
-          <h5>Welcome back <%= current_club.director.capitalize %>. You are currently viewing the <b><%=@season.year %></b>  Season. Start making new <%= current_club.sport.capitalize %> teams. </h5>
+
+          <h3>Welcome <%= current_club.director.capitalize %>! Start making new <%= current_club.sport.capitalize %> teams. </h3>
         </div>
       </div>
 
       <hr />
       <div class="row">
         <% @season.teams.each do |team| %>
-        <div id="view-team" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-          <div class="view-team">
-            <%=link_to  club_season_team_path(current_club, @season, team), class: "main-text" do %>
-            <div class="card-body">
-              <div class="card-body-content">
-                <%=team.name.upcase%>
+          <div id="view-team" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div class="view-team">
+              <%=link_to  club_season_team_path(current_club, @season, team), class: "main-text" do %>
+              <div class="card-body">
+                <div class="card-body-content">
+                  <%=team.name.upcase%>
+                </div>
               </div>
-            </div>
             <%end%>
           </div>
         </div>
@@ -162,7 +149,7 @@
 
       <!-- /. ROW  -->
       <div class="row">
-        <div id="new-team-form "class="col-md-6 col-sm-12 col-xs-12">
+        <div id="new-team-form "class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
               <i class="fa fa-plus-circle"></i>  New Team
@@ -172,31 +159,30 @@
             </div>
           </div>
         </div>
+</div>
+        <!-- /. ROW  -->
 
-        <div id="new-team-form "class="col-md-6 col-sm-12 col-xs-12">
+        <div class="row">
+        <div id="new-team-form "class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 text-center">
           <div class="panel panel-default">
             <div class="panel-heading">
               <i class="fa fa-plus-circle"></i>  Confirmed Athletes
             </div>
             <div class="panel-body pre-scrollable">
-              <div class="holder"
-              <div class="teams">
-                <% @teams.each do |team| %>
-                <%= team.name.upcase %> | <br>
-                <%end%>
-              </div>
-              <div class="chart">
               <% @teams.each do |team| %>
-              <div style="width: <%=team.spots.accepted.count == 0 ? 25 : team.spots.accepted.count * 50%>px;"> <%=team.spots.accepted.count%></div><br />
-              <%end%>
-              </div>
-            </div>
-
+              <div class="progress">
+                <%= team.name.upcase %>
+    <div class="progress-bar" style="width: <%=team.spots.accepted.count == 0 ? 25 : team.spots.accepted.count * 50%>px;">
+        <%=team.spots.accepted.count%>
+    </div>
+</div>
+<%end%>
             </div>
           </div>
         </div>
-      </div>
 
+</div>
+        <!-- /. ROW  -->
       </div>
       <!-- /. ROW  -->
     </div>

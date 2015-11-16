@@ -25,7 +25,6 @@ header .dropdown a {
 }
 
 .dropdown:after {
-  content: "\25BC";
   font-size: 1em;
 
 }
@@ -104,7 +103,7 @@ header h1 {
   font-weight: 900;
 }
 
-.container-fluid header h1 {
+/*.container-fluid h1 {
   font-family: "Titillium Web";
   font-weight: 900;
   font-size: 3.5em;
@@ -113,12 +112,20 @@ header h1 {
   padding-left: 1em;
   padding-top: 0.25em;
   width: 50%;
-}
+}*/
 
 header .fa .fa-bars {
   color: white;
   padding: 0;
   margin-top: 0;
+}
+
+#home-title h1 {
+  font-family: "Titillium Web";
+  font-weight: 900;
+  color: white;
+  font-size: 6em;
+  text-align: center;
 }
 
 
@@ -127,8 +134,8 @@ header .fa .fa-bars {
   width: 100%;
   border: 1px solid black;
   height: 50em;
-  /*background-image: url('epicvbpicoriginal.jpg');*/
-  background-color: #2b9af3;
+  background-image: url('baseteam.jpg');
+
   background-repeat: no-repeat;
   background-size: 100% 100%;
   z-index: 2;
@@ -138,8 +145,8 @@ header .fa .fa-bars {
 .landing_body .register {
   border: 0;
   text-align: center;
-  height: 75%;
-  width: 80%;
+  height: 8em;
+  width: 6em;
   background-color: white;
   margin-top: 9em;
   margin-left: auto;
@@ -179,7 +186,7 @@ header .fa .fa-bars {
   color: black;
 }
 
-.register button.athlete_sign_up {
+/*.register button.athlete_sign_up {
   background-color: red;
   color: white;
   border: 0;
@@ -199,18 +206,106 @@ header .fa .fa-bars {
 
 .register a:hover {
   color: #2b9af3;
-}
+}*/
 
 
 .sales {
-  height: 30em;
+  height: 24em;
+  background-color: #f1f1f1;
+}
+
+.login-forms {
+  background-color: rgba(0,0,0,0.70);
+  width: 42em;
+  height: 24em;
+  text-align: center;
+  color: white;
+  margin-left: ;
+  border-radius: 0.5em;
+  margin-top: 20em;
+}
+
+.login-forms h2 {
+  color: white;
+}
+
+.login-forms h4 {
+  color: white;
+}
+
+.login-forms input {
+  border: 0;
+  border-radius: 0.25em;
+  padding: 10px;
+  padding-right: 5em;
 }
 
 
+.col-md-2.login h2 {
+  color: white;
+}
 
+.col-md-2.login {
+  width: 18em;
+  margin: 0 auto;
+  color: black;
+  padding-left: 3.5em;
+}
 
+.home-login input {
+  background-color: #22A7F0;
+  border: 0;
+  border-radius: 0.25em;
+  color: white;
+  font-family: "Open Sans";
+  padding-right: 0.75em;
+  margin-left: 0.5em;
+}
 
+.from-group {
+  text-align: center;
+}
 
+.btn.btn-success.btn-sm {
+  margin-top: 5px;
+  border-radius: 0.25em;
+  background-color: #5cb85c;
+  font-size: 1em;
+  margin-top: -0.25em;
+  padding-right: 0.75em;
+}
+
+.about-us-header {
+  text-align: center;
+}
+
+.about-us {
+  width: 100%;
+  height: 30em;
+  background-color: white;
+}
+
+.about-us .col-md-4 {
+  border: 1px solid black;
+  height: 30em;
+  text-align: center;
+}
+
+.product-show-header{
+  text-align: center;
+}
+
+.product-show {
+  background-color: white;
+  width: 100%;
+  height: 30em;
+}
+
+.product-show .col-md-6 {
+  border: 1px solid black;
+  text-align: center;
+  height: 30em;
+}
 
 
 

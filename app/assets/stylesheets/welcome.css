@@ -286,7 +286,7 @@ header .fa .fa-bars {
 
 .about-us .col-md-4 {
   border: 1px solid black;
-  height: 30em;
+  height: em;
   text-align: center;
 }
 
@@ -303,12 +303,34 @@ header .fa .fa-bars {
 .product-show .col-md-6 {
   border: 1px solid black;
   text-align: center;
-  height: 30em;
+  height: em;
 }
 
+.about-us-image {
+  border-radius: 25%;
+  height: 18em;
+  width: 16em;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
 
+.about-us {
+  background-color: #f1f1f1;
+}
 
+#one {
+  background-image: url("jose_cartagena_BW.jpg");
+}
 
+#two {
+
+  background-image: url("daniel_munoz_BW.jpg");
+}
+
+#three {
+  background-image: url("matthew_rothstein.jpg");
+}
 
 
 

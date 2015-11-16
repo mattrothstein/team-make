@@ -5,10 +5,10 @@ class ChargesControllerTest < ActionController::TestCase
   #   assert true
   # end
 
-  test "should get new" do
-  	get :new
-  	assert_response :success
-  end
+  # test "should get new" do
+  # 	get :new
+  # 	assert_response :success
+  # end
 
   # test "should create charge" do
   # 	post :create

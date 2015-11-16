@@ -22,18 +22,18 @@
           <%= image_tag current_club.logo(:medium), class:"img img-circle" %>
         </li>
       </ul>
-        <div class= "club-director">Club Director</div>
-        <div class= "director"><%= "#{@club.director}" %></div>
-        <div class= "club-sport">Sport</div>
-        <div class= "sport"><%= "#{@club.sport}" %></div>
-        <div class= "season-year">Season Year</div>
-        <div class= "year"><%= "#{@season.year}" %></div>
-        <div class= "team-list">Teams</div>
-        <div class= "teams">
-          <% @season.teams.each do |team| %>
-            <%=team.name.upcase%>
-        </div>
-        <%end%>
+      <div class= "club-director">Club Director</div>
+      <div class= "director"><%= "#{@club.director}" %></div>
+      <div class= "club-sport">Sport</div>
+      <div class= "sport"><%= "#{@club.sport}" %></div>
+      <div class= "season-year">Season Year</div>
+      <div class= "year"><%= "#{@season.year}" %></div>
+      <div class= "team-list">Teams</div>
+      <div class= "teams">
+        <% @season.teams.each do |team| %>
+        <%=team.name.upcase%>
+      </div>
+      <%end%>
     </div>
   </nav>
   <!-- /. NAV SIDE  -->
@@ -128,14 +128,14 @@
       <hr />
       <div class="row">
         <% @season.teams.each do |team| %>
-          <div id="view-team" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-            <div class="view-team">
-              <%=link_to  club_season_team_path(current_club, @season, team), class: "main-text" do %>
-              <div class="card-body">
-                <div class="card-body-content">
-                  <%=team.name.upcase%>
-                </div>
+        <div id="view-team" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="view-team">
+            <%=link_to  club_season_team_path(current_club, @season, team), class: "main-text" do %>
+            <div class="card-body">
+              <div class="card-body-content">
+                <%=team.name.upcase%>
               </div>
+            </div>
             <%end%>
           </div>
         </div>
@@ -159,10 +159,10 @@
             </div>
           </div>
         </div>
-</div>
-        <!-- /. ROW  -->
+      </div>
+      <!-- /. ROW  -->
 
-        <div class="row">
+      <div class="row">
         <div id="new-team-form "class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 text-center">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -172,21 +172,21 @@
               <% @teams.each do |team| %>
               <div class="progress">
                 <%= team.name.upcase %>
-    <div class="progress-bar" style="width: <%=team.spots.accepted.count == 0 ? 25 : team.spots.accepted.count * 50%>px;">
-        <%=team.spots.accepted.count%>
-    </div>
-</div>
-<%end%>
+                <div class="progress-bar" style="width: <%=team.spots.accepted.count == 0 ? 5 : team.spots.accepted.count * 10%>%;">
+                  <%=team.spots.accepted.count%>
+                </div>
+              </div>
+              <%end%>
             </div>
           </div>
         </div>
 
-</div>
-        <!-- /. ROW  -->
       </div>
       <!-- /. ROW  -->
     </div>
+    <!-- /. ROW  -->
   </div>
+</div>
 </div>
 <!-- /. ROW  -->
 </div>

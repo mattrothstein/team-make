@@ -53,7 +53,7 @@
 
   #wrapper {
      width: 100%;
-     background:#202020;
+     background:#333;
  }
 
  #page-wrapper {
@@ -280,9 +280,23 @@
  }
  .sidebar-collapse , .sidebar-collapse .nav{
  	background:#333;
-  font-size: 20px;
+  font-size: 23px;
   color: white;
   text-align: center;
+ }
+
+ .sidebar-collapse div {
+  background-color: #444;
+  font-family: "Titillium Web";
+ }
+ .sidebar-collapse div:nth-child(odd){
+  background-color: #333  ;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  }
+
+ .sidebar-collapse div:nth-child(even){
+  
  }
  .sidebar-collapse .nav {
  	padding:0;

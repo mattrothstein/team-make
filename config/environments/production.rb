@@ -86,4 +86,13 @@ Rails.application.configure do
         api_key: '71ad3cff3c52b6c10d2c7d8e17e4f7c6',
         domain: 'sandboxf420c80bd3394b82b05fb77cf43ea1f4.mailgun.org'
 }
+
+  config.paperclip_defaults = {
+    :storage => :s3
+    :s3_credentials => {
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
 end

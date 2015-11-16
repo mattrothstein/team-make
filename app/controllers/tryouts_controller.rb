@@ -39,7 +39,7 @@ class TryoutsController < ApplicationController
 
 private
 def tryout_params
-  params.require(:tryout).permit(:location, :date, :time, :season_id)
+  params.require(:tryout).permit(:location, :date, :price, :time, :season_id)
 end
  def set_season
    @season = Season.find(params[:season_id])

@@ -15,6 +15,7 @@
  */
  body {
      font-family: 'Open Sans', sans-serif;
+     background: #333;
  }
 
 #notice {
@@ -52,13 +53,13 @@
 
   #wrapper {
      width: 100%;
-     background:#202020;
+     background:#333;
  }
 
  #page-wrapper {
      padding: 15px 15px;
      min-height: 600px;
-     background: #f1f1f1;
+     background:#F3F3F3;
 
  }
  #page-inner {
@@ -107,7 +108,7 @@
 
      .noti-box .icon-box {
  display: block;
-/* float: left;   stopped text from moving down or up on shake effect*/
+ float: left;
  margin: 0 15px 10px 0;
  width: 70px;
  height: 70px;
@@ -278,7 +279,24 @@
      padding-left: 55px;
  }
  .sidebar-collapse , .sidebar-collapse .nav{
- 	background:none;
+ 	background:#333;
+  font-size: 23px;
+  color: white;
+  text-align: center;
+ }
+
+ .sidebar-collapse div {
+  background-color: #444;
+  font-family: "Titillium Web";
+ }
+ .sidebar-collapse div:nth-child(odd){
+  background-color: #333  ;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  }
+
+ .sidebar-collapse div:nth-child(even){
+
  }
  .sidebar-collapse .nav {
  	padding:0;
@@ -343,7 +361,12 @@
  	border-bottom:none;
 
  }
+ .navbar-cls-top .navbar-brand:hover {
 
+ background: #C90000;
+ color:#fff;
+
+ }
 
  .navbar-default {
  border:0px solid black;

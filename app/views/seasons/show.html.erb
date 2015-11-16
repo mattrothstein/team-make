@@ -21,32 +21,19 @@
         <li class="text-center">
           <%= image_tag current_club.logo(:medium), class:"img img-circle" %>
         </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-tachometer"> &nbsp; Manage Club</i>'.html_safe, club_season_path(current_club, current_season)%>
-
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-wrench">  &nbsp;  Update Club Info</i>'.html_safe, edit_club_path(current_club, current_season)%>
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-wrench">  &nbsp;  Post Tryout</i>'.html_safe,  new_club_season_tryout_path(current_club, @season)%>
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-wrench">  &nbsp; View Seasons</i>'.html_safe,  club_seasons_path(current_club)%>
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <%= link_to '<i class="fa fa-users">  &nbsp; View All Tryouts</i>'.html_safe,  club_season_tryouts_path(current_club, @season)%>
-        </li>
-        <li>
-          <!-- #replace with Link_to -->
-          <a><i class="fa fa-trash-o"></i>Delete Club Account</a>
-        </li>
       </ul>
+        <div class= "club-director">Club Director</div>
+        <div class= "director"><%= "#{@club.director}" %></div>
+        <div class= "club-sport">Sport</div>
+        <div class= "sport"><%= "#{@club.sport}" %></div>
+        <div class= "season-year">Season Year</div>
+        <div class= "year"><%= "#{@season.year}" %></div>
+        <div class= "team-list">Teams</div>
+        <div class= "teams">
+          <% @season.teams.each do |team| %>
+            <%=team.name.upcase%>
+        </div>
+        <%end%>
     </div>
   </nav>
   <!-- /. NAV SIDE  -->
@@ -141,27 +128,25 @@
 <hr />
       <div class="row">
         <% @season.teams.each do |team| %>
-        <div id="view-team" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-          <div class="view-team">
-            <div class="card-body">
-              <i class="fa fa-clipboard fa-4x"></i>
-              <div class="card-body-content">
-                <%=link_to "#{team.name.upcase}", club_season_team_path(current_club, @season, team), class: "main-text" %>
+          <div id="view-team" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div class="view-team">
+              <%=link_to  club_season_team_path(current_club, @season, team), class: "main-text" do %>
+              <div class="card-body">
+                <div class="card-body-content">
+                  <%=team.name.upcase%>
+                </div>
               </div>
-
+              <%end%>
             </div>
           </div>
-          </div>
-          <%end%>
-
-
-</div>
+        <%end%>
+      </div>
 
       <hr />
 
       <!-- /. ROW  -->
       <div class="row">
-        <div id="new-team-form "class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+        <div id="new-team-form "class="col-md-6 col-sm-12 col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
               <i class="fa fa-plus-circle"></i>  New Team
@@ -176,74 +161,35 @@
 
         <div class="col-md-9 col-sm-12 col-xs-12 col-md-offset-1">
 
+      </div>
+        <div class="row">
+        <div id="new-team-form "class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 text-center">
           <div class="panel panel-default">
             <div class="panel-heading">
-              Responsive Table Example
+              <i class="fa fa-plus-circle"></i>  All Teams
             </div>
             <div class="panel-body">
-              <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
-                      <th>User No.</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>100090</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>100090</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>100090</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>100090</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>100090</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>100090</td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
+<table class="table table-striped table-hover">
+      <tr>
+        <th>Team Name</th>
+        <th>Age Group</th>
+        <th>Roster Size</th>
+        <th>Confirmed Athletes</th>
+      </tr>
+              <% @teams.each do |team| %>
+              <tr>
+                <td><%=team.name.upcase%></td>
+                <td><%=team.age_group%></td>
+                <td><%=team.roster_size%></td>
+                <td><%=team.spots.accepted.count%></td>
+              </tr>
+              <%end%>
+            </table>
             </div>
           </div>
-
         </div>
-
+</div>
+        <!-- /. ROW  -->
       </div>
     </div>
   </div>

@@ -115,13 +115,11 @@
                     <% if (season.tryouts)%>
                       <% season.tryouts.each do |tryout| %>
               <tr>
-
                 <td><%= season.club.club_name.capitalize %></td>
                 <td><%= tryout.location.capitalize %></td>
                 <td><%= tryout.date %></td>
                 <td><%= tryout.time %></td>
-                <td class="btn btn-primary"><%= link_to 'Register', new_charge_path(:tryout => tryout.id)%></td>
-
+                <td class="btn btn-primary btn-sm"><%= link_to 'Register', new_charge_path(:tryout => tryout.id)%></td>
               </tr>
                   <% end %>
                 <% end %>

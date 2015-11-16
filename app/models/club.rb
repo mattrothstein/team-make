@@ -12,6 +12,4 @@ class Club < ActiveRecord::Base
               uniqueness: { case_senstive: false }
   validates :password, presence: true, length: { minimum: 6 }
   before_save { self.email = email.downcase }
-
-
 end

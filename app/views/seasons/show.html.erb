@@ -22,124 +22,127 @@
           <%= image_tag current_club.logo(:medium), class:"img img-circle" %>
         </li>
       </ul>
-        <div class= "club-director">Club Director</div>
-        <div class= "director"><%= "#{@club.director}" %></div>
-        <div class= "club-sport">Sport</div>
-        <div class= "sport"><%= "#{@club.sport}" %></div>
-        <div class= "season-year">Season Year</div>
-        <div class= "year"><%= "#{@season.year}" %></div>
-        <div class= "team-list">Teams</div>
-        <div class= "teams">
-          <% @season.teams.each do |team| %>
-            <%=team.name.upcase%>
-        </div>
-        <%end%>
+      <div class= "club-director">Club Director</div>
+      <div class= "director"><%= "#{@club.director}" %></div>
+      <div class= "club-sport">Sport</div>
+      <div class= "sport"><%= "#{@club.sport}" %></div>
+      <div class= "season-year">Season Year</div>
+      <div class= "year"><%= "#{@season.year}" %></div>
+      <div class= "team-list">Teams</div>
+      <div class= "teams">
+        <% @season.teams.each do |team| %>
+        <%=team.name.upcase%>
+      </div>
+      <%end%>
     </div>
   </nav>
   <!-- /. NAV SIDE  -->
   <div id="page-wrapper" >
     <div id="page-inner" class = "pre-scrollable" style="max-height: 200px">
       <div class="row">
-      <div id="manage-club" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="manage-club">
-          <%= link_to club_season_path(current_club, current_season) do %>
-          <div class="card-body">
-            <i class="fa fa-tachometer fa-4x"></i>
-            <div class="card-body-content">
-              <div class="sub-title">Manage Club</div>
+        <div id="manage-club" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="manage-club">
+            <%= link_to club_season_path(current_club, @season) do %>
+            <div class="card-body">
+              <i class="fa fa-tachometer fa-4x"></i>
+              <div class="card-body-content">
+                <div class="sub-title">Manage Club</div>
+              </div>
             </div>
           </div>
+          <%end%>
         </div>
-        <%end%>
-      </div>
-      <div id="update-club-info" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="update-club-info">
-          <%= link_to edit_club_path(current_club, current_season) do %>
-          <div class="card-body">
-            <i class="fa fa-wrench fa-4x"></i>
-            <div class="card-body-content">
-              <div class="sub-title">Update Club Info</div>
+        <div id="update-club-info" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="update-club-info">
+            <%= link_to edit_club_path(current_club, @season) do %>
+            <div class="card-body">
+              <i class="fa fa-wrench fa-4x"></i>
+              <div class="card-body-content">
+                <div class="sub-title">Update Club Info</div>
+              </div>
             </div>
           </div>
+          <%end%>
         </div>
-        <%end%>
-      </div>
-      <div id="post-tryout" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="post-tryout">
-          <%= link_to new_club_season_tryout_path(current_club, @season) do %>
-          <div class="card-body">
-            <i class="fa fa-users fa-4x"></i>
-            <div class="card-body-content">
-              <div class="sub-title">Post Tryout</div>
+        <div id="post-tryout" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="post-tryout">
+            <%= link_to new_club_season_tryout_path(current_club, @season) do %>
+            <div class="card-body">
+              <i class="fa fa-users fa-4x"></i>
+              <div class="card-body-content">
+                <div class="sub-title">Post Tryout</div>
+              </div>
             </div>
           </div>
+          <%end%>
         </div>
-        <%end%>
       </div>
-    </div>
-    <div class="row">
-    <div id="view-seasons" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-      <div class="view-seasons">
-        <%= link_to club_seasons_path(current_club) do %>
-        <div class="card-body">
-          <i class="fa fa-calendar fa-4x"></i>
-          <div class="card-body-content">
-            <div class="sub-title">All Seasons</div>
+      <div class="row">
+        <div id="view-seasons" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="view-seasons">
+            <%= link_to club_seasons_path(current_club) do %>
+            <div class="card-body">
+              <i class="fa fa-calendar fa-4x"></i>
+              <div class="card-body-content">
+                <div class="sub-title">All Seasons</div>
+              </div>
+            </div>
           </div>
+          <%end%>
         </div>
-      </div>
-      <%end%>
-    </div>
 
-    <div id="view-tryouts" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-      <div class="view-tryouts">
-        <%= link_to club_season_tryouts_path(current_club, @season) do %>
-        <div class="card-body">
-          <i class="fa fa-database fa-4x"></i>
-          <div class="card-body-content">
-            <div class="sub-title">View All Tryouts</div>
+        <div id="view-tryouts" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="view-tryouts">
+            <%= link_to club_season_tryouts_path(current_club, @season) do %>
+            <div class="card-body">
+              <i class="fa fa-database fa-4x"></i>
+              <div class="card-body-content">
+                <div class="sub-title">View All Tryouts</div>
+              </div>
+            </div>
           </div>
+          <%end%>
+        </div>
+        <div id="delete-club-account" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="delete-club-account">
+            <%= link_to root_path do %>
+            <div class="card-body">
+              <i class="fa fa-trash-o fa-4x"></i>
+              <div class="card-body-content">
+                <div class="sub-title">Delete Club</div>
+              </div>
+            </div>
+          </div>
+          <%end%>
         </div>
       </div>
-      <%end%>
-    </div>
-  <div id="delete-club-account" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-    <div class="delete-club-account">
-      <%= link_to root_path do %>
-      <div class="card-body">
-        <i class="fa fa-trash-o fa-4x"></i>
-        <div class="card-body-content">
-          <div class="sub-title">Delete Club</div>
-        </div>
-      </div>
-    </div>
-    <%end%>
-  </div>
-</div>
-<hr>
+
 
       <div class="row">
         <div class="col-md-12">
-          
+
           <h3>Welcome <%= current_club.director.capitalize %>! Start making new <%= current_club.sport.capitalize %> teams. </h3>
         </div>
       </div>
 
-<hr />
+      <hr />
       <div class="row">
         <% @season.teams.each do |team| %>
-          <div id="view-team" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-            <div class="view-team">
-              <%=link_to  club_season_team_path(current_club, @season, team), class: "main-text" do %>
-              <div class="card-body">
-                <div class="card-body-content">
-                  <%=team.name.upcase%>
-                </div>
+        <div id="view-team" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <div class="view-team">
+            <%=link_to  club_season_team_path(current_club, @season, team), class: "main-text" do %>
+            <div class="card-body">
+              <div class="card-body-content">
+                <%=team.name.upcase%>
               </div>
-              <%end%>
             </div>
+            <%end%>
           </div>
+        </div>
+
         <%end%>
+
+
       </div>
 
       <hr />
@@ -156,44 +159,36 @@
             </div>
           </div>
         </div>
-</div>
-        <!-- /. ROW  -->
-
-        <div class="col-md-9 col-sm-12 col-xs-12 col-md-offset-1">
-
       </div>
-        <div class="row">
+      <!-- /. ROW  -->
+
+      <div class="row">
         <div id="new-team-form "class="col-md-10 col-sm-12 col-xs-12 col-md-offset-1 text-center">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <i class="fa fa-plus-circle"></i>  All Teams
+              <i class="fa fa-plus-circle"></i>  Confirmed Athletes
             </div>
-            <div class="panel-body">
-<table class="table table-striped table-hover">
-      <tr>
-        <th>Team Name</th>
-        <th>Age Group</th>
-        <th>Roster Size</th>
-        <th>Confirmed Athletes</th>
-      </tr>
+            <div class="panel-body pre-scrollable">
               <% @teams.each do |team| %>
-              <tr>
-                <td><%=team.name.upcase%></td>
-                <td><%=team.age_group%></td>
-                <td><%=team.roster_size%></td>
-                <td><%=team.spots.accepted.count%></td>
-              </tr>
+              <div class="progress">
+                <%= team.name.upcase %>
+                <div class="progress-bar" style="width: <%=team.spots.accepted.count == 0 ? 5 : team.spots.accepted.count * 10%>%;">
+                  <%=team.spots.accepted.count%>
+                </div>
+              </div>
               <%end%>
-            </table>
             </div>
           </div>
         </div>
-</div>
-        <!-- /. ROW  -->
+
       </div>
+      <!-- /. ROW  -->
     </div>
+    <!-- /. ROW  -->
   </div>
-  <!-- /. ROW  -->
+</div>
+</div>
+<!-- /. ROW  -->
 </div>
 <!-- /. PAGE INNER  -->
 </div>

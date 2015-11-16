@@ -29,12 +29,14 @@
       <div class= "season-year">Season Year</div>
       <div class= "year"><%= "#{@season.year}" %></div>
       <div class= "team-list">Teams</div>
+
       <div class= "teams">
         <% @season.teams.each do |team| %>
         <%=team.name.upcase%>
       </div>
       <%end%>
     </div>
+
   </nav>
   <!-- /. NAV SIDE  -->
   <div id="page-wrapper" >
@@ -90,6 +92,7 @@
           </div>
           <%end%>
         </div>
+
 
         <div id="view-tryouts" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
           <div class="view-tryouts">

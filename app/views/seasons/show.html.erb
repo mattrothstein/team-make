@@ -22,19 +22,6 @@
           <%= image_tag current_club.logo(:medium), class:"img img-circle" %>
         </li>
       </ul>
-      <div class= "club-director">Club Director</div>
-      <div class= "director"><%= "#{@club.director}" %></div>
-      <div class= "club-sport">Sport</div>
-      <div class= "sport"><%= "#{@club.sport}" %></div>
-      <div class= "season-year">Season Year</div>
-      <div class= "year"><%= "#{@season.year}" %></div>
-      <div class= "team-list">Teams</div>
-
-      <div class= "teams">
-        <% @season.teams.each do |team| %>
-        <%=team.name.upcase%>
-      </div>
-      <%end%>
     </div>
 
   </nav>

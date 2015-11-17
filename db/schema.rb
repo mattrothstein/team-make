@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151112002020) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "athletes", force: :cascade do |t|
     t.string   "name"
     t.date     "dob"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20151112002020) do
     t.integer  "season_id"
   end
 
-  add_index "clubs", ["season_id"], name: "index_clubs_on_season_id"
+  add_index "clubs", ["season_id"], name: "index_clubs_on_season_id", using: :btree
 
   create_table "evaluated_athletes", force: :cascade do |t|
     t.integer  "athlete_id"
@@ -61,10 +64,11 @@ ActiveRecord::Schema.define(version: 20151112002020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "year"
+    t.integer  "tryout_id"
   end
 
-  add_index "seasons", ["club_id"], name: "index_seasons_on_club_id"
-  add_index "seasons", ["team_id"], name: "index_seasons_on_team_id"
+  add_index "seasons", ["club_id"], name: "index_seasons_on_club_id", using: :btree
+  add_index "seasons", ["team_id"], name: "index_seasons_on_team_id", using: :btree
 
   create_table "spots", force: :cascade do |t|
     t.integer  "team_id"
@@ -74,8 +78,8 @@ ActiveRecord::Schema.define(version: 20151112002020) do
     t.integer  "athlete_id"
   end
 
-  add_index "spots", ["athlete_id"], name: "index_spots_on_athlete_id"
-  add_index "spots", ["team_id"], name: "index_spots_on_team_id"
+  add_index "spots", ["athlete_id"], name: "index_spots_on_athlete_id", using: :btree
+  add_index "spots", ["team_id"], name: "index_spots_on_team_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
@@ -97,6 +101,12 @@ ActiveRecord::Schema.define(version: 20151112002020) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "tryouts", ["season_id"], name: "index_tryouts_on_season_id"
+  add_index "tryouts", ["season_id"], name: "index_tryouts_on_season_id", using: :btree
 
+  add_foreign_key "clubs", "seasons"
+  add_foreign_key "seasons", "clubs"
+  add_foreign_key "seasons", "teams"
+  add_foreign_key "spots", "athletes"
+  add_foreign_key "spots", "teams"
+  add_foreign_key "tryouts", "seasons"
 end

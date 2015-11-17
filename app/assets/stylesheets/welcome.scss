@@ -224,7 +224,7 @@ header .fa .fa-bars {
   width: 42em;
   height: 24em;
   text-align: center;
-  color: white;  
+  color: white;
   border-radius: 0.5em;
   margin-top: 20em;
 }
@@ -349,27 +349,14 @@ header .fa .fa-bars {
 
 
 #one {
-  background-image: url("jose_cartagena_BW.jpg");
+  background-image: url(asset_path("jose_cartagena_BW.jpg"));
 }
 
 #two {
 
-  background-image: url("daniel_munoz_BW.jpg");
+  background-image: url(asset_path("daniel_munoz_BW.jpg"));
 }
 
 #three {
-  background-image: url("matthew_rothstein.jpg");
+  background-image: url(asset_path("matthew_rothstein.jpg"));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

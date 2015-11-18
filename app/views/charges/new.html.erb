@@ -1,6 +1,6 @@
 <script type="text/javascript">
   // This identifies your website in the createToken call below
-  Stripe.setPublishableKey('PUBLISHABLE_KEY');
+  Stripe.setPublishableKey(<%=ENV['PUBLISHABLE_KEY']%>);
   // ...
 </script>
 

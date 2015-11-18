@@ -88,11 +88,11 @@ Rails.application.configure do
 }
 
   config.paperclip_defaults = {
-    :storage => :s3
+    :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      :bucket => 'teammake-images',
+      :access_key_id => "AKIAJRH5PUOABGU63AAQ",
+      :secret_access_key => "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"
     }
   }
 end

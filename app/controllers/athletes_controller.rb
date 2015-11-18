@@ -49,6 +49,7 @@ class AthletesController < ApplicationController
   def show
     @clubs = Club.all
     @athlete = Athlete.find(params[:id])
+    @spots = Spot.where({athlete_id: current_athlete.id})
   end
 
   def destroy
@@ -77,7 +78,7 @@ class AthletesController < ApplicationController
 
 
   def set_spot
-    @spot = current_athlete.spot
+    @spot = Spot.find(params[:spot_id])
   end
 
 

@@ -19,7 +19,7 @@
   <div class="sidebar-collapse">
     <ul class="nav" id="main-menu">
       <li class="text-center">
-        <%= image_tag current_athlete.avatar(:medium), class:"img img-circle" %>
+        <%= image_tag current_athlete.avatar.url(:medium), class:"img img-circle" %>
       </li>
       <li>
         <!-- #replace with Link_to -->
@@ -65,22 +65,25 @@
               </tr>
 
               <% if current_athlete.spot %>
+                    <% @spots.all.each do |spot|%>
                 <tr>
-                  <td><%= current_athlete.spot.team.season.club.club_name %></td>
-                  <td><%= current_athlete.spot.team.name %></td>
-                  <td><%= current_athlete.spot.invite_status %>
-                   <td><%= link_to accept_invite_path do %>
+                  <td><%= spot.team.season.club.club_name %></td>
+                  <td><%= spot.team.name %></td>
+                  <td><%= spot.invite_status %>
+                   <td><%= link_to accept_invite_path(spot) do %>
                       <span class="btn btn-success">Accept</span>
                     <% end %>
-                    <%= link_to decline_invite_path do %>
+                    <%= link_to decline_invite_path(spot) do %>
                       <span class="btn btn-danger">Decline</span>
                     <% end %>
                   </td>
+                  <%end%>
                 <% else %>
+                <tr>
                   <td> N/A </td>
                   <td> N/A </td>
                   <td> N/A <td>
-                  </td>
+                  <td> N/A <td>
                 </tr>
               <% end %>
             </table>

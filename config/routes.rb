@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get 'accept_invite' => 'athletes#accept_invite', as: 'accept_invite'
-  get 'decline_invite' => 'athletes#decline_invite', as: 'decline_invite'
+  get 'accept_invite/:spot_id' => 'athletes#accept_invite', as: 'accept_invite'
+  get 'decline_invite/:spot_id' => 'athletes#decline_invite', as: 'decline_invite'
 
   get 'sites/search'
   post 'sites/search'

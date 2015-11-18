@@ -24,8 +24,6 @@ class ChargesController < ApplicationController
 			:currency			=> 'usd'
 			)
 
-			p current_athlete
-			p athlete_path(current_athlete)
 			render json: { url: tryout_register_path(@tryout, current_athlete) }
 
 	rescue Stripe::CardError => e

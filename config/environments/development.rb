@@ -65,5 +65,14 @@ Rails.application.configure do
     :user_name => 'postmaster@sandboxf420c80bd3394b82b05fb77cf43ea1f4.mailgun.org',
     :password => '009e4b9f9caa7d823fa4156d92d27816'
   }
+
+    config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'teammake-images',
+      :access_key_id => "AKIAJRH5PUOABGU63AAQ",
+      :secret_access_key => "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"
+    }
+  }
 end
 #=ENV['keyhere']

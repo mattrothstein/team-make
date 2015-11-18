@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-
 # Twilio
 gem 'twilio-ruby', '~> 4.2.1'
 
@@ -34,7 +33,7 @@ gem 'mailgun_rails'
 gem "paperclip", "~> 4.3"
 
 # aws for web storage
-gem "aws-sdk"
+gem 'aws-sdk', '< 2.0'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

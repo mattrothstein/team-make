@@ -1,7 +1,7 @@
 class Athlete < ActiveRecord::Base
   before_save :get_age
   attr_accessor :remember_token
-  attr_accessor :avatar_file_name
+  attr_accessor :avatar
   has_many :evaluated_athletes
   has_many :tryouts, through: :evaluated_athletes
   has_one :spot, dependent: :destroy

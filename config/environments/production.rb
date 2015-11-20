@@ -83,16 +83,25 @@ Rails.application.configure do
   ## mailgun
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-        api_key: '71ad3cff3c52b6c10d2c7d8e17e4f7c6',
+        :api_key => Rails.application.secrets['mailgun_api_key'],
         domain: 'sandboxf420c80bd3394b82b05fb77cf43ea1f4.mailgun.org'
 }
 
-  config.paperclip_defaults = {
+config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandboxf420c80bd3394b82b05fb77cf43ea1f4.mailgun.org",
+    :user_name => 'postmaster@sandboxf420c80bd3394b82b05fb77cf43ea1f4.mailgun.org',
+    :password => Rails.application.secrets['mailgun_secret_password'],
+  }
+
+config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
       :bucket => 'teammake-images',
-      :access_key_id => "AKIAJRH5PUOABGU63AAQ",
-      :secret_access_key => "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"
+      :access_key_id => Rails.application.secrets['aws_access_key'],
+      :secret_access_key => Rails.application.secrets['aws_secret_key'],
     }
   }
 end

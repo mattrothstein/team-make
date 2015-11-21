@@ -3,7 +3,7 @@ var total;
 
 var payAction = function() {
 	var handler = StripeCheckout.configure({
-		key: "<%= Rails.configuration.stripe[:publishable_key] %>",
+		key: "<%= Rails.application.secrets[:stripe_publishable_key] %>",
 		token: function(token) {
 			var postData = {
 				amount: total,

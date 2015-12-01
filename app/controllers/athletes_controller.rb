@@ -12,10 +12,6 @@ class AthletesController < ApplicationController
     end
   end
 
-  def search
-
-  end
-
   def new
     @athlete = Athlete.new
   end

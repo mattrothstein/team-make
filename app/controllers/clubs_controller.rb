@@ -1,8 +1,5 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show]
-
-
-
   def new
     @club = Club.new
     @team = Team.new

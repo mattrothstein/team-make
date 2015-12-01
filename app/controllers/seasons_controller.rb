@@ -1,5 +1,6 @@
 class SeasonsController < ApplicationController
   before_action :set_club
+  before_action :set_season, only: [:destroy, :show]
 
   def index
     @season = Season.new
@@ -21,6 +22,9 @@ class SeasonsController < ApplicationController
   end
 
   def destroy
+    @season.destroy
+    flash[:success] = "Delete successful."
+    redirect_to @seasons
   end
 
   # def active
@@ -29,7 +33,6 @@ class SeasonsController < ApplicationController
   # end
 
   def show
-    @season = Season.find(params[:id])
     @team = Team.new
     @teams = @season.teams.all
   end
@@ -44,4 +47,8 @@ class SeasonsController < ApplicationController
     params.require(:season).permit(:year, :club_id)
   end
 
+  def set_season
+    @season = Season.find(params[:id])
+  end
+  
 end

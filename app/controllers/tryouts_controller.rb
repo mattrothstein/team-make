@@ -1,6 +1,6 @@
 class TryoutsController < ApplicationController
   before_action :set_season, except: [:register]
-  before_action :set_tryout, only: [:edit, :show, :destroy]
+  before_action :set_tryout, only: [:edit, :show, :destroy, :update]
   before_action :set_tryout_register, only: [:register]
   def index
     @tryouts = Tryout.all
@@ -24,12 +24,21 @@ class TryoutsController < ApplicationController
   end
 
   def update
+    if @tryout.update_attributes(tryout_params)
+      flash[:notice] = "Tryout successfully updated"
+      redirect_to @tryout
+    else
+      render 'edit'
+    end
   end
 
   def show
   end
 
   def destroy
+    @tryout.destroy
+    flash[:success] = "Tryout successfully deleted."
+    redirect_to @season
   end
 
   def register

@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_season
   before_action :set_club
-  before_action :set_team, only: [:show, :edit, :destroy]
+  before_action :set_team, only: [:show, :edit, :destroy, :update]
   def index
   end
 
@@ -29,9 +29,18 @@ class TeamsController < ApplicationController
   end
 
   def update
+    if @team.update_attributes(team_params)
+      flash[:notice] = "Team successfully updated"
+      redirect_to @team
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @team.destroy
+    flash[:success] = "Team successfully deleted."
+    redirect_to @season
   end
 
   private

@@ -28,7 +28,7 @@ class AthleteTest < ActiveSupport::TestCase
   end
 
   test "email shouldn't be too long" do
-    @athlete.email = "a" * 244 + "@example.com"
+    @athlete.email = "a" * 144 + "@example.com"
     assert_not @athlete.valid?
   end
 

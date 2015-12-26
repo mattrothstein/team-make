@@ -8,7 +8,7 @@ class AthleteTest < ActiveSupport::TestCase
                            telephone: "7868765432", dob: "2000-06-30")
   end
 
-  test "should be valid" do
+  test "athlete should be valid" do
     assert @athlete.valid?
   end
 

@@ -15,6 +15,11 @@ class ClubTest < ActiveSupport::TestCase
     assert_not @club.valid?
   end
 
+  test "club should have a director" do
+  	@club.director = "      "
+  	assert_not @club.valid?
+  end
+
   test "club name should be unique" do
     duplicate_club = @club.dup
     @club.save
@@ -32,7 +37,7 @@ class ClubTest < ActiveSupport::TestCase
   end
 
   test "email should have valid format" do
-    valid_emails = %w[club@example.com CLUB@club.com A_CLUB@club.team.org first.last@club.io alice+sally@foobaz.cn]
+    valid_emails = %w[club@example.com CLUB@club.com A_CLUB@club.team.org 										first.last@club.io alice+sally@foobaz.cn]
 
     valid_emails.each do |valid_email|
       @club.email = valid_email

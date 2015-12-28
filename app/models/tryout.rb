@@ -4,8 +4,11 @@ class Tryout < ActiveRecord::Base
   has_many :athletes, through: :evaluated_athletes
 
   validates :location, presence: true
+
   validates :date, presence: true
+
   validates :time, presence: true
+
   validates :price, presence: true, numericality: {only_integer: true}
 
 end

@@ -1,15 +1,2 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  club_name: MyString
-  sport: MyString
-  email: MyString
-  director: MyString
-  password_digest: MyString
-
-two:
-  club_name: MyString
-  sport: MyString
-  email: MyString
-  director: MyString
-  password_digest: MyString

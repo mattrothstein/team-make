@@ -4,5 +4,6 @@ class WelcomeController < ApplicationController
 
   def new
     @club = Club.new
+    @athlete = Athlete.new
   end
 end
